@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerInput input;
     [SerializeField] Camera playerCamera;
+    [SerializeField] Animator weaponAnimator;
 
     // Internal
     bool sprinting;
@@ -25,12 +26,9 @@ public class PlayerController : MonoBehaviour
     Vector2 look;
     float yaw;
     float pitch;
+    bool attacking;
     #endregion
 
-    /// <summary>
-    /// Methods are called from PlayerInput component attached to player
-    /// </summary>
-    /// <param name="input"></param>
     #region Input
     public void OnMove(InputValue input)
     {
@@ -53,6 +51,14 @@ public class PlayerController : MonoBehaviour
     {
         sprinting = !sprinting;
     }
+    public void OnAttack(InputValue input)
+    {
+        if (!attacking)
+        {
+            attacking = true;
+            weaponAnimator.Play("MeleeWeaponAttack");
+        }
+    }
     #endregion
 
     #region Methods
@@ -71,10 +77,17 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         DoCamera();
+
+        FixAnimator();
     }
     private void FixedUpdate()
     {
         DoMovement();
+    }
+    void FixAnimator()
+    {
+        AnimatorStateInfo info = weaponAnimator.GetCurrentAnimatorStateInfo(0);
+        if (attacking && !info.IsName("MeleeWeaponAttack")) attacking = false;
     }
     /// <summary>
     /// Move the player around
