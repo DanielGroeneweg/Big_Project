@@ -17,7 +17,10 @@ public class IdleState : State
     {
         // Set idle animation to false
     }
-
+    /// <summary>
+    /// Checks if the target is within the enemy's detection range.
+    /// </summary>
+    /// <returns>True if the target is in range, false otherwise.</returns>
     public bool IsTargetInRange()
     {
         if (data.target == null)

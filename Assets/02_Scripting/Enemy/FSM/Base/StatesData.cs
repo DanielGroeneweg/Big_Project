@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// This class serves as a data container for the enemy's states in the finite state machine (FSM).
+/// </summary>
 public class StatesData : MonoBehaviour
 {
     [Header("References")]
@@ -19,6 +21,7 @@ public class StatesData : MonoBehaviour
         //animator = GetComponent<Animator>();
         enemyController = GetComponent<EnemyController>();
         enemyAgent.stoppingDistance = enemyController.EnemyData.attackRange-(enemyController.EnemyData.attackRange*30/100);
+        enemyAgent.speed = enemyController.EnemyData.moveSpeed;
     }
 
 }
