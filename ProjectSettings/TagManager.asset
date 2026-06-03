@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - ground
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -51,4 +50,11 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  m_MigratedRenderPipelines: []
+  - Decal Layer default
+  - Decal Layer 1
+  - Decal Layer 2
+  - Decal Layer 3
+  - Decal Layer 4
+  - Decal Layer 5
+  - Decal Layer 6
+  - Decal Layer 7

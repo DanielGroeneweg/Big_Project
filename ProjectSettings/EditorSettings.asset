@@ -49,4 +49,4 @@ EditorSettings:
   m_EnableEnlightenBakedGI: 0
   m_ReferencedClipsExactNaming: 1
   m_ForceAssetUnloadAndGCOnSceneLoad: 1
-  m_HideBuildProfileClassicPlatforms: 0
+  m_HideBuildProfileClassicPlatforms: 1
