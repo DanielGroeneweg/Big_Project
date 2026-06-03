@@ -9,7 +9,7 @@ public class WorldSpaceHealthBar : Presenter
     public override void Present(float min, float max, float current)
     {
         float percentageHealth = current / max;
-        image.fillAmount = fillAmountMax * percentageHealth;
+        image.rectTransform.sizeDelta = new Vector2(fillAmountMax * percentageHealth, 0.25f);
     }
     private void Update()
     {
