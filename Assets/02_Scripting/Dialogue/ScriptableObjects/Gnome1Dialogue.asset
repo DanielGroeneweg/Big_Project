@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6c0f531d3c7f34b842e24427b2e5d9, type: 3}
   m_Name: Gnome1Dialogue
   m_EditorClassIdentifier: Assembly-CSharp::BetterDialogue
+  npcName: Gnome
   voiceLines:
   - {fileID: 8300000, guid: e35f027a4b4599b4ba0fba924faed6b0, type: 3}
   - {fileID: 8300000, guid: d2a6b31853e91f040afdb60bd24e852e, type: 3}

@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] UnityEvent onCloseDialogue;
     [SerializeField] Button nextButton;
     [SerializeField] AudioSource audioPlayer;
+    [SerializeField] TMP_Text nameText;
     string[] dialogueLines;
     int lineIndex = -1;
     private void Start()
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     }
     void DisplayLine(int index)
     {
+        nameText.text = dialogue.NPCName;
         textBox.text = dialogueLines[index];
     }
     void PlayVoiceLine(int index)
