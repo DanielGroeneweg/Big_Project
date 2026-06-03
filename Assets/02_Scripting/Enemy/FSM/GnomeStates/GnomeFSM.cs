@@ -19,7 +19,7 @@ public class GnomeFSM : FSM
         idle.transitions.Add(new Transition(idle.IsTargetInRange, move));
         move.transitions.Add(new Transition(move.TargetReached, align));
         align.transitions.Add(new Transition(align.AlignedWithTarget, attack));
-       
+
         attack.transitions.Add(new Transition(attack.AttackOver, idle));
         align.transitions.Add(new Transition(align.TargetOutOfRange, move));
         move.transitions.Add(new Transition(move.TargetOutOfRange, idle));
@@ -29,4 +29,6 @@ public class GnomeFSM : FSM
         attack.transitions.Add(new Transition(() => data.enemyController.IsDead, death));  
         align.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
     }
+
+    
 }

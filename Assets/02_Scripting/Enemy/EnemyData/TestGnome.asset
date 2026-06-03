@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TestGnome
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   maxHP: 100
-  moveSpeed: 1
+  moveSpeed: 3.5
   attackDamage: 3
-  attackRange: 2
+  attackRange: 3
   attackCountdown: 0.5
-  detectionRange: 4.7
+  detectionRange: 6.7
   rotateSpeed: 100

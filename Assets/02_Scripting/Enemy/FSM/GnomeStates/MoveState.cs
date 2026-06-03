@@ -17,16 +17,6 @@ public class MoveState : State
             data.enemyAgent.SetDestination(data.target.position);
     }
 
-    public override void Step()
-    {
-        base.Step();
-        Vector3 dir = (data.target.position - data.enemyTransform.position).normalized;
-        dir.y = 0;
-        Quaternion lookRot = Quaternion.LookRotation(dir);
-        data.enemyTransform.rotation = Quaternion.Slerp(data.enemyTransform.rotation, lookRot, Time.deltaTime * 5f);
-        if (data.target != null)
-            data.enemyAgent.SetDestination(data.target.position);
-    }
     public override void Exit()
     {
         // Set move animation to false
