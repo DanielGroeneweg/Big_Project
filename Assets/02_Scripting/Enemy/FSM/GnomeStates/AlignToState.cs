@@ -26,11 +26,6 @@ public class AlignToState : State
     {
         base.Step();
 
-        if (data.target != null)
-        {
-            UpdateDirection(data.target.position);
-        }
-
         enemyTransform.Rotate(
             enemyTransform.up,
             rotationSign * data.enemyController.EnemyData.rotateSpeed * Time.deltaTime
@@ -41,11 +36,13 @@ public class AlignToState : State
     private void UpdateDirection(Vector3 targetPos)
     {
         direction = (targetPos - enemyTransform.position).normalized;
-        rotationSign = Mathf.Sign(Vector3.Dot(enemyTransform.position, direction));
+        rotationSign = Mathf.Sign(Vector3.Dot(enemyTransform.right, direction));
     }
 
     public bool AlignedWithTarget()
     {
+        if (data.target != null)
+            UpdateDirection(data.target.position);
         return Vector3.Dot(enemyTransform.forward, direction) >= 0.95f;
     }
 
