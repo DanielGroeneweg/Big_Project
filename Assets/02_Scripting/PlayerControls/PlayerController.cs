@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float cameraSensitivity;
     [SerializeField] float maxCameraAngle;
+    [SerializeField] float weaponCooldown;
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerInput input;
     [SerializeField] Camera playerCamera;
     [SerializeField] Animator weaponAnimator;
+    [SerializeField] Weapon weapon;
 
     // Internal
     bool sprinting;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
+            weapon.Attack(weaponCooldown);
         }
     }
     #endregion
