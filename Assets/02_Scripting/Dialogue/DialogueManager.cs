@@ -29,6 +29,10 @@ public class DialogueManager : MonoBehaviour
             PlayVoiceLine(lineIndex);
         }
     }
+    public void OnNextLine()
+    {
+        NextLine();
+    }
     void DisplayLine(int index)
     {
         nameText.text = dialogue.NPCName;

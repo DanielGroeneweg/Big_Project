@@ -197,6 +197,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "3b5e32dd-780c-4f89-8844-e92d330a4b11",
+            "actions": [
+                {
+                    "name": "NextLine",
+                    "type": "Button",
+                    "id": "c02dfba4-f0a6-4db9-9868-98d7fa5c1c78",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fb78f01f-a463-4b41-bf5a-dff05d8d1f59",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
