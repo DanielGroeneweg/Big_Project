@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
+            weaponAnimator.speed = 1f / weaponCooldown;
             weapon.Attack(weaponCooldown, weaponDamage);
         }
     }
