@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     public Enemy Enemy => enemy;
     public EnemyData EnemyData => enemyData;
-    public int CurrentHP => enemy.currentHP;
+    public float CurrentHP => enemy.currentHP;
     public int MaxHP => enemyData.maxHP;
     public bool IsDead => CurrentHP <= 0;
 
@@ -32,5 +32,6 @@ public class EnemyController : MonoBehaviour
     void ChangeHealth(HealthChangeData data)
     {
         presenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+        enemy.currentHP = data.currentHealth;
     }
 }
