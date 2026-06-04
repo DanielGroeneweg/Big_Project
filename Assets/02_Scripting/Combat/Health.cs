@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Health : MonoBehaviour
 {
+    [Tooltip("Will be overwritten for enemies")]
     [SerializeField] float maxHealth;
     
     float health;
@@ -36,6 +37,12 @@ public class Health : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
+
+        if (TryGetComponent(out EnemyController enemy))
+        {
+            if (enemy != null) maxHealth = enemy.EnemyData.maxHP;
+        }
+
         health = maxHealth;
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth });
     }

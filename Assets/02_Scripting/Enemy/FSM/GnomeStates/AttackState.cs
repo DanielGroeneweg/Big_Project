@@ -13,7 +13,8 @@ public class AttackState : State
         Debug.Log("Entered attack state");
 
         data.weaponAnimator.Play("MeleeWeaponAttack");
-        data.weapon.Attack(data.enemyController.EnemyData.attackCountdown);
+        data.weaponAnimator.speed = 1f / data.enemyController.EnemyData.attackCountdown;
+        data.weapon.Attack(data.enemyController.EnemyData.attackCountdown, data.enemyController.EnemyData.attackDamage);
     }
     public override void Exit()
     { 
