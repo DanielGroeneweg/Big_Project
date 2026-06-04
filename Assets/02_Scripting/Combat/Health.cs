@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 /// <summary>
 /// A class that keeps track of an object's health
@@ -19,7 +20,12 @@ public class Health : MonoBehaviour
         health = Mathf.Max(0, health - Mathf.Abs(hp));
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth});
 
-        if (health <= 0) deathEvent?.Invoke();
+        if (health <= 0)
+        {
+            deathEvent?.Invoke();
+            /// TEMPORARY FIX
+            Destroy(gameObject, 0.1f);
+        }
         Debug.Log("Took damage!");
     }
     public void Heal(float hp)
