@@ -1,10 +1,12 @@
 using UnityEngine;
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] float damage;
     [SerializeField] Collider[] colliders;
-    public void Attack(float attackDuration)
+    float damage;
+    public void Attack(float attackDuration, float damage)
     {
+        this.damage = damage;
+
         foreach (Collider collider in colliders)
             collider.enabled = true;
 

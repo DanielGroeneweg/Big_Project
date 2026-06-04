@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float cameraSensitivity;
     [SerializeField] float maxCameraAngle;
     [SerializeField] float weaponCooldown;
+    [SerializeField] float weaponDamage;
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
-            weapon.Attack(weaponCooldown);
+            weapon.Attack(weaponCooldown, weaponDamage);
         }
     }
     #endregion

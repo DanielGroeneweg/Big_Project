@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d793319122a3c6a41929a84b1cbe576a, type: 3}
   m_Name: TestGnome
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHP: 100
+  maxHP: 10
   moveSpeed: 3.5
   attackDamage: 3
   attackRange: 3
