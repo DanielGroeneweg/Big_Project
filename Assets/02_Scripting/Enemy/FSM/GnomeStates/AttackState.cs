@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class AttackState : State
 {
     private float attackStartTime;
@@ -7,19 +6,19 @@ public class AttackState : State
     {
         data = statesData;
     }
-
     public override void Enter()
     {
         base.Enter();
         attackStartTime = Time.time;
         Debug.Log("Entered attack state");
-        // Set the attack animation
-        // Enable attack collider
-    }
 
+        data.weaponAnimator.Play("MeleeWeaponAttack");
+        data.weapon.Attack(data.enemyController.EnemyData.attackCountdown);
+    }
     public override void Exit()
     { 
         // Set attack animation to false
+        // Already happens
     }
     public bool AttackOver()
     {

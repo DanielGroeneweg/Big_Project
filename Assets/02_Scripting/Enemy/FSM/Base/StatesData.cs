@@ -12,6 +12,8 @@ public class StatesData : MonoBehaviour
     public Animator animator;
     public Collider attackCollider;
     public EnemyController enemyController;
+    public Animator weaponAnimator;
+    public Weapon weapon;
 
     private void Start()
     {

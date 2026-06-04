@@ -1968,6 +1968,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   attackCollider: {fileID: 0}
   enemyController: {fileID: 0}
+  weaponAnimator: {fileID: 2128681076}
+  weapon: {fileID: 1911532025}
 --- !u!114 &1922423296
 MonoBehaviour:
   m_ObjectHideFlags: 0
