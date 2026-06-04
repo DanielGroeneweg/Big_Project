@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
-  - 
-  - 
+  - EnemyWeapon
+  - Player
+  - PlayerWeapon
   - 
   - 
   - 
@@ -58,3 +59,4 @@ TagManager:
   - Decal Layer 5
   - Decal Layer 6
   - Decal Layer 7
+  m_MigratedRenderPipelines: []

@@ -23,9 +23,9 @@ public class EnemyData : ScriptableObject
 [Serializable]
 public class Enemy
 {
-    public int MaxHP => maxHP;
-    private int maxHP;
-    public int currentHP;
+    public float MaxHP => maxHP;
+    private float maxHP;
+    public float currentHP;
     public float MoveSpeed => moveSpeed;
     private float moveSpeed;
 
