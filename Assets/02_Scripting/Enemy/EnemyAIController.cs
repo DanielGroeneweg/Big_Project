@@ -18,6 +18,8 @@ public class EnemyAIController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        target = PlayerController.instance.transform;
+
         FSMSetUp();
         fsm.Enter();
     }

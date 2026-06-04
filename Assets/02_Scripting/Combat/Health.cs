@@ -33,8 +33,9 @@ public class Health : MonoBehaviour
         health = Mathf.Min(maxHealth, health + Mathf.Abs(hp));
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth });
     }
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
         health = maxHealth;
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth });
     }

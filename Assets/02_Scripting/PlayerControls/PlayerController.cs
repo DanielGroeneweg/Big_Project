@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     float yaw;
     float pitch;
     bool attacking;
+
+    public static PlayerController instance;
     #endregion
 
     #region Input
@@ -65,6 +67,10 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Methods
+    private void Start()
+    {
+        if (instance == null) instance = this;
+    }
     /// <summary>
     /// Returns whether the player is close to the ground or not
     /// </summary>
