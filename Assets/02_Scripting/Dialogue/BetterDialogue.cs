@@ -4,9 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Dialogue/BetterDialogueData")]
 public class BetterDialogue : ScriptableObject
 {
+    [SerializeField] string npcName;
     [SerializeField] List<AudioClip> voiceLines = new();
     [SerializeField] TextAsset text;
     public List<AudioClip> VoiceLines => voiceLines;
+    public string NPCName => npcName;
     public string[] ReadLines()
     {
         string path = Application.dataPath + "/06_DialogueText/" + text.name + ".txt";
