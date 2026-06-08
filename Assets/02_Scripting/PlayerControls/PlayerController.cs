@@ -178,7 +178,12 @@ public class PlayerController : MonoBehaviour
     }
     void ChangeWeapon(EquipWeaponEventData data)
     {
-        Destroy(weapon.gameObject);
+        if (weapon != null)
+        {
+            Destroy(weapon.gameObject);
+            weapon = null;
+        }
+
         if (data.weapon != null)
         {
             weapon = Instantiate(data.weapon.WeaponPrefab, weaponParent);
