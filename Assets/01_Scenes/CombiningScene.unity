@@ -1076,8 +1076,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+      propertyPath: throwForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+      propertyPath: grabDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: weaponDamage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+      propertyPath: grabMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: healthPresenter

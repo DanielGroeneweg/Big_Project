@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxCameraAngle;
     [SerializeField] float weaponCooldown;
     [SerializeField] float weaponDamage;
+    [SerializeField] float grabDistance;
+    [SerializeField] bool isGnomeGrabbed;
+    [SerializeField] float throwForce;
+    
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
@@ -22,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera playerCamera;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Weapon weapon;
+    [SerializeField] private LayerMask grabMask;
+
+    [SerializeField]private GrabGnome currentGnome;
 
     // Internal
     bool sprinting;
@@ -65,6 +72,40 @@ public class PlayerController : MonoBehaviour
             weaponAnimator.speed = 1f / weaponCooldown;
             weapon.Attack(weaponCooldown, weaponDamage);
         }
+    }
+    public void OnGrab(InputValue input)
+    {
+        Debug.Log("Grab/Throw");
+        Debug.Log("Gnome grabbed: " + isGnomeGrabbed);
+        if (isGnomeGrabbed)
+        {
+            Throw();
+            return;
+        }
+
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Debug.DrawRay(ray.origin, ray.direction * grabDistance, Color.red, 2f);
+        if (Physics.Raycast(ray, out RaycastHit hit, grabDistance, grabMask))
+        {
+            Debug.Log("Hit: " + hit.collider.name);
+            if (hit.collider.CompareTag("Gnome"))
+            {
+                Debug.Log("Gnome hit!");
+                GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
+                if (grab == null) return;
+
+                isGnomeGrabbed = true;
+                grab.Grab(playerCamera.transform);
+                currentGnome = grab;
+            }
+        }
+    }
+
+    private void Throw()
+    {
+        isGnomeGrabbed = false;
+        currentGnome.Throw(playerCamera.transform.forward, throwForce);
+        currentGnome = null;
     }
     #endregion
 
