@@ -414,7 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b76ccd1af59f34ba2575e4ac26da74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  damage: 10
   colliders:
   - {fileID: 4218597459354730650}
 --- !u!1 &4983622091453851239
@@ -614,9 +613,10 @@ GameObject:
   - component: {fileID: 387159186138960457}
   - component: {fileID: 5874523463760685728}
   - component: {fileID: 4917768589249309549}
+  - component: {fileID: 5854050392269701281}
   m_Layer: 3
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Gnome
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,3 +826,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
+--- !u!114 &5854050392269701281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864076842404261106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99450793d19da554caf0dce819b1e5e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
+  holdOffset: {x: 0, y: 0, z: 2}
