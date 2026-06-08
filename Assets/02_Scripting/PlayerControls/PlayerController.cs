@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack(InputValue input)
     {
-        if (!attacking)
+        if (!attacking && weapon != null)
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
@@ -103,7 +103,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     private void Throw()
     {
         isGnomeGrabbed = false;
