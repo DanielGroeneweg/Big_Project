@@ -1782,7 +1782,7 @@ MonoBehaviour:
   jumpForce: 7.5
   cameraSensitivity: 0.5
   maxCameraAngle: 45
-  attackSpeed: 0
+  attackSpeed: 1
   weaponDamage: 10
   grabDistance: 10
   isGnomeGrabbed: 0

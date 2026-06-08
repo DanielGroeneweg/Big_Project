@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
-            weaponAnimator.speed = 1f / attackSpeed;
-            weapon.Attack(attackSpeed, weaponDamage);
+            weaponAnimator.speed = attackSpeed;
+            weapon.Attack(1f / attackSpeed, weaponDamage);
         }
     }
     public void OnGrab(InputValue input)
