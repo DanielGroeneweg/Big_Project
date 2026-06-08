@@ -16,7 +16,9 @@ public class AlignToState : State
     {
         base.Enter();
         Debug.Log("Entered align to state");
-        if(data.target != null)
+        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+            data.enemyAgent.ResetPath();
+        if (data.target != null)
         {
             UpdateDirection(data.target.position);
         }
@@ -43,7 +45,10 @@ public class AlignToState : State
     {
         if (data.target != null)
             UpdateDirection(data.target.position);
-        return Vector3.Dot(enemyTransform.forward, direction) >= 0.95f;
+        bool inRange = Vector3.Distance(enemyTransform.position, data.target.position)
+                   <= data.enemyController.EnemyData.attackRange;
+        bool facingTarget = Vector3.Dot(enemyTransform.forward, direction) > 0.95f;
+        return inRange && facingTarget;
     }
 
     public bool TargetOutOfRange()

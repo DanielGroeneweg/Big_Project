@@ -25,4 +25,21 @@ public class AttackState : State
     {
         return Time.time > attackStartTime + data.enemyController.EnemyData.attackCountdown;
     }
+    public bool TargetStillInRange()
+    {
+        if (data.target == null)
+            return false;
+
+        return Vector3.Distance(data.enemyTransform.position, data.target.position)
+               <= data.enemyController.EnemyData.attackRange;
+    }
+    public bool AttackOverAndTargetInRange()
+    {
+        return AttackOver() && TargetStillInRange();
+    }
+
+    public bool AttackOverAndTargetOutOfRange()
+    {
+        return AttackOver() && !TargetStillInRange();
+    }
 }

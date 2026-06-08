@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour
         {
             Debug.Log("found health component!");
             health.Damage(damage);
+            colliders[0].enabled = false;
         }
     }
     private void Start()

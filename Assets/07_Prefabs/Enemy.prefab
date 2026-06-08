@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSpaceHealthBar
   canvas: {fileID: 1976494454279204975}
-  target: {fileID: 0}
   image: {fileID: 5746197471284433798}
   fillAmountMax: 1
 --- !u!1 &3974303609389607388
@@ -786,6 +785,10 @@ MonoBehaviour:
   enemyController: {fileID: 0}
   weaponAnimator: {fileID: 1757108637000991559}
   weapon: {fileID: 8904096336228653833}
+  rb: {fileID: 0}
+  grabGnome: {fileID: 0}
+  isPickedUp: 0
+  isLanded: 0
 --- !u!54 &5874523463760685728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -839,3 +842,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
   holdOffset: {x: 0, y: 0, z: 2}
+  groundedRange: 0.2

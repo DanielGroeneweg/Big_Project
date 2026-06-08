@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
                 currentGnome = grab;
             }
         }
+        
     }
 
     private void Throw()
