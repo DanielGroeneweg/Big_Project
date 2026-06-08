@@ -19,3 +19,4 @@ MonoBehaviour:
   attackCountdown: 1.7
   detectionRange: 6.9
   rotateSpeed: 100
+  weapon: {fileID: 11400000, guid: 1432a5d2ce763e54c9be0367e2a68b1b, type: 2}
