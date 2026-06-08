@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float cameraSensitivity;
     [SerializeField] float maxCameraAngle;
-    [SerializeField] float weaponCooldown;
+    [Tooltip("The amount of attacks per second the player is able to do")]
+    [SerializeField] float attackSpeed;
     [SerializeField] float weaponDamage;
     [SerializeField] float grabDistance;
     [SerializeField] bool isGnomeGrabbed;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Weapon weapon;
     [SerializeField] private LayerMask grabMask;
+    [SerializeField] Transform weaponParent;
 
     [SerializeField]private GrabGnome currentGnome;
 
@@ -69,8 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
-            weaponAnimator.speed = 1f / weaponCooldown;
-            weapon.Attack(weaponCooldown, weaponDamage);
+            weaponAnimator.speed = 1f / attackSpeed;
+            weapon.Attack(attackSpeed, weaponDamage);
         }
     }
     public void OnGrab(InputValue input)
@@ -110,9 +113,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Methods
-    private void Start()
+    private void OnDestroy()
+    {
+        EventBusManager.instance.EquipWeaponEvent.Unregister(ChangeWeapon);
+    }
+    private IEnumerator Start()
     {
         if (instance == null) instance = this;
+        yield return new WaitForEndOfFrame();
+        EventBusManager.instance.EquipWeaponEvent.Register(ChangeWeapon);
     }
     /// <summary>
     /// Returns whether the player is close to the ground or not
@@ -166,6 +175,21 @@ public class PlayerController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(0f, yaw, 0f);
         playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+    }
+    void ChangeWeapon(EquipWeaponEventData data)
+    {
+        Destroy(weapon.gameObject);
+        if (data.weapon != null)
+        {
+            weapon = Instantiate(data.weapon.WeaponPrefab, weaponParent);
+            weapon.transform.localPosition = new Vector3(0, 0.5f, 0);
+            attackSpeed = data.weapon.AttackSpeed;
+            weaponDamage = data.weapon.Damage;
+        }
+        else
+        {
+            Debug.LogWarning("FISTS NOT IMPLEMENTED YET");
+        }
     }
     #endregion
 }
