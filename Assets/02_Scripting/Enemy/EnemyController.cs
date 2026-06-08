@@ -22,7 +22,10 @@ public class EnemyController : MonoBehaviour
 
         health = GetComponent<Health>();
         if (health != null)
+        {
             health.healthChangeEvent += ChangeHealth;
+            health.deathEvent += EnemyDeath;
+        }
     }
     private void OnDestroy()
     {
@@ -33,5 +36,11 @@ public class EnemyController : MonoBehaviour
     {
         presenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
         enemy.currentHP = data.currentHealth;
+    }
+    void EnemyDeath()
+    {
+        if (enemyData.weapon == null) return;
+        DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position };
+        EventBusManager.instance.DropWeaponEvent.Raise(data);
     }
 }
