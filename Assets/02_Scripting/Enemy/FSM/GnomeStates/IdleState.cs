@@ -9,8 +9,17 @@ public class IdleState : State
     }
     public override void Enter()
     {
+        base.Enter();
         Debug.Log("Entered idle state");
+        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+            data.enemyAgent.ResetPath();
         // Set the idle animation
+    }
+    public override void Step()
+    {
+        base.Step();
+        data.rb.linearVelocity = Vector3.zero;
+        data.rb.angularVelocity = Vector3.zero;
     }
 
     public override void Exit()

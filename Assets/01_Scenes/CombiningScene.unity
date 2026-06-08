@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBusManager
   hitPlayerEvent: {fileID: 11400000, guid: 0cde44c07284e6141bfaaa5ed97c3324, type: 2}
+  equipWeaponEvent: {fileID: 0}
 --- !u!4 &73522260
 Transform:
   m_ObjectHideFlags: 0
@@ -1037,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1045,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: m_LocalRotation.w
