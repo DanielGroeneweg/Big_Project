@@ -11,6 +11,7 @@ public class EnemyData : ScriptableObject
     public float attackCountdown;
     public float detectionRange;
     public float rotateSpeed;
+    public WeaponItem weapon;
    
 
     public Enemy CreateEnemy()
