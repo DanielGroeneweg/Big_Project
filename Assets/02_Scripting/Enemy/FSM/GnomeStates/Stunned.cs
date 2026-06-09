@@ -11,8 +11,13 @@ public class Stunned : State
     }
     public override void Enter()
     {
-        statesData.enemyAgent.isStopped = true;
-        statesData.enemyAgent.ResetPath();
+        if (statesData.enemyAgent.enabled && statesData.enemyAgent.isOnNavMesh)
+        {
+            statesData.enemyAgent.isStopped = true;
+            statesData.enemyAgent.ResetPath();
+        }
+        statesData.rb.linearVelocity = Vector3.zero;
+        statesData.rb.angularVelocity = Vector3.zero;
         Debug.Log("Stunned");
         //statesData.animator.SetBool("isStunned", true);
     }
@@ -35,8 +40,8 @@ public class Stunned : State
         stunTimer = 0f;
     }
 
-    public bool IsStunned()
+    public bool StunOver()
     {
-        return statesData.isStunned;
+        return !statesData.isStunned;
     }
 }

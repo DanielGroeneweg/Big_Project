@@ -26,6 +26,7 @@ public class StatesData : MonoBehaviour
     public bool isLanded = false;
     public bool isStunned = false;
     public float stunDuration = 2f;
+    public bool wasThrown;
 
 
     private void Start()
