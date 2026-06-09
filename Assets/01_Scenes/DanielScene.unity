@@ -610,6 +610,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2340209998594021570, guid: c4c9eb2cc0525664b95ae49baa6ad9c1, type: 3}
+      propertyPath: m_Size.z
+      value: 7.0572815
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340209998594021570, guid: c4c9eb2cc0525664b95ae49baa6ad9c1, type: 3}
+      propertyPath: m_Center.z
+      value: 3.216598
+      objectReference: {fileID: 0}
     - target: {fileID: 5314119299359694682, guid: c4c9eb2cc0525664b95ae49baa6ad9c1, type: 3}
       propertyPath: m_Name
       value: SpearHitBox
