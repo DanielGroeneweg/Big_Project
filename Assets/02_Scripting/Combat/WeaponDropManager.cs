@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 public class WeaponDropManager : MonoBehaviour
 {
@@ -17,8 +18,11 @@ public class WeaponDropManager : MonoBehaviour
     void WeaponDrop(DropWeaponEventData data)
     {
         enemiesKilledSinceDrop++;
-
-        if (enemiesKilledSinceDrop >= guarenteedDropAttempt || Random.Range(0f, 1f) <= dropChance)
+        float rng = Random.Range(0f, 1f);
+        Debug.Log($"{enemiesKilledSinceDrop} enemies killed since last drop {enemiesKilledSinceDrop} >= {guarenteedDropAttempt} = {enemiesKilledSinceDrop >= guarenteedDropAttempt}" +
+            $"\n{rng} <= {dropChance} = {rng <= dropChance}" +
+            "\n Dropping a weapon if one or both is true!");
+        if (enemiesKilledSinceDrop >= guarenteedDropAttempt || rng <= dropChance)
         {
             WeaponDrop drop = Instantiate(weaponDropPrefab, data.position, Quaternion.identity);
             drop.SpawnWeapon(data.weapon);
