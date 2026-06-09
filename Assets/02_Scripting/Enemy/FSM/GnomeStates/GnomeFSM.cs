@@ -14,7 +14,11 @@ public class GnomeFSM : FSM
         var align = new AlignToState(statesData);
         var attack = new AttackState(statesData);
         var pickedUp = new PickedUp(statesData);
+        var stunned = new Stunned(statesData);
         var death = new DieState(statesData);
+
+        Func<bool> isPickedUp = () => data.isPickedUp;
+        Func<bool> isStunned = () => data.isStunned;
 
         currentState = idle;
 
@@ -29,8 +33,6 @@ public class GnomeFSM : FSM
         attack.transitions.Add(new Transition(attack.AttackOverAndTargetInRange, align));
         attack.transitions.Add(new Transition(attack.AttackOverAndTargetOutOfRange, idle));
 
-        Func<bool> isPickedUp = () => data.isPickedUp;
-
         idle.transitions.Add(new Transition(isPickedUp, pickedUp));
         move.transitions.Add(new Transition(isPickedUp, pickedUp));
         align.transitions.Add(new Transition(isPickedUp, pickedUp));
@@ -38,12 +40,19 @@ public class GnomeFSM : FSM
 
         pickedUp.transitions.Add(new Transition(pickedUp.WasThrown, idle));
 
+        //idle.transitions.Add(new Transition(isStunned, stunned));
+        //move.transitions.Add(new Transition(isStunned, stunned));
+        //align.transitions.Add(new Transition(isStunned, stunned));
+        //attack.transitions.Add(new Transition(isStunned, stunned));
+
+        //stunned.transitions.Add(new Transition(stunned.IsStunned, idle));
+
         idle.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         move.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        attack.transitions.Add(new Transition(() => data.enemyController.IsDead, death));  
+        attack.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         align.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         pickedUp.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
     }
 
-    
+
 }
