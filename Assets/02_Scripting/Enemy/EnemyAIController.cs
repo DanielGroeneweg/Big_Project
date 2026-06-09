@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 /// <summary>
 /// This class is responsible for controlling the enemy's AI behavior using a finite state machine (FSM). 
 /// It requires the NavMeshAgent, EnemyController, and StatesData components to function properly. 

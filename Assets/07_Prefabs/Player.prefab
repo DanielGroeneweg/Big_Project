@@ -166,12 +166,21 @@ MonoBehaviour:
   jumpForce: 7.5
   cameraSensitivity: 0.5
   maxCameraAngle: 45
-  weaponCooldown: 0.5
+  attackSpeed: 0
+  weaponDamage: 0
+  grabDistance: 0
+  isGnomeGrabbed: 0
+  throwForce: 0
   rb: {fileID: 7032902994871863239}
   input: {fileID: 4995124720170788965}
   playerCamera: {fileID: 8470781823008018478}
   weaponAnimator: {fileID: 7076299245061607395}
   weapon: {fileID: 5122467739713964010}
+  grabMask:
+    serializedVersion: 2
+    m_Bits: 8
+  weaponParent: {fileID: 1430972711828630252}
+  currentGnome: {fileID: 0}
 --- !u!114 &4995124720170788965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +678,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b76ccd1af59f34ba2575e4ac26da74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  damage: 10
   colliders:
   - {fileID: 8234232056302814280}

@@ -16,3 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d560a5eb2fe5f7d4bb9ad4f7d722ffb9, type: 3}
   damage: 10
   attackSpeed: 1
+  weaponPrefab: {fileID: 2150801777451382385, guid: f393508e13c66574f8bb784d19a3b5ce, type: 3}
