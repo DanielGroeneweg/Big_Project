@@ -16,6 +16,12 @@ public class MoveState : State
         if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.SetDestination(data.target.position);
     }
+    public override void Step()
+    {
+        base.Step();
+        if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+            data.enemyAgent.SetDestination(data.target.position);
+    }
 
     public override void Exit()
     {

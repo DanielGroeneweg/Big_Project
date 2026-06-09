@@ -18,9 +18,8 @@ public class EnemyAIController : MonoBehaviour
 
     [SerializeField] private Transform target;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    IEnumerator Start()
+    void Start()
     {
-        yield return new WaitForEndOfFrame();
         target = PlayerController.instance.transform;
 
         FSMSetUp();

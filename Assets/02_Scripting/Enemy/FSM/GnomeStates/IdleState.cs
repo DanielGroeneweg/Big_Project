@@ -25,6 +25,7 @@ public class IdleState : State
     public override void Exit()
     {
         // Set idle animation to false
+        
     }
     /// <summary>
     /// Checks if the target is within the enemy's detection range.
