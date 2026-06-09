@@ -7,10 +7,12 @@ public class WeaponItem : ScriptableObject
     [SerializeField] Sprite icon;
     [SerializeField] float damage;
     [SerializeField] float attackSpeed;
-    [SerializeField] Weapon weaponPrefab;
+    [SerializeField] GameObject weaponPrefab;
+    [SerializeField] Weapon weaponColliderPrefab;
     public string ItemName => itemName;
     public Sprite Icon => icon;
     public float Damage => damage;
     public float AttackSpeed => attackSpeed;
-    public Weapon WeaponPrefab => weaponPrefab;
+    public GameObject WeaponPrefab => weaponPrefab;
+    public Weapon WeaponColliderPrefab => weaponColliderPrefab;
 }

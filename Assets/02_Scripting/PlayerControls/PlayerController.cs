@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Unity.VisualScripting;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -27,9 +28,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerInput input;
     [SerializeField] Camera playerCamera;
     [SerializeField] Animator weaponAnimator;
-    [SerializeField] Weapon weapon;
+    [SerializeField] Weapon weaponCollider;
+    [SerializeField] GameObject weaponModel;
     [SerializeField] private LayerMask grabMask;
     [SerializeField] Transform weaponParent;
+    [SerializeField] Transform weaponColliderParent;
 
     [SerializeField]private GrabGnome currentGnome;
 
@@ -68,12 +71,12 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack(InputValue input)
     {
-        if (!attacking && weapon != null)
+        if (!attacking && weaponCollider != null)
         {
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
             weaponAnimator.speed = attackSpeed;
-            weapon.Attack(1f / attackSpeed, weaponDamage);
+            weaponCollider.Attack(1f / attackSpeed, weaponDamage);
         }
     }
     public void OnGrab(InputValue input)
@@ -178,22 +181,26 @@ public class PlayerController : MonoBehaviour
     }
     void ChangeWeapon(EquipWeaponEventData data)
     {
-        if (weapon != null)
+        if (weaponModel != null)
         {
-            Destroy(weapon.gameObject);
-            weapon = null;
+            Destroy(weaponModel.gameObject);
+            weaponModel = null;
+        }
+
+        if (weaponCollider != null)
+        {
+            Destroy(weaponCollider.gameObject);
+            weaponCollider = null;
         }
 
         if (data.weapon != null)
         {
-            weapon = Instantiate(data.weapon.WeaponPrefab, weaponParent);
-            weapon.transform.localPosition = new Vector3(0, 0.5f, 0);
+            weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
+            weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
             attackSpeed = data.weapon.AttackSpeed;
             weaponDamage = data.weapon.Damage;
-        }
-        else
-        {
-            Debug.LogWarning("FISTS NOT IMPLEMENTED YET");
+
+            weaponCollider = Instantiate(data.weapon.WeaponColliderPrefab, weaponColliderParent);
         }
     }
     #endregion
