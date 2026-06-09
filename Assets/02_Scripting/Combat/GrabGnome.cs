@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class GrabGnome : MonoBehaviour
 {

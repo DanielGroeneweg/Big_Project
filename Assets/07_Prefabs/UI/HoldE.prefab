@@ -161,6 +161,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2817234167405529911}
   - component: {fileID: 7112467778496745358}
+  - component: {fileID: 8237195283518003925}
+  - component: {fileID: 3631684151550221328}
   m_Layer: 5
   m_Name: HoldE
   m_TagString: Untagged
@@ -238,6 +240,37 @@ MonoBehaviour:
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8237195283518003925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379334680396823264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab30b2784f03ea4b94f6020e52f8e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FaceCamera
+--- !u!114 &3631684151550221328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379334680396823264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e420c8fc74c99de439d4b355a0041503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  slider: {fileID: 7112467778496745358}
+  proximityRange: 2
+  holdingTime: 1
+  repeatable: 0
+  onInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &6669874584850081156

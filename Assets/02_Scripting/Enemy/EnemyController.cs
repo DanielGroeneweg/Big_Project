@@ -1,7 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] Presenter presenter;
