@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent (typeof(Stamina))]
 public class PlayerController : MonoBehaviour
 {
     #region Variables
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private GrabGnome currentGnome;
 
+    Stamina stamina;
     // Internal
     bool sprinting;
     Vector2 move;
@@ -60,9 +62,25 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJump(InputValue input)
     {
+        StaminaUsage stam = null;
+        foreach(StaminaUsage usage in stamina.ActionStaminaRequirements)
+        {
+            if (usage.playerAction == playerActions.Jump)
+            {
+                stam = usage;
+
+                if (usage.staminaAmount < stamina._Stamina)
+                {
+                    return;
+                }
+                break;
+            }
+        }
+
         if (Grounded())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            stamina.UseStamina(stam.staminaAmount);
         }
     }
     public void OnSprint(InputValue input)
@@ -73,10 +91,26 @@ public class PlayerController : MonoBehaviour
     {
         if (!attacking && weaponCollider != null)
         {
+            StaminaUsage stam = null;
+            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+            {
+                if (usage.playerAction == playerActions.Attack)
+                {
+                    stam = usage;
+
+                    if (usage.staminaAmount < stamina._Stamina)
+                    {
+                        return;
+                    }
+                    break;
+                }
+            }
+
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
             weaponAnimator.speed = attackSpeed;
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
+            stamina.UseStamina(stam.staminaAmount);
         }
     }
     public void OnGrab(InputValue input)
@@ -85,27 +119,60 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Gnome grabbed: " + isGnomeGrabbed);
         if (isGnomeGrabbed)
         {
+            StaminaUsage stam = null;
+            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+            {
+                if (usage.playerAction == playerActions.Throw)
+                {
+                    stam = usage;
+
+                    if (usage.staminaAmount < stamina._Stamina)
+                    {
+                        return;
+                    }
+                    break;
+                }
+            }
+
             Throw();
             return;
         }
 
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        Debug.DrawRay(ray.origin, ray.direction * grabDistance, Color.red, 2f);
-        if (Physics.Raycast(ray, out RaycastHit hit, grabDistance, grabMask))
-        {
-            Debug.Log("Hit: " + hit.collider.name);
-            if (hit.collider.CompareTag("Gnome"))
-            {
-                Debug.Log("Gnome hit!");
-                GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
-                if (grab == null) return;
 
-                isGnomeGrabbed = true;
-                grab.Grab(playerCamera.transform);
-                currentGnome = grab;
+        else
+        {
+            Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Debug.DrawRay(ray.origin, ray.direction * grabDistance, Color.red, 2f);
+            if (Physics.Raycast(ray, out RaycastHit hit, grabDistance, grabMask))
+            {
+                Debug.Log("Hit: " + hit.collider.name);
+                if (hit.collider.CompareTag("Gnome"))
+                {
+                    Debug.Log("Gnome hit!");
+                    GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
+                    if (grab == null) return;
+
+                    StaminaUsage stam = null;
+                    foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+                    {
+                        if (usage.playerAction == playerActions.Grab)
+                        {
+                            stam = usage;
+
+                            if (usage.staminaAmount < stamina._Stamina)
+                            {
+                                return;
+                            }
+                            break;
+                        }
+                    }
+
+                    isGnomeGrabbed = true;
+                    grab.Grab(playerCamera.transform);
+                    currentGnome = grab;
+                }
             }
         }
-        
     }
     private void Throw()
     {
@@ -125,6 +192,7 @@ public class PlayerController : MonoBehaviour
         if (instance == null) instance = this;
         yield return new WaitForEndOfFrame();
         EventBusManager.instance.EquipWeaponEvent.Register(ChangeWeapon);
+        stamina = GetComponent<Stamina>();
     }
     /// <summary>
     /// Returns whether the player is close to the ground or not
@@ -158,7 +226,28 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void DoMovement()
     {
-        float moveSpeed = sprinting ? movementSpeed * sprintSpeedMultiplier : movementSpeed;
+        float multiplier = 1;
+
+        if (sprinting)
+        {
+            StaminaUsage stam = null;
+            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+            {
+                if (usage.playerAction == playerActions.Sprint)
+                {
+                    stam = usage;
+
+                    if (usage.staminaAmount >= stamina._Stamina)
+                    {
+                        multiplier = sprintSpeedMultiplier;
+                        stamina.UseStamina(stam.staminaAmount);
+                    }
+                    break;
+                }
+            }
+        }
+
+        float moveSpeed = movementSpeed * multiplier;
 
         if (rb.linearVelocity.magnitude < maxSpeed)
         {

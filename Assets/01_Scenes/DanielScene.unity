@@ -434,7 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f343539f1a7aba459f1ba7279c14b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBusManager
-  hitPlayerEvent: {fileID: 11400000, guid: 0cde44c07284e6141bfaaa5ed97c3324, type: 2}
   equipWeaponEvent: {fileID: 11400000, guid: 30c4c4bcffb85744fb82ee3d9a040457, type: 2}
   dropWeaponEvent: {fileID: 11400000, guid: 516a0e2a9c3834747bd17ea1ff140792, type: 2}
 --- !u!4 &279405672
@@ -1677,6 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648042852bfd5de4ba9d84c2eb7921d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  simulateEnemyDeath: 0
   weapon: {fileID: 11400000, guid: 416049ecbf7f26443b560bf09244e055, type: 2}
 --- !u!114 &135033861877924618
 MonoBehaviour:
@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 4995124719402716174}
   - component: {fileID: 7520074192737165125}
   - component: {fileID: 8978911855419122975}
+  - component: {fileID: 8978911855419122976}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -1940,7 +1941,6 @@ MonoBehaviour:
     m_Bits: 8
   weaponParent: {fileID: 1430972712663797383}
   weaponColliderParent: {fileID: 111620262}
-  currentGnome: {fileID: 0}
 --- !u!4 &2132248671656185298
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,6 +2548,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   healthPresenter: {fileID: 1681374995}
+  staminaPresenter: {fileID: 0}
+--- !u!114 &8978911855419122976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511001962823338694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb186f39890bd249b926307ab1fde71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stamina
+  maxStamina: 0
+  staminaRecoverAmount: 0
+  staminaRecoverSpeed: 0
+  recoverStaminaWhileUsing: 0
+  actionStaminaRequirements:
+  - playerAction: 0
+    staminaAmount: 0
+  - playerAction: 1
+    staminaAmount: 0
+  - playerAction: 2
+    staminaAmount: 0
+  - playerAction: 3
+    staminaAmount: 0
+  - playerAction: 4
+    staminaAmount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
