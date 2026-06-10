@@ -30,7 +30,7 @@ public class Stamina : MonoBehaviour
     public void UseStamina(float stamina)
     {
         _Stamina = Mathf.Clamp(_Stamina - stamina, 0, maxStamina);
-        staminaChangeEvent?.Invoke(new StaminaChangeData() { currentStamina = stamina, maxStamina = maxStamina });
+        staminaChangeEvent?.Invoke(new StaminaChangeData() { currentStamina = _Stamina, maxStamina = maxStamina });
         if (!recoverStaminaWhileUsing)
         {
             StopAllCoroutines();

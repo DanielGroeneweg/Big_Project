@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             {
                 stam = usage;
 
-                if (usage.staminaAmount < stamina._Stamina)
+                if (usage.staminaAmount > stamina._Stamina)
                 {
                     return;
                 }
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
                 {
                     stam = usage;
 
-                    if (usage.staminaAmount < stamina._Stamina)
+                    if (usage.staminaAmount > stamina._Stamina)
                     {
                         return;
                     }
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 {
                     stam = usage;
 
-                    if (usage.staminaAmount < stamina._Stamina)
+                    if (usage.staminaAmount > stamina._Stamina)
                     {
                         return;
                     }
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
                         {
                             stam = usage;
 
-                            if (usage.staminaAmount < stamina._Stamina)
+                            if (usage.staminaAmount > stamina._Stamina)
                             {
                                 return;
                             }
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
                 {
                     stam = usage;
 
-                    if (usage.staminaAmount >= stamina._Stamina)
+                    if (usage.staminaAmount <= stamina._Stamina)
                     {
                         multiplier = sprintSpeedMultiplier;
                         stamina.UseStamina(stam.staminaAmount);
