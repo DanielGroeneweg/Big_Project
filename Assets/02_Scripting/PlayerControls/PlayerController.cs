@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using Unity.VisualScripting;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -45,6 +44,7 @@ public class PlayerController : MonoBehaviour
     bool attacking;
 
     public static PlayerController instance;
+    WeaponItem currentWeapon;
     #endregion
 
     #region Input
@@ -181,6 +181,12 @@ public class PlayerController : MonoBehaviour
     }
     void ChangeWeapon(EquipWeaponEventData data)
     {
+        if (currentWeapon != null)
+        {
+            DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false };
+            EventBusManager.instance.DropWeaponEvent.Raise(dropData);
+        }
+
         if (weaponModel != null)
         {
             Destroy(weaponModel.gameObject);
@@ -199,6 +205,7 @@ public class PlayerController : MonoBehaviour
             weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
             attackSpeed = data.weapon.AttackSpeed;
             weaponDamage = data.weapon.Damage;
+            currentWeapon = data.weapon;
 
             weaponCollider = Instantiate(data.weapon.WeaponColliderPrefab, weaponColliderParent);
         }
