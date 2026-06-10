@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform weaponParent;
     [SerializeField] Transform weaponColliderParent;
 
-    [SerializeField]private GrabGnome currentGnome;
+    private GrabGnome currentGnome;
 
     // Internal
     bool sprinting;
