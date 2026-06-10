@@ -20,9 +20,11 @@ public class GrabGnome : MonoBehaviour
 
     public void Grab(Transform cameraTransform)
     {
-        rb.isKinematic = true;
+        data.enemyAgent.enabled = false;
+        rb.isKinematic = false;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
         col.enabled = false;
 
         data.isPickedUp = true;

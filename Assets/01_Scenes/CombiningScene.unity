@@ -1083,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: grabDistance
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: weaponDamage

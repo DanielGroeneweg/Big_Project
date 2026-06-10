@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, grabDistance, grabMask))
         {
             Debug.Log("Hit: " + hit.collider.name);
-            if (hit.collider.CompareTag("Gnome"))
+            if (hit.collider.CompareTag("Gnome")&&Grounded())
             {
                 Debug.Log("Gnome hit!");
                 GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
