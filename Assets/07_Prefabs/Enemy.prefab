@@ -67,7 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b76ccd1af59f34ba2575e4ac26da74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  colliderEnableDelay: 0.4
   weaponCollider: {fileID: 7054077112292311616}
+  isAOE: 0
 --- !u!54 &2131026539272863125
 Rigidbody:
   m_ObjectHideFlags: 0

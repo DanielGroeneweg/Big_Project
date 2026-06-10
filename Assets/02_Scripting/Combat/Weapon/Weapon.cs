@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections;
 public class Weapon : MonoBehaviour
 {
+    [Tooltip("The percentage of the attack duration at which the collider becomes enabled to prevent the feeling of being hit by something too early")]
+    [SerializeField][Range(0f, 1f)] float colliderEnableDelay = 0.4f;
     [SerializeField] protected Collider weaponCollider;
     [SerializeField] bool isAOE;
     protected float damage;
@@ -11,9 +13,12 @@ public class Weapon : MonoBehaviour
     {
         this.damage = damage;
 
-        weaponCollider.enabled = true;
-
+        Invoke(nameof(EnableAttack), attackDuration * colliderEnableDelay);
         Invoke(nameof(DisableAttack), attackDuration);
+    }
+    void EnableAttack()
+    {
+        weaponCollider.enabled = true;
     }
     void DisableAttack()
     {
@@ -46,6 +51,7 @@ public class Weapon : MonoBehaviour
 
             DisableAttack();
         }
+
         else
         {
             Health closest = null;
@@ -66,7 +72,6 @@ public class Weapon : MonoBehaviour
                 DisableAttack();
             }
         }
-            
 
         hitObjects.Clear();
 

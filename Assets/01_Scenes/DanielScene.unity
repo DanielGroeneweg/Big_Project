@@ -2347,6 +2347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b76ccd1af59f34ba2575e4ac26da74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  colliderEnableDelay: 0.3
   weaponCollider: {fileID: 2340209998898231757}
   isAOE: 0
 --- !u!54 &7032902995647308716
