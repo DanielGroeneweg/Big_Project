@@ -40,6 +40,7 @@ public class GrabGnome : MonoBehaviour
         rb.AddForce(direction * force, ForceMode.Impulse);
         data.isLanded = false;
         data.isPickedUp = false;
+        data.wasThrown = true;
     }
     public bool IsGrounded()
     {
@@ -55,6 +56,7 @@ public class GrabGnome : MonoBehaviour
         {
             data.isLanded = true;
             data.enemyAgent.enabled = true;
+            data.wasThrown = false; 
         }
     }
 }

@@ -11,9 +11,13 @@ public class Stunnable : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Gnome"))
+        if (collision.gameObject.CompareTag("Gnome"))
         {
-            data.isStunned = true;
+            StatesData otherData = collision.gameObject.GetComponent<StatesData>();
+            if (otherData != null && otherData.wasThrown)
+            {
+                data.isStunned = true;
+            }
         }
     }
 }

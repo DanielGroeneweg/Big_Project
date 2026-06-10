@@ -40,18 +40,19 @@ public class GnomeFSM : FSM
 
         pickedUp.transitions.Add(new Transition(pickedUp.WasThrown, idle));
 
-        //idle.transitions.Add(new Transition(isStunned, stunned));
-        //move.transitions.Add(new Transition(isStunned, stunned));
-        //align.transitions.Add(new Transition(isStunned, stunned));
-        //attack.transitions.Add(new Transition(isStunned, stunned));
+        idle.transitions.Add(new Transition(isStunned, stunned));
+        move.transitions.Add(new Transition(isStunned, stunned));
+        align.transitions.Add(new Transition(isStunned, stunned));
+        attack.transitions.Add(new Transition(isStunned, stunned));
 
-        //stunned.transitions.Add(new Transition(stunned.IsStunned, idle));
+        stunned.transitions.Add(new Transition(stunned.StunOver, idle));
 
         idle.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         move.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         attack.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         align.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         pickedUp.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
+        stunned.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
     }
 
 

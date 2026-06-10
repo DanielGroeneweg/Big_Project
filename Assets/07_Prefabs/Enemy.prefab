@@ -707,7 +707,8 @@ MonoBehaviour:
   isPickedUp: 0
   isLanded: 0
   isStunned: 0
-  stunDuration: 2
+  stunDuration: 5
+  wasThrown: 0
 --- !u!54 &5874523463760685728
 Rigidbody:
   m_ObjectHideFlags: 0
