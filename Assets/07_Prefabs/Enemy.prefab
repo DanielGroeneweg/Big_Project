@@ -685,7 +685,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8864076842404261106}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c08aa57b858b8ee4695c34b93019f441, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -801,7 +801,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &4917768589249309549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99450793d19da554caf0dce819b1e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
-  holdOffset: {x: 0, y: 0, z: 2}
+  holdOffset: {x: -0.02, y: 0.5, z: 2}
   groundedRange: 0.2
 --- !u!114 &-8053129170940189915
 MonoBehaviour:

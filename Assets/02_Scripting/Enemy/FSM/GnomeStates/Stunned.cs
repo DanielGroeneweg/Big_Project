@@ -2,46 +2,49 @@ using UnityEngine;
 
 public class Stunned : State
 {
-    private StatesData statesData;
-    private float stunTimer;
 
+    private float stunTimer;
+    private float originalDrag;
     public Stunned(StatesData statesData)
     {
-        this.statesData = statesData;
+       data = statesData;
     }
     public override void Enter()
     {
-        if (statesData.enemyAgent.enabled && statesData.enemyAgent.isOnNavMesh)
+        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
         {
-            statesData.enemyAgent.isStopped = true;
-            statesData.enemyAgent.ResetPath();
+            base.data.SetAgentStopped(true);
+            data.enemyAgent.ResetPath();
         }
-        statesData.rb.linearVelocity = Vector3.zero;
-        statesData.rb.angularVelocity = Vector3.zero;
+        data.rb.linearVelocity = Vector3.zero;
+        data.rb.angularVelocity = Vector3.zero;
+        originalDrag = data.rb.linearDamping;
+        data.rb.linearDamping = 10f;
         Debug.Log("Stunned");
         //statesData.animator.SetBool("isStunned", true);
     }
     public override void Step()
     {
         base.Step();
-        if(stunTimer < statesData.stunDuration)
+        if(stunTimer < data.stunDuration)
         {
             stunTimer += Time.deltaTime;
         }
         else
         {
-            statesData.isStunned = false;
+            data.isStunned = false;
             stunTimer = 0f;
         }
     }
     public override void Exit()
     {
-        statesData.enemyAgent.isStopped = false;
+        base.data.SetAgentStopped(false);
         stunTimer = 0f;
+        data.rb.linearDamping = originalDrag;
     }
 
     public bool StunOver()
     {
-        return !statesData.isStunned;
+        return !data.isStunned;
     }
 }
