@@ -24,6 +24,8 @@ public class StatesData : MonoBehaviour
     [Header("Variables")]
     public bool isPickedUp = false;
     public bool isLanded = false;
+    public bool isStunned = false;
+    public float stunDuration = 2f;
 
 
     private void Start()
