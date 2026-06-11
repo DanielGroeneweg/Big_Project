@@ -39,5 +39,7 @@ public class EnemyController : MonoBehaviour
         if (enemyData.weapon == null) return;
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
+
+        Destroy(gameObject);    
     }
 }

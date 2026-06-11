@@ -24,8 +24,8 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             deathEvent?.Invoke();
-            /// TEMPORARY FIX
-            Destroy(gameObject, 0.1f);
+
+            //Destroy(gameObject, 0.1f);
         }
         Debug.Log("Took damage!");
     }
