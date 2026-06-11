@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask grabMask;
     [SerializeField] Transform weaponParent;
     [SerializeField] Transform weaponColliderParent;
-
-    private GrabGnome currentGnome;
+    [SerializeField] WeaponItem currentWeapon;
+    [SerializeField]private GrabGnome currentGnome;
 
     Stamina stamina;
     // Internal
@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     bool attacking;
 
     public static PlayerController instance;
-    WeaponItem currentWeapon;
     #endregion
 
     #region Input
