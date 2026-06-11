@@ -12,15 +12,20 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] AudioSource audioPlayer;
     [SerializeField] TMP_Text nameText;
     string[] dialogueLines;
-    int lineIndex = -1;
+    int lineIndex = 0;
     private void Start()
     {
         dialogueLines = dialogue.ReadLines();
     }
+    public void SetDialogue(BetterDialogue dialogue)
+    {
+        this.dialogue = dialogue;
+        dialogueLines = dialogue.ReadLines();
+        lineIndex = 0;
+        NextLine();
+    }
     public void NextLine()
     {
-        lineIndex++;
-
         if (lineIndex >= dialogueLines.Length) onCloseDialogue?.Invoke();
 
         else
@@ -28,6 +33,8 @@ public class DialogueManager : MonoBehaviour
             DisplayLine(lineIndex);
             PlayVoiceLine(lineIndex);
         }
+
+        lineIndex++;
     }
     public void OnNextLine()
     {

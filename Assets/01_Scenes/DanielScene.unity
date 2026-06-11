@@ -2116,6 +2116,7 @@ GameObject:
   - component: {fileID: 2020303468}
   - component: {fileID: 2020303467}
   - component: {fileID: 2020303466}
+  - component: {fileID: 2020303470}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2138,7 +2139,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2216,6 +2217,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020303470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020303465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036586d7cf59ae2419f701706931fa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerEventInvoker
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4335489307258920021}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4335489307258920020}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 2a326ba1759b17a4aa7ea495f3ad050f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2020303465}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &135033861877924618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,7 +2448,7 @@ GameObject:
   - component: {fileID: 8978911855419122976}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2479,6 +2537,8 @@ MonoBehaviour:
     m_Bits: 8
   weaponParent: {fileID: 1430972712663797383}
   weaponColliderParent: {fileID: 111620262}
+  currentWeapon: {fileID: 0}
+  currentGnome: {fileID: 0}
 --- !u!4 &2132248671656185298
 Transform:
   m_ObjectHideFlags: 0
@@ -2818,6 +2878,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e254ca7f2bd10df458ff737f8faa6bf2, type: 3}
+--- !u!114 &4335489307258920020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5981524922674421641, guid: e254ca7f2bd10df458ff737f8faa6bf2, type: 3}
+  m_PrefabInstance: {fileID: 4335489307258920019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335489307258920021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c56f2d447f03394ab7b44c46f2acdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+--- !u!1 &4335489307258920021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5146899676542848178, guid: e254ca7f2bd10df458ff737f8faa6bf2, type: 3}
+  m_PrefabInstance: {fileID: 4335489307258920019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!81 &4408063077879586005
 AudioListener:
   m_ObjectHideFlags: 0
