@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponItem
   itemName: Spear
   icon: {fileID: 21300000, guid: 206266626a0b85b48aa933fc5537ef71, type: 3}
-  damage: 10
-  attackSpeed: 0.5
-  weaponPrefab: {fileID: 7794565592891918545, guid: bb3fc349a3788fc41969a058c7379aed, type: 3}
+  damage: 7
+  attackSpeed: 1.4
+  weaponPrefab: {fileID: 4092034522799193031, guid: 287cc40ced6bb3749809c085c46487fb, type: 3}
   weaponColliderPrefab: {fileID: 3435858187858176397, guid: c4c9eb2cc0525664b95ae49baa6ad9c1, type: 3}
