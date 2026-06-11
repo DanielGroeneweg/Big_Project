@@ -1,27 +1,23 @@
+using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[Serializable]
-public class StaminaUsage
-{
-    public playerActions playerAction;
-    public float staminaAmount;
-}
 [DefaultExecutionOrder(100)]
 public class Stamina : MonoBehaviour
 {
     [SerializeField] float maxStamina;
     [Tooltip("The amount of stamina recovered each instance of stamina recovery")]
-    [SerializeField] float staminaRecoverAmount;
+    [SerializeField] [Min(0)] float staminaRecoverAmount;
     [Tooltip("The amount of seconds between each instance of stamina recovery")]
-    [SerializeField] float staminaRecoverSpeed;
+    [SerializeField] [Min(0)] float staminaRecoverSpeed;
     [Tooltip("Whether or not stamina can be recovered while using stamina")]
     [SerializeField] bool recoverStaminaWhileUsing;
-    [SerializeField] StaminaUsage[] actionStaminaRequirements;
+    [SerializedDictionary("Player Action", "Stamina Usage")]
+    [SerializeField] SerializedDictionary<playerActions, float> actionStaminaDictionary;
     public float _Stamina { get; private set; }
     public Action<StaminaChangeData> staminaChangeEvent;
-    public StaminaUsage[] ActionStaminaRequirements { get { return actionStaminaRequirements; } }
+    public Dictionary<playerActions, float> ActionStaminaDictionary => actionStaminaDictionary;
     private void Start()
     {
         _Stamina = maxStamina;
@@ -29,7 +25,7 @@ public class Stamina : MonoBehaviour
     }
     public void UseStamina(float stamina)
     {
-        _Stamina = Mathf.Clamp(_Stamina - stamina, 0, maxStamina);
+        _Stamina = Mathf.Clamp(_Stamina - Mathf.Abs(stamina), 0, maxStamina);
         staminaChangeEvent?.Invoke(new StaminaChangeData() { currentStamina = _Stamina, maxStamina = maxStamina });
         if (!recoverStaminaWhileUsing)
         {
@@ -52,39 +48,30 @@ public class Stamina : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
-        if (actionStaminaRequirements == null) actionStaminaRequirements = new StaminaUsage[0];
+        if (actionStaminaDictionary == null) actionStaminaDictionary = new SerializedDictionary<playerActions, float>();
 
-        HashSet<playerActions> actions = new();
-        List<StaminaUsage> allActions = new();
+        Dictionary<playerActions, float> actions = new();
 
         // Loop through everything in the list, removing duplicates
-        for (int i = 0; i < actionStaminaRequirements.Length; i++)
+        foreach (playerActions playerAction in ActionStaminaDictionary.Keys)
         {
-            if (!actions.Contains(actionStaminaRequirements[i].playerAction))
+            if (!actions.ContainsKey(playerAction))
             {
-                allActions.Add(actionStaminaRequirements[i]);
-                actions.Add(actionStaminaRequirements[i].playerAction);
+                actions.Add(playerAction, actionStaminaDictionary[playerAction]);
+                if (actions[playerAction] < 0) actions[playerAction] = 0;
             }
         }
-        actionStaminaRequirements = allActions.ToArray();
 
         // Loop through all playerActions, checking if they are present
         foreach (playerActions playerAction in Enum.GetValues(typeof(playerActions)))
         {
-            if (!actions.Contains(playerAction))
+            if (!actions.ContainsKey(playerAction))
             {
-                actionStaminaRequirements = new StaminaUsage[allActions.Count + 1];
-
-                // Duplicate the list into the array
-                for (int i = 0; i < allActions.Count; i++)
-                    actionStaminaRequirements[i] = allActions[i];
-
-                // Add the missing actions
-                actionStaminaRequirements[allActions.Count] = new StaminaUsage() { playerAction = playerAction };
-                allActions.Add(actionStaminaRequirements[allActions.Count]);
-                actions.Add(playerAction);
+                actions.Add(playerAction, 0);
             }
         }
+
+        actionStaminaDictionary = new SerializedDictionary<playerActions, float>(actions);
     }
 #endif
 }

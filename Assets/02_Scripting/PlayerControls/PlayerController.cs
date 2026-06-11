@@ -61,25 +61,15 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJump(InputValue input)
     {
-        StaminaUsage stam = null;
-        foreach(StaminaUsage usage in stamina.ActionStaminaRequirements)
+        if (stamina.ActionStaminaDictionary[playerActions.Jump] > stamina._Stamina)
         {
-            if (usage.playerAction == playerActions.Jump)
-            {
-                stam = usage;
-
-                if (usage.staminaAmount > stamina._Stamina)
-                {
-                    return;
-                }
-                break;
-            }
+            return;
         }
 
         if (Grounded())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            stamina.UseStamina(stam.staminaAmount);
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Jump]);
         }
     }
     public void OnSprint(InputValue input)
@@ -90,26 +80,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!attacking && weaponCollider != null)
         {
-            StaminaUsage stam = null;
-            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
-            {
-                if (usage.playerAction == playerActions.Attack)
-                {
-                    stam = usage;
-
-                    if (usage.staminaAmount > stamina._Stamina)
+                    if (stamina.ActionStaminaDictionary[playerActions.Attack] > stamina._Stamina)
                     {
                         return;
                     }
-                    break;
-                }
-            }
 
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
             weaponAnimator.speed = attackSpeed;
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
-            stamina.UseStamina(stam.staminaAmount);
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
         }
     }
     public void OnGrab(InputValue input)
@@ -118,25 +98,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Gnome grabbed: " + isGnomeGrabbed);
         if (isGnomeGrabbed)
         {
-            StaminaUsage stam = null;
-            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+            if (stamina.ActionStaminaDictionary[playerActions.Throw] > stamina._Stamina)
             {
-                if (usage.playerAction == playerActions.Throw)
-                {
-                    stam = usage;
-
-                    if (usage.staminaAmount > stamina._Stamina)
-                    {
-                        return;
-                    }
-                    break;
-                }
+                return;
             }
 
             Throw();
             return;
         }
-
 
         else
         {
@@ -151,19 +120,9 @@ public class PlayerController : MonoBehaviour
                     GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
                     if (grab == null) return;
 
-                    StaminaUsage stam = null;
-                    foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+                    if (stamina.ActionStaminaDictionary[playerActions.Grab] > stamina._Stamina)
                     {
-                        if (usage.playerAction == playerActions.Grab)
-                        {
-                            stam = usage;
-
-                            if (usage.staminaAmount > stamina._Stamina)
-                            {
-                                return;
-                            }
-                            break;
-                        }
+                        return;
                     }
 
                     isGnomeGrabbed = true;
@@ -229,20 +188,10 @@ public class PlayerController : MonoBehaviour
 
         if (sprinting)
         {
-            StaminaUsage stam = null;
-            foreach (StaminaUsage usage in stamina.ActionStaminaRequirements)
+            if (stamina.ActionStaminaDictionary[playerActions.Sprint] <= stamina._Stamina)
             {
-                if (usage.playerAction == playerActions.Sprint)
-                {
-                    stam = usage;
-
-                    if (usage.staminaAmount <= stamina._Stamina)
-                    {
-                        multiplier = sprintSpeedMultiplier;
-                        stamina.UseStamina(stam.staminaAmount);
-                    }
-                    break;
-                }
+                multiplier = sprintSpeedMultiplier;
+                stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Sprint]);
             }
         }
 
