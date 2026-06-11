@@ -1,0 +1,1 @@
+public enum playerActions { Grab, Throw, Attack, Jump, Sprint }
