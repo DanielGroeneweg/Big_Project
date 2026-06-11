@@ -2779,6 +2779,10 @@ MonoBehaviour:
     staminaAmount: 20
   - playerAction: 4
     staminaAmount: 0.04
+  actionStaminaDictionary:
+    Items:
+    - Key: 0
+      Value: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

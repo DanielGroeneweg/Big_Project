@@ -19,9 +19,11 @@ public class Stamina : MonoBehaviour
     [Tooltip("Whether or not stamina can be recovered while using stamina")]
     [SerializeField] bool recoverStaminaWhileUsing;
     [SerializeField] StaminaUsage[] actionStaminaRequirements;
+    [SerializeField] SerializedDictionary<playerActions, float> actionStaminaDictionary;
     public float _Stamina { get; private set; }
     public Action<StaminaChangeData> staminaChangeEvent;
     public StaminaUsage[] ActionStaminaRequirements { get { return actionStaminaRequirements; } }
+    public SerializedDictionary<playerActions, float> ActionStaminaDictionary => actionStaminaDictionary;
     private void Start()
     {
         _Stamina = maxStamina;
