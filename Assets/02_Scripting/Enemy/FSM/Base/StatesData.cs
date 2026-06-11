@@ -44,4 +44,14 @@ public class StatesData : MonoBehaviour
 
     }
 
+    public void SetKinematic(bool kinematic)
+    {
+        rb.isKinematic = kinematic;
+        SetAgentStopped(kinematic);
+    }
+    public void SetAgentStopped(bool stopped)
+    {
+        if (enemyAgent.enabled && enemyAgent.isOnNavMesh)
+            enemyAgent.isStopped = stopped;
+    }
 }

@@ -3,17 +3,23 @@ using UnityEngine;
 using System.Collections;
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected Collider weaponCollider;
+    [Tooltip("The percentage of the attack duration at which the collider becomes enabled to prevent the feeling of being hit by something too early")]
+    [SerializeField][Range(0f, 1f)] float colliderEnableDelay = 0.4f;
+    [SerializeField] Collider weaponCollider;
+    [Tooltip("Area of effect")]
     [SerializeField] bool isAOE;
-    protected float damage;
-    protected List<Health> hitObjects = new();
+    float damage;
+    List<Health> hitObjects = new();
     public void Attack(float attackDuration, float damage)
     {
         this.damage = damage;
 
-        weaponCollider.enabled = true;
-
+        Invoke(nameof(EnableAttack), attackDuration * colliderEnableDelay);
         Invoke(nameof(DisableAttack), attackDuration);
+    }
+    void EnableAttack()
+    {
+        weaponCollider.enabled = true;
     }
     void DisableAttack()
     {
@@ -29,12 +35,11 @@ public class Weapon : MonoBehaviour
         Health health = other.GetComponent<Health>();
         if (health != null)
         {
-            Debug.Log("adding");
             hitObjects.Add(health);
             StartCoroutine(HandleList());
         }
     }
-    protected virtual IEnumerator HandleList()
+    IEnumerator HandleList()
     {
         yield return new WaitForEndOfFrame();
 
@@ -46,6 +51,7 @@ public class Weapon : MonoBehaviour
 
             DisableAttack();
         }
+
         else
         {
             Health closest = null;
@@ -66,7 +72,6 @@ public class Weapon : MonoBehaviour
                 DisableAttack();
             }
         }
-            
 
         hitObjects.Clear();
 

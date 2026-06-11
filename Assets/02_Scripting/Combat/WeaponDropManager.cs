@@ -17,16 +17,25 @@ public class WeaponDropManager : MonoBehaviour
     }
     void WeaponDrop(DropWeaponEventData data)
     {
-        enemiesKilledSinceDrop++;
-        float rng = Random.Range(0f, 1f);
-        Debug.Log($"{enemiesKilledSinceDrop} enemies killed since last drop {enemiesKilledSinceDrop} >= {guarenteedDropAttempt} = {enemiesKilledSinceDrop >= guarenteedDropAttempt}" +
-            $"\n{rng} <= {dropChance} = {rng <= dropChance}" +
-            "\n Dropping a weapon if one or both is true!");
-        if (enemiesKilledSinceDrop >= guarenteedDropAttempt || rng <= dropChance)
+        if (data.droppedByEnemy)
+        {
+            enemiesKilledSinceDrop++;
+            float rng = Random.Range(0f, 1f);
+            Debug.Log($"{enemiesKilledSinceDrop} enemies killed since last drop {enemiesKilledSinceDrop} >= {guarenteedDropAttempt} = {enemiesKilledSinceDrop >= guarenteedDropAttempt}" +
+                $"\n{rng} <= {dropChance} = {rng <= dropChance}" +
+                "\n Dropping a weapon if one or both is true!");
+            if (enemiesKilledSinceDrop >= guarenteedDropAttempt || rng <= dropChance)
+            {
+                WeaponDrop drop = Instantiate(weaponDropPrefab, data.position, Quaternion.identity);
+                drop.SpawnWeapon(data.weapon);
+                enemiesKilledSinceDrop = 0;
+            }
+        }
+
+        else
         {
             WeaponDrop drop = Instantiate(weaponDropPrefab, data.position, Quaternion.identity);
             drop.SpawnWeapon(data.weapon);
-            enemiesKilledSinceDrop = 0;
         }
     }
 }

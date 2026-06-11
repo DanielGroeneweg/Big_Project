@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PickedUp : State
 {
-    private bool thrown =false;
-    private float throwTimer = 0f;
     public PickedUp(StatesData statesData)
     {
         data = statesData;
@@ -15,7 +13,7 @@ public class PickedUp : State
         base.Enter();
         Debug.Log("Entered PickedUp state");
         data.enemyAgent.enabled = false; 
-        data.rb.isKinematic = true;
+        data.SetKinematic(true);
     }
     public override void Step()
     {
@@ -28,11 +26,7 @@ public class PickedUp : State
     public override void Exit()
     {
         base.Exit();
-        //thrown = false;
-        //throwTimer = 0f;
-        //data.enemyAgent.enabled = true;
-        //data.rb.isKinematic = false;
-        data.rb.isKinematic = false;
+        data.SetKinematic(false);
     }
     public bool WasThrown()
     {
