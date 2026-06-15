@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2769658662120882195}
   - component: {fileID: 7144423388203859184}
   - component: {fileID: 6537812172633941716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ClubHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,3 +71,4 @@ MonoBehaviour:
   isAOE: 1
   hasDurability: 1
   durability: 0
+  maxDurability: 0
