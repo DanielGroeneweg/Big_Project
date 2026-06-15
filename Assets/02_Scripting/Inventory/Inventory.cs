@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     WeaponItem defaultWeapon;
     public WeaponItem Weapon => weapon;
+    public WeaponItem DefaultWeapon => defaultWeapon;
     private IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
@@ -25,7 +26,7 @@ public class Inventory : MonoBehaviour
         {
             weapon = defaultWeapon;
 
-            EquipWeaponEventData newData = new EquipWeaponEventData() { weapon = defaultWeapon };
+            EquipWeaponEventData newData = new EquipWeaponEventData() { weapon = defaultWeapon, durability = defaultWeapon.StartDurability, oldWeaponDestroyed = true };
             StartCoroutine(EventBusManager.instance.EquipWeaponEvent.Raise(newData, 0.1f));
         }
     }

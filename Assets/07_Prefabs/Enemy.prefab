@@ -70,6 +70,8 @@ MonoBehaviour:
   colliderEnableDelay: 0.4
   weaponCollider: {fileID: 7054077112292311616}
   isAOE: 0
+  hasDurability: 0
+  durability: 0
 --- !u!54 &2131026539272863125
 Rigidbody:
   m_ObjectHideFlags: 0

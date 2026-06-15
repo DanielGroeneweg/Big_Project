@@ -220,9 +220,9 @@ public class PlayerController : MonoBehaviour
     }
     void ChangeWeapon(EquipWeaponEventData data)
     {
-        if (currentWeapon != null)
+        if (currentWeapon != null && data.oldWeaponDestroyed == false)
         {
-            DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false };
+            DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false, durability = weaponCollider.durability };
             EventBusManager.instance.DropWeaponEvent.Raise(dropData);
         }
 
@@ -247,6 +247,7 @@ public class PlayerController : MonoBehaviour
             currentWeapon = data.weapon;
 
             weaponCollider = Instantiate(data.weapon.WeaponColliderPrefab, weaponColliderParent);
+            weaponCollider.durability = data.durability;
         }
     }
     #endregion

@@ -2,6 +2,7 @@ using UnityEngine;
 public class WeaponDrop : MonoBehaviour
 {
     WeaponItem weapon;
+    public float durability;
     public void SpawnWeapon(WeaponItem weapon)
     {
         GameObject drop = Instantiate(weapon.WeaponPrefab, transform);
@@ -13,7 +14,7 @@ public class WeaponDrop : MonoBehaviour
     }
     public void PickUpWeapon()
     {
-        EquipWeaponEventData data = new EquipWeaponEventData() { weapon = weapon };
+        EquipWeaponEventData data = new EquipWeaponEventData() { weapon = weapon, durability = durability, oldWeaponDestroyed = false };
         EventBusManager.instance.EquipWeaponEvent.Raise(data);
         Destroy(gameObject);
     }

@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] Collider weaponCollider;
     [Tooltip("Area of effect")]
     [SerializeField] bool isAOE;
+    [SerializeField] bool hasDurability;
+    [HideInInspector] public float durability;
     float damage;
     List<Health> hitObjects = new();
     public void Attack(float attackDuration, float damage)
@@ -24,6 +26,14 @@ public class Weapon : MonoBehaviour
     void DisableAttack()
     {
         weaponCollider.enabled = false;
+        if (!hasDurability) return;
+        
+        durability--;
+        if (durability <= 0)
+        {
+            EquipWeaponEventData eventData = new EquipWeaponEventData() { weapon = null, oldWeaponDestroyed = true };
+            EventBusManager.instance.EquipWeaponEvent.Raise(eventData);
+        }
     }
     private void Start()
     {

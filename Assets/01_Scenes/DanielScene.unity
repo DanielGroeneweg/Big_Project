@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   weapon: {fileID: 0}
-  defaultWeapon: {fileID: 0}
+  defaultWeapon: {fileID: 11400000, guid: 1432a5d2ce763e54c9be0367e2a68b1b, type: 2}
 --- !u!1 &1681374994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   simulateEnemyDeath: 0
-  weapon: {fileID: 11400000, guid: 416049ecbf7f26443b560bf09244e055, type: 2}
+  weapon: {fileID: 11400000, guid: a8e5f169a74e5dc45820169b9b70d1d3, type: 2}
 --- !u!1 &2020303465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,7 +2538,6 @@ MonoBehaviour:
   weaponParent: {fileID: 1430972712663797383}
   weaponColliderParent: {fileID: 111620262}
   currentWeapon: {fileID: 0}
-  currentGnome: {fileID: 0}
 --- !u!4 &2132248671656185298
 Transform:
   m_ObjectHideFlags: 0
@@ -2965,6 +2964,8 @@ MonoBehaviour:
   colliderEnableDelay: 0.3
   weaponCollider: {fileID: 2340209998898231757}
   isAOE: 0
+  hasDurability: 1
+  durability: 0
 --- !u!54 &7032902995647308716
 Rigidbody:
   m_ObjectHideFlags: 0
