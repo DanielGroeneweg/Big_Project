@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform weaponParent;
     [SerializeField] Transform weaponColliderParent;
     [SerializeField] WeaponItem currentWeapon;
-    [SerializeField]private GrabGnome currentGnome;
+    private GrabGnome currentGnome;
 
     Stamina stamina;
     // Internal
@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
             }
 
             Throw();
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Throw]);
             return;
         }
 
@@ -128,6 +129,7 @@ public class PlayerController : MonoBehaviour
                     isGnomeGrabbed = true;
                     grab.Grab(playerCamera.transform);
                     currentGnome = grab;
+                    stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Grab]);
                 }
             }
         }

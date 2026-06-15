@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc8894584c8744aa080d3612b40b89, type: 3}
-  m_Name: Sword
+  m_Name: Club
   m_EditorClassIdentifier: Assembly-CSharp::WeaponItem
-  itemName: Sword
-  icon: {fileID: 21300000, guid: d560a5eb2fe5f7d4bb9ad4f7d722ffb9, type: 3}
-  damage: 9
-  attackSpeed: 2
-  weaponPrefab: {fileID: 3097013587759781862, guid: 8a7faa72624f7f141a914484d6263891, type: 3}
-  weaponColliderPrefab: {fileID: 3435858187858176397, guid: e6d55ed4ba8698f48bb274a397340f3a, type: 3}
+  itemName: Spear
+  icon: {fileID: 21300000, guid: 206266626a0b85b48aa933fc5537ef71, type: 3}
+  damage: 18
+  attackSpeed: 0.75
+  weaponPrefab: {fileID: 3805358931952162687, guid: c544223697975a544b976c7481db3d7d, type: 3}
+  weaponColliderPrefab: {fileID: 6537812172633941716, guid: d5c44e8dfbb53994eb40c8a016380eba, type: 3}
