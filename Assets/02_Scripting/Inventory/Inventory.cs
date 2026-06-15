@@ -8,8 +8,12 @@ public class Inventory : MonoBehaviour
     WeaponItem defaultWeapon;
     public WeaponItem Weapon => weapon;
     public WeaponItem DefaultWeapon => defaultWeapon;
+    public static Inventory instance;
     private IEnumerator Start()
     {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+        
         yield return new WaitForEndOfFrame();
         EventBusManager.instance.EquipWeaponEvent.Register(SetWeapon);
 

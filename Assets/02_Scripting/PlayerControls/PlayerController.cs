@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
             weaponAnimator.speed = attackSpeed;
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
+            StartCoroutine(FixAnimator());
         }
     }
     public void OnGrab(InputValue input)
@@ -169,17 +170,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         DoCamera();
-
-        FixAnimator();
     }
     private void FixedUpdate()
     {
         DoMovement();
     }
-    void FixAnimator()
+    IEnumerator FixAnimator()
     {
-        AnimatorStateInfo info = weaponAnimator.GetCurrentAnimatorStateInfo(0);
-        if (attacking && !info.IsName("MeleeWeaponAttack")) attacking = false;
+        yield return new WaitForSeconds(1f / attackSpeed);
+        yield return null;
+        attacking = false;
     }
     /// <summary>
     /// Move the player around
@@ -248,6 +248,7 @@ public class PlayerController : MonoBehaviour
 
             weaponCollider = Instantiate(data.weapon.WeaponColliderPrefab, weaponColliderParent);
             weaponCollider.durability = data.durability;
+            weaponCollider.maxDurability = data.weapon.StartDurability;
         }
     }
     #endregion

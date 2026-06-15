@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] bool isAOE;
     [SerializeField] bool hasDurability;
     [HideInInspector] public float durability;
+    [HideInInspector] public float maxDurability;
     float damage;
     List<Health> hitObjects = new();
     public void Attack(float attackDuration, float damage)
@@ -34,10 +35,28 @@ public class Weapon : MonoBehaviour
             EquipWeaponEventData eventData = new EquipWeaponEventData() { weapon = null, oldWeaponDestroyed = true };
             EventBusManager.instance.EquipWeaponEvent.Raise(eventData);
         }
+        
+        else
+        {
+            WeaponDurabilityEventData eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability =  maxDurability };
+            EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
+        }
     }
     private void Start()
     {
         weaponCollider.enabled = false;
+
+        if (gameObject.layer == LayerMask.NameToLayer("EnemyWeapon")) return;
+
+        WeaponDurabilityEventData eventData = null;
+        
+        if (!hasDurability)
+            eventData = new WeaponDurabilityEventData() { durability = maxDurability, maxDurability = maxDurability };
+
+        else
+            eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability = maxDurability };
+        
+        EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
     }
     void OnTriggerEnter(Collider other)
     {
