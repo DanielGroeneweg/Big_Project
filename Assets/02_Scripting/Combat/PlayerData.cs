@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerData : MonoBehaviour
 {
-    [SerializeField] Presenter healthPresenter;
+    [SerializeField] Presenter damagePresenter;
+    [SerializeField] Presenter[] healthPresenters;
     [SerializeField] Presenter staminaPresenter;
     [SerializeField] Presenter durabilityPresenter;
     Health health;
@@ -12,19 +13,28 @@ public class PlayerData : MonoBehaviour
     {
         health = GetComponent<Health>();
         stamina = GetComponent<Stamina>();
-        if (health != null) health.healthChangeEvent += ChangeHealth;
+        if (health != null)
+        {
+            health.healthChangeEvent += ChangeHealth;
+            health.damageEvent += Damage;
+        }
         if (stamina != null) stamina.staminaChangeEvent += ChangeStamina;
         EventBusManager.instance.WeaponDurabilityEvent.Register(ChangeDurability);
     }
     private void OnDestroy()
     {
-        if (health != null) health.healthChangeEvent -= ChangeHealth;
+        if (health != null)
+        {
+            health.healthChangeEvent -= ChangeHealth;
+            health.damageEvent -= Damage;
+        }
         if (stamina != null) stamina.staminaChangeEvent -= ChangeStamina;
         EventBusManager.instance.WeaponDurabilityEvent.Unregister(ChangeDurability);
     }
     void ChangeHealth(HealthChangeData data)
     {
-        healthPresenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+        foreach (Presenter healthPresenter in healthPresenters)
+            healthPresenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
     }
     void ChangeStamina(StaminaChangeData data)
     {
@@ -33,5 +43,9 @@ public class PlayerData : MonoBehaviour
     void ChangeDurability(WeaponDurabilityEventData data)
     {
         durabilityPresenter.Present(0, data.maxDurability, data.durability);
+    }
+    void Damage()
+    {
+        damagePresenter.Present(0, 0, 0);
     }
 }

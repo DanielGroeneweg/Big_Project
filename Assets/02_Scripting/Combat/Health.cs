@@ -16,10 +16,12 @@ public class Health : MonoBehaviour
 
     // Event that is fired to handle this object dying
     public event Action deathEvent;
+    public event Action damageEvent;
     public void Damage(float hp)
     {
         health = Mathf.Max(0, health - Mathf.Abs(hp));
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth});
+        damageEvent.Invoke();
 
         if (health <= 0)
         {
