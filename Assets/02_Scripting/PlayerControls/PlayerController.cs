@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
-            weaponAnimator.speed = attackSpeed;
+            //weaponAnimator.speed = attackSpeed;
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
             StartCoroutine(FixAnimator());

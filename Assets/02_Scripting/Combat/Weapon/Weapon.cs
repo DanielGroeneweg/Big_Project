@@ -9,12 +9,22 @@ public class Weapon : MonoBehaviour
     [Tooltip("Area of effect")]
     [SerializeField] bool isAOE;
     [SerializeField] bool hasDurability;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] weaponSounds;
     [HideInInspector] public float durability;
     [HideInInspector] public float maxDurability;
     float damage;
     List<Health> hitObjects = new();
     public void Attack(float attackDuration, float damage)
     {
+        if (weaponSounds.Length > 0)
+        {
+            int rng = Random.Range(0, weaponSounds.Length);
+            AudioClip clip = weaponSounds[rng];
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+
         this.damage = damage;
 
         Invoke(nameof(EnableAttack), attackDuration * colliderEnableDelay);

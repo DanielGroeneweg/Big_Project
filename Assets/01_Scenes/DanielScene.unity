@@ -968,6 +968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransparencyPresenter
   image: {fileID: 386719219}
+  brightnessMin: 0.6
+  brightnessMax: 1
 --- !u!1 &454155696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,6 +3352,8 @@ MonoBehaviour:
   weaponCollider: {fileID: 2340209998898231757}
   isAOE: 0
   hasDurability: 1
+  audioSource: {fileID: 0}
+  weaponSounds: []
   durability: 0
   maxDurability: 0
 --- !u!54 &7032902995647308716
