@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float grabDistance;
     [SerializeField] bool isGnomeGrabbed;
     [SerializeField] float throwForce;
-    
+
+    [Header("Audio")]
+    [SerializeField] AudioClip[] footSteps;
+    [SerializeField] AudioClip[] jumpSounds;
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
     float yaw;
     float pitch;
     bool attacking;
+    bool canPlayStepSound = true;
 
     public static PlayerController instance;
     #endregion
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Jump]);
+            SoundManager.instance.PlaySound(jumpSounds[Random.Range(0, jumpSounds.Length)]);
         }
     }
     public void OnSprint(InputValue input)
@@ -199,6 +204,14 @@ public class PlayerController : MonoBehaviour
 
         float moveSpeed = movementSpeed * multiplier;
 
+        if (move.magnitude != 0 && canPlayStepSound)
+        {
+            canPlayStepSound = false;
+            AudioClip clip = footSteps[Random.Range(0, footSteps.Length)];
+            SoundManager.instance.PlaySound(clip, multiplier);
+            StartCoroutine(EnableFootStep(clip, multiplier));
+        }
+
         if (rb.linearVelocity.magnitude < maxSpeed)
         {
             rb.AddForce(transform.forward * move.y * moveSpeed);
@@ -250,6 +263,13 @@ public class PlayerController : MonoBehaviour
             weaponCollider.durability = data.durability;
             weaponCollider.maxDurability = data.weapon.StartDurability;
         }
+    }
+    IEnumerator EnableFootStep(AudioClip clip, float time)
+    {
+        float pause = time;
+        pause = clip.length * (1 / time);
+        yield return new WaitForSeconds(pause);
+        canPlayStepSound = true;
     }
     #endregion
 }

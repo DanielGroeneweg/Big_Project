@@ -1142,6 +1142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1150232119}
   - {fileID: 1648717964}
   - {fileID: 1973825908}
   - {fileID: 784486842}
@@ -1728,6 +1729,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063907405}
   m_CullTransparentMesh: 1
+--- !u!1 &1150232118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150232119}
+  - component: {fileID: 1150232120}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150232119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150232118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747976273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150232120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150232118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e6e4a5cea8c3045903cd76627bc81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  audioPrefab: {fileID: 6262776664454847202, guid: d8f1578e019305948b71429a3053ae41, type: 3}
 --- !u!1 &1158361329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,6 +2959,12 @@ MonoBehaviour:
   grabDistance: 10
   isGnomeGrabbed: 0
   throwForce: 10
+  footSteps:
+  - {fileID: 8300000, guid: 4103f06327ccc8a4999a47b7893dce46, type: 3}
+  - {fileID: 8300000, guid: 12bb321d90b380d4cab4dc33917ca1e8, type: 3}
+  - {fileID: 8300000, guid: 23568e11330ce264aa3f14c437c936a3, type: 3}
+  jumpSounds:
+  - {fileID: 8300000, guid: 115e9c0497643c5429af1e5790893387, type: 3}
   rb: {fileID: 7032902995647308716}
   input: {fileID: 4995124719402716174}
   playerCamera: {fileID: 8470781823313671237}
