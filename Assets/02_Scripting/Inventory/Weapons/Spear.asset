@@ -18,3 +18,4 @@ MonoBehaviour:
   attackSpeed: 1.4
   weaponPrefab: {fileID: 4092034522799193031, guid: 287cc40ced6bb3749809c085c46487fb, type: 3}
   weaponColliderPrefab: {fileID: 3435858187858176397, guid: c4c9eb2cc0525664b95ae49baa6ad9c1, type: 3}
+  startDurability: 20

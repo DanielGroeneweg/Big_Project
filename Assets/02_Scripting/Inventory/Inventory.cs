@@ -7,8 +7,13 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     WeaponItem defaultWeapon;
     public WeaponItem Weapon => weapon;
+    public WeaponItem DefaultWeapon => defaultWeapon;
+    public static Inventory instance;
     private IEnumerator Start()
     {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+        
         yield return new WaitForEndOfFrame();
         EventBusManager.instance.EquipWeaponEvent.Register(SetWeapon);
 
@@ -25,7 +30,7 @@ public class Inventory : MonoBehaviour
         {
             weapon = defaultWeapon;
 
-            EquipWeaponEventData newData = new EquipWeaponEventData() { weapon = defaultWeapon };
+            EquipWeaponEventData newData = new EquipWeaponEventData() { weapon = defaultWeapon, durability = defaultWeapon.StartDurability, oldWeaponDestroyed = true };
             StartCoroutine(EventBusManager.instance.EquipWeaponEvent.Raise(newData, 0.1f));
         }
     }

@@ -28,6 +28,7 @@ public class WeaponDropManager : MonoBehaviour
             {
                 WeaponDrop drop = Instantiate(weaponDropPrefab, data.position, Quaternion.identity);
                 drop.SpawnWeapon(data.weapon);
+                drop.durability = data.durability;
                 enemiesKilledSinceDrop = 0;
             }
         }
@@ -36,6 +37,7 @@ public class WeaponDropManager : MonoBehaviour
         {
             WeaponDrop drop = Instantiate(weaponDropPrefab, data.position, Quaternion.identity);
             drop.SpawnWeapon(data.weapon);
+            drop.durability = data.durability;
         }
     }
 }

@@ -7,7 +7,7 @@ public class WeaponDropTester : MonoBehaviour
     [Button("DropWeapon", EButtonEnableMode.Playmode)]
     void Drop()
     {
-        DropWeaponEventData data = new DropWeaponEventData() { weapon = weapon, position = transform.position, droppedByEnemy = simulateEnemyDeath };
+        DropWeaponEventData data = new DropWeaponEventData() { weapon = weapon, position = transform.position, droppedByEnemy = simulateEnemyDeath, durability = weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
     }
 }
