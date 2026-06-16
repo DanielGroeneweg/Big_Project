@@ -9,7 +9,6 @@ public class Weapon : MonoBehaviour
     [Tooltip("Area of effect")]
     [SerializeField] bool isAOE;
     [SerializeField] bool hasDurability;
-    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] weaponSounds;
     [HideInInspector] public float durability;
     [HideInInspector] public float maxDurability;
@@ -21,8 +20,7 @@ public class Weapon : MonoBehaviour
         {
             int rng = Random.Range(0, weaponSounds.Length);
             AudioClip clip = weaponSounds[rng];
-            audioSource.clip = clip;
-            audioSource.Play();
+            SoundManager.instance.PlaySound(clip, transform.position, true);
         }
 
         this.damage = damage;
