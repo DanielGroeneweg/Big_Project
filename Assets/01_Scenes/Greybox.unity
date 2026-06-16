@@ -45969,42 +45969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: attackSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: weaponDamage
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: currentWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 416049ecbf7f26443b560bf09244e055, type: 2}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: footSteps.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: jumpSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: 'footSteps.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 4103f06327ccc8a4999a47b7893dce46, type: 3}
-    - target: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: 'jumpSounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 115e9c0497643c5429af1e5790893387, type: 3}
     - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: damagePresenter
       value: 
       objectReference: {fileID: 2057756249}
-    - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: healthPresenter
-      value: 
-      objectReference: {fileID: 462447465}
     - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: staminaPresenter
       value: 
@@ -46013,10 +45981,6 @@ PrefabInstance:
       propertyPath: durabilityPresenter
       value: 
       objectReference: {fileID: 1459463962}
-    - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
-      propertyPath: healthPresenters.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8978911855716335988, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: 'healthPresenters.Array.data[0]'
       value: 
