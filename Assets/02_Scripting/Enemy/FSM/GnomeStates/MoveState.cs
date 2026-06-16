@@ -13,7 +13,13 @@ public class MoveState : State
         base.Enter();
         // Set the move animation
         Debug.Log("Entered move state");
-        if (data.target != null)
+        if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+            data.enemyAgent.SetDestination(data.target.position);
+    }
+    public override void Step()
+    {
+        base.Step();
+        if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.SetDestination(data.target.position);
     }
 
@@ -23,6 +29,9 @@ public class MoveState : State
     }
     public bool TargetReached()
     {
+        if (!data.enemyAgent.enabled || !data.enemyAgent.isOnNavMesh)
+            return false;
+
         if (data.enemyAgent.pathPending)
             return false;
 
@@ -30,6 +39,9 @@ public class MoveState : State
     }
     public bool TargetOutOfRange()
     {
+        if (!data.enemyAgent.enabled || !data.enemyAgent.isOnNavMesh)
+            return false;
+
         if (data.target == null)
             return true;
 

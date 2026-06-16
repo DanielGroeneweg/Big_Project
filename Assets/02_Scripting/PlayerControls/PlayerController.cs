@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent (typeof(Stamina))]
 public class PlayerController : MonoBehaviour
 {
     #region Variables
@@ -13,16 +15,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float cameraSensitivity;
     [SerializeField] float maxCameraAngle;
-    [SerializeField] float weaponCooldown;
+    [Tooltip("The amount of attacks per second the player is able to do")]
+    [SerializeField] float attackSpeed;
     [SerializeField] float weaponDamage;
+    [SerializeField] float grabDistance;
+    [SerializeField] bool isGnomeGrabbed;
+    [SerializeField] float throwForce;
+    
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerInput input;
     [SerializeField] Camera playerCamera;
     [SerializeField] Animator weaponAnimator;
-    [SerializeField] Weapon weapon;
+    [SerializeField] Weapon weaponCollider;
+    [SerializeField] GameObject weaponModel;
+    [SerializeField] private LayerMask grabMask;
+    [SerializeField] Transform weaponParent;
+    [SerializeField] Transform weaponColliderParent;
+    [SerializeField] WeaponItem currentWeapon;
+    private GrabGnome currentGnome;
 
+    Stamina stamina;
     // Internal
     bool sprinting;
     Vector2 move;
@@ -47,9 +61,15 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJump(InputValue input)
     {
+        if (stamina.ActionStaminaDictionary[playerActions.Jump] > stamina._Stamina)
+        {
+            return;
+        }
+
         if (Grounded())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Jump]);
         }
     }
     public void OnSprint(InputValue input)
@@ -58,19 +78,82 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack(InputValue input)
     {
-        if (!attacking)
+        if (!attacking && weaponCollider != null)
         {
+                    if (stamina.ActionStaminaDictionary[playerActions.Attack] > stamina._Stamina)
+                    {
+                        return;
+                    }
+
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
-            weapon.Attack(weaponCooldown, weaponDamage);
+            weaponAnimator.speed = attackSpeed;
+            weaponCollider.Attack(1f / attackSpeed, weaponDamage);
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
+            StartCoroutine(FixAnimator());
         }
+    }
+    public void OnGrab(InputValue input)
+    {
+        Debug.Log("Grab/Throw");
+        Debug.Log("Gnome grabbed: " + isGnomeGrabbed);
+        if (isGnomeGrabbed)
+        {
+            if (stamina.ActionStaminaDictionary[playerActions.Throw] > stamina._Stamina)
+            {
+                return;
+            }
+
+            Throw();
+            stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Throw]);
+            return;
+        }
+
+        else
+        {
+            Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Debug.DrawRay(ray.origin, ray.direction * grabDistance, Color.red, 2f);
+            if (Physics.Raycast(ray, out RaycastHit hit, grabDistance, grabMask))
+            {
+                Debug.Log("Hit: " + hit.collider.name);
+                if (hit.collider.CompareTag("Gnome"))
+                {
+                    Debug.Log("Gnome hit!");
+                    GrabGnome grab = hit.collider.GetComponent<GrabGnome>();
+                    if (grab == null) return;
+
+                    if (stamina.ActionStaminaDictionary[playerActions.Grab] > stamina._Stamina)
+                    {
+                        return;
+                    }
+
+                    isGnomeGrabbed = true;
+                    grab.Grab(playerCamera.transform);
+                    currentGnome = grab;
+                    stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Grab]);
+                }
+            }
+        }
+    }
+    private void Throw()
+    {
+        isGnomeGrabbed = false;
+        currentGnome.Throw(playerCamera.transform.forward, throwForce);
+        currentGnome = null;
     }
     #endregion
 
     #region Methods
-    private void Start()
+    private void OnDestroy()
+    {
+        EventBusManager.instance.EquipWeaponEvent.Unregister(ChangeWeapon);
+    }
+    private IEnumerator Start()
     {
         if (instance == null) instance = this;
+        yield return new WaitForEndOfFrame();
+        EventBusManager.instance.EquipWeaponEvent.Register(ChangeWeapon);
+        stamina = GetComponent<Stamina>();
     }
     /// <summary>
     /// Returns whether the player is close to the ground or not
@@ -87,24 +170,34 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         DoCamera();
-
-        FixAnimator();
     }
     private void FixedUpdate()
     {
         DoMovement();
     }
-    void FixAnimator()
+    IEnumerator FixAnimator()
     {
-        AnimatorStateInfo info = weaponAnimator.GetCurrentAnimatorStateInfo(0);
-        if (attacking && !info.IsName("MeleeWeaponAttack")) attacking = false;
+        yield return new WaitForSeconds(1f / attackSpeed);
+        yield return null;
+        attacking = false;
     }
     /// <summary>
     /// Move the player around
     /// </summary>
     void DoMovement()
     {
-        float moveSpeed = sprinting ? movementSpeed * sprintSpeedMultiplier : movementSpeed;
+        float multiplier = 1;
+
+        if (sprinting)
+        {
+            if (stamina.ActionStaminaDictionary[playerActions.Sprint] <= stamina._Stamina)
+            {
+                multiplier = sprintSpeedMultiplier;
+                stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Sprint]);
+            }
+        }
+
+        float moveSpeed = movementSpeed * multiplier;
 
         if (rb.linearVelocity.magnitude < maxSpeed)
         {
@@ -124,6 +217,39 @@ public class PlayerController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(0f, yaw, 0f);
         playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+    }
+    void ChangeWeapon(EquipWeaponEventData data)
+    {
+        if (currentWeapon != null && data.oldWeaponDestroyed == false)
+        {
+            DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false, durability = weaponCollider.durability };
+            EventBusManager.instance.DropWeaponEvent.Raise(dropData);
+        }
+
+        if (weaponModel != null)
+        {
+            Destroy(weaponModel.gameObject);
+            weaponModel = null;
+        }
+
+        if (weaponCollider != null)
+        {
+            Destroy(weaponCollider.gameObject);
+            weaponCollider = null;
+        }
+
+        if (data.weapon != null)
+        {
+            weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
+            weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
+            attackSpeed = data.weapon.AttackSpeed;
+            weaponDamage = data.weapon.Damage;
+            currentWeapon = data.weapon;
+
+            weaponCollider = Instantiate(data.weapon.WeaponColliderPrefab, weaponColliderParent);
+            weaponCollider.durability = data.durability;
+            weaponCollider.maxDurability = data.weapon.StartDurability;
+        }
     }
     #endregion
 }

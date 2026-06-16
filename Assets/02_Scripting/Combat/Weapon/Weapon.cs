@@ -1,35 +1,109 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Collider[] colliders;
+    [Tooltip("The percentage of the attack duration at which the collider becomes enabled to prevent the feeling of being hit by something too early")]
+    [SerializeField][Range(0f, 1f)] float colliderEnableDelay = 0.4f;
+    [SerializeField] Collider weaponCollider;
+    [Tooltip("Area of effect")]
+    [SerializeField] bool isAOE;
+    [SerializeField] bool hasDurability;
+    [HideInInspector] public float durability;
+    [HideInInspector] public float maxDurability;
     float damage;
+    List<Health> hitObjects = new();
     public void Attack(float attackDuration, float damage)
     {
         this.damage = damage;
 
-        foreach (Collider collider in colliders)
-            collider.enabled = true;
-
+        Invoke(nameof(EnableAttack), attackDuration * colliderEnableDelay);
         Invoke(nameof(DisableAttack), attackDuration);
+    }
+    void EnableAttack()
+    {
+        weaponCollider.enabled = true;
     }
     void DisableAttack()
     {
-        foreach (Collider collider in colliders)
-            collider.enabled = false;
+        weaponCollider.enabled = false;
+        if (!hasDurability) return;
+        
+        durability--;
+        if (durability <= 0)
+        {
+            EquipWeaponEventData eventData = new EquipWeaponEventData() { weapon = null, oldWeaponDestroyed = true };
+            EventBusManager.instance.EquipWeaponEvent.Raise(eventData);
+        }
+        
+        else
+        {
+            WeaponDurabilityEventData eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability =  maxDurability };
+            EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
+        }
     }
-    private void OnTriggerEnter(Collider other)
+    private void Start()
+    {
+        weaponCollider.enabled = false;
+
+        if (gameObject.layer == LayerMask.NameToLayer("EnemyWeapon")) return;
+
+        WeaponDurabilityEventData eventData = null;
+        
+        if (!hasDurability)
+            eventData = new WeaponDurabilityEventData() { durability = maxDurability, maxDurability = maxDurability };
+
+        else
+            eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability = maxDurability };
+        
+        EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
+    }
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("Weapon had collision!");
         Health health = other.GetComponent<Health>();
         if (health != null)
         {
-            Debug.Log("found health component!");
-            health.Damage(damage);
+            hitObjects.Add(health);
+            StartCoroutine(HandleList());
         }
     }
-    private void Start()
+    IEnumerator HandleList()
     {
-        foreach (Collider collider in colliders)
-            collider.enabled = false;
+        yield return new WaitForEndOfFrame();
+
+        // handle collision here
+        if (isAOE)
+        {
+            foreach (Health health in hitObjects)
+                health.Damage(damage);
+
+            DisableAttack();
+        }
+
+        else
+        {
+            Health closest = null;
+            float closestDist = Mathf.Infinity;
+            foreach (Health health in hitObjects)
+            {
+                float dist = Vector3.Distance(transform.position, health.transform.position);
+                if (dist < closestDist)
+                {
+                    closest = health;
+                    closestDist = dist;
+                }
+            }
+
+            if (closest != null)
+            {
+                closest.Damage(damage);
+                DisableAttack();
+            }
+        }
+
+        hitObjects.Clear();
+
+        StopAllCoroutines();
     }
 }

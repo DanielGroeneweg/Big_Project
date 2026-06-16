@@ -9,6 +9,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyController))]
 [RequireComponent(typeof(StatesData))]
+[DefaultExecutionOrder(100)]
 public class EnemyAIController : MonoBehaviour
 {
     private FSM fsm;
@@ -31,6 +32,7 @@ public class EnemyAIController : MonoBehaviour
         data.enemyAgent = GetComponent<NavMeshAgent>();
         data.enemyController = GetComponent<EnemyController>();
         data.target = target;
+        data.rb = GetComponent<Rigidbody>();
         fsm = new GnomeFSM(data);
     }
 

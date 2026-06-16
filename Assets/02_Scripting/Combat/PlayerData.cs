@@ -1,20 +1,51 @@
 using UnityEngine;
+[DefaultExecutionOrder(100)]
 [RequireComponent(typeof(Health))]
 public class PlayerData : MonoBehaviour
 {
-    [SerializeField] Presenter healthPresenter;
+    [SerializeField] Presenter damagePresenter;
+    [SerializeField] Presenter[] healthPresenters;
+    [SerializeField] Presenter staminaPresenter;
+    [SerializeField] Presenter durabilityPresenter;
     Health health;
+    Stamina stamina;
     private void Start()
     {
         health = GetComponent<Health>();
-        if (health != null) health.healthChangeEvent += ChangeHealth;
+        stamina = GetComponent<Stamina>();
+        if (health != null)
+        {
+            health.healthChangeEvent += ChangeHealth;
+            health.damageEvent += Damage;
+        }
+        if (stamina != null) stamina.staminaChangeEvent += ChangeStamina;
+        EventBusManager.instance.WeaponDurabilityEvent.Register(ChangeDurability);
     }
     private void OnDestroy()
     {
-        if (health != null) health.healthChangeEvent -= ChangeHealth;
+        if (health != null)
+        {
+            health.healthChangeEvent -= ChangeHealth;
+            health.damageEvent -= Damage;
+        }
+        if (stamina != null) stamina.staminaChangeEvent -= ChangeStamina;
+        EventBusManager.instance.WeaponDurabilityEvent.Unregister(ChangeDurability);
     }
-    public void ChangeHealth(HealthChangeData data)
+    void ChangeHealth(HealthChangeData data)
     {
-        healthPresenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+        foreach (Presenter healthPresenter in healthPresenters)
+            healthPresenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+    }
+    void ChangeStamina(StaminaChangeData data)
+    {
+        staminaPresenter.Present(0, data.maxStamina, data.currentStamina);
+    }
+    void ChangeDurability(WeaponDurabilityEventData data)
+    {
+        durabilityPresenter.Present(0, data.maxDurability, data.durability);
+    }
+    void Damage()
+    {
+        damagePresenter.Present(0, 0, 0);
     }
 }
