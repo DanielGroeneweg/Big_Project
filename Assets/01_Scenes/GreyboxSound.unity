@@ -64229,8 +64229,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519979609}
-  - component: {fileID: 519979607}
-  - component: {fileID: 519979606}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -64238,33 +64236,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &519979606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519979605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0a6d68d1f09054fbda1e67e56fdfb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  inventoryPresenter: {fileID: 1895698170}
---- !u!114 &519979607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519979605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6156e843a2e6b44af5a5c7b57da8c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  weapon: {fileID: 0}
-  defaultWeapon: {fileID: 0}
 --- !u!4 &519979609
 Transform:
   m_ObjectHideFlags: 0
@@ -110487,7 +110458,6 @@ GameObject:
   m_Component:
   - component: {fileID: 932206782}
   - component: {fileID: 932206784}
-  - component: {fileID: 932206783}
   - component: {fileID: 932206785}
   m_Layer: 0
   m_Name: Inventory
@@ -110511,19 +110481,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 519979609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &932206783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932206781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0a6d68d1f09054fbda1e67e56fdfb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  inventoryPresenter: {fileID: 1895698170}
 --- !u!114 &932206784
 MonoBehaviour:
   m_ObjectHideFlags: 0
