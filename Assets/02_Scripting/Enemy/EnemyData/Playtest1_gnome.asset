@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d793319122a3c6a41929a84b1cbe576a, type: 3}
+  m_Name: Playtest1_gnome
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHP: 40
+  moveSpeed: 3.2
+  attackDamage: 12
+  attackRange: 3
+  attackCountdown: 1.6
+  detectionRange: 15
+  rotateSpeed: 130
+  weapon: {fileID: 11400000, guid: 1432a5d2ce763e54c9be0367e2a68b1b, type: 2}

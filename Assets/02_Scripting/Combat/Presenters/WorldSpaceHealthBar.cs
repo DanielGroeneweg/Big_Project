@@ -3,7 +3,7 @@ using UnityEngine.UI;
 public class WorldSpaceHealthBar : Presenter
 {
     [SerializeField] Canvas canvas;
-    [SerializeField] Transform target;
+    
     [SerializeField] Image image;
     [SerializeField] float fillAmountMax;
     public override void Present(float min, float max, float current)
@@ -15,6 +15,7 @@ public class WorldSpaceHealthBar : Presenter
     {
         if (canvas != null)
         {
+            Transform target = Camera.main.transform;
             canvas.transform.LookAt(target);
         }
     }

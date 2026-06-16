@@ -13,6 +13,7 @@ public class AttackState : State
         Debug.Log("Entered attack state");
 
         data.weaponAnimator.Play("MeleeWeaponAttack");
+        data.weaponAnimator.speed = 1f / data.enemyController.EnemyData.attackCountdown;
         data.weapon.Attack(data.enemyController.EnemyData.attackCountdown, data.enemyController.EnemyData.attackDamage);
     }
     public override void Exit()
@@ -23,5 +24,22 @@ public class AttackState : State
     public bool AttackOver()
     {
         return Time.time > attackStartTime + data.enemyController.EnemyData.attackCountdown;
+    }
+    public bool TargetStillInRange()
+    {
+        if (data.target == null)
+            return false;
+
+        return Vector3.Distance(data.enemyTransform.position, data.target.position)
+               <= data.enemyController.EnemyData.attackRange;
+    }
+    public bool AttackOverAndTargetInRange()
+    {
+        return AttackOver() && TargetStillInRange();
+    }
+
+    public bool AttackOverAndTargetOutOfRange()
+    {
+        return AttackOver() && !TargetStillInRange();
     }
 }
