@@ -3,7 +3,17 @@ guid: be6cd9529713c8143a301ef918e65888
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Path
+    second: {fileID: 2100000, guid: e7439804d6a70b647a9e7b4581ea1459, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tunnel_Walls
+    second: {fileID: 2100000, guid: 4c533bc4b7f151a49af51d32b836cfc4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
