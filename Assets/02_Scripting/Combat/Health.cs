@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     {
         health = Mathf.Max(0, health - Mathf.Abs(hp));
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth});
-        damageEvent.Invoke();
+        damageEvent?.Invoke();
 
         if (health <= 0)
         {

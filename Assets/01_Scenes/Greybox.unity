@@ -128381,6 +128381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransparencyPresenter
   image: {fileID: 1104704534}
+  brightnessMin: 0.6
+  brightnessMax: 1
 --- !u!114 &1104704534
 MonoBehaviour:
   m_ObjectHideFlags: 0
