@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sickle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponItem
   itemName: Sickle
-  icon: {fileID: 21300000, guid: d560a5eb2fe5f7d4bb9ad4f7d722ffb9, type: 3}
+  icon: {fileID: 21300000, guid: e1f04da9f9b53214abf89db89bcfbe63, type: 3}
   damage: 9
   attackSpeed: 2
   weaponPrefab: {fileID: 3097013587759781862, guid: 8a7faa72624f7f141a914484d6263891, type: 3}
