@@ -38,7 +38,7 @@ public class GnomeFSM : FSM
         align.transitions.Add(new Transition(isPickedUp, pickedUp));
         attack.transitions.Add(new Transition(isPickedUp, pickedUp));
 
-        pickedUp.transitions.Add(new Transition(pickedUp.WasThrown, idle));
+        pickedUp.transitions.Add(new Transition(pickedUp.WasThrown, stunned));
 
         idle.transitions.Add(new Transition(isStunned, stunned));
         move.transitions.Add(new Transition(isStunned, stunned));

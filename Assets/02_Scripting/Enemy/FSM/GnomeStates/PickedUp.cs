@@ -26,6 +26,7 @@ public class PickedUp : State
     public override void Exit()
     {
         base.Exit();
+        data.isStunned = true;
         data.SetKinematic(false);
     }
     public bool WasThrown()

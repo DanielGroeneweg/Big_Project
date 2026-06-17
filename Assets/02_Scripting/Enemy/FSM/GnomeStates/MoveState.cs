@@ -1,8 +1,10 @@
-using UnityEditor.Experimental.GraphView;
+using System.Collections;
 using UnityEngine;
-
 public class MoveState : State  
 {
+    bool canPlayStepSound = true;
+    float time;
+    float timePassed;
     public MoveState(StatesData statesData)
     {
         data = statesData;
@@ -21,6 +23,17 @@ public class MoveState : State
         base.Step();
         if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.SetDestination(data.target.position);
+
+        CheckSound();
+        
+        if (canPlayStepSound)
+        {
+            AudioClip clip = data.footSteps[Random.Range(0, data.footSteps.Length)];
+            SoundManager.instance.PlaySound(clip, data.enemyController.transform.position, true);
+            canPlayStepSound = false;
+            time = clip.length;
+            timePassed = 0;
+        }
     }
 
     public override void Exit()
@@ -50,5 +63,13 @@ public class MoveState : State
 
         float dist = Vector3.Distance(data.enemyTransform.position, data.target.position);
         return dist > data.enemyController.EnemyData.detectionRange;
+    }
+    private void CheckSound()
+    {
+        if (canPlayStepSound) return;
+
+        timePassed += Time.deltaTime;
+        if (timePassed >= time)
+            canPlayStepSound = true;
     }
 }

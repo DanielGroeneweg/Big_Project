@@ -57,7 +57,6 @@ public class GrabGnome : MonoBehaviour
         if (!data.isPickedUp && collision.gameObject.CompareTag("ground"))
         {
             data.isLanded = true;
-            data.enemyAgent.enabled = true;
             data.wasThrown = false; 
         }
     }

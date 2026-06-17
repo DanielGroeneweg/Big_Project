@@ -167,11 +167,17 @@ MonoBehaviour:
   jumpForce: 7.5
   cameraSensitivity: 0.5
   maxCameraAngle: 45
-  attackSpeed: 0.5
-  weaponDamage: 10
+  attackSpeed: 1.4
+  weaponDamage: 7
   grabDistance: 4
   isGnomeGrabbed: 0
   throwForce: 6
+  footSteps:
+  - {fileID: 8300000, guid: 4103f06327ccc8a4999a47b7893dce46, type: 3}
+  - {fileID: 8300000, guid: 12bb321d90b380d4cab4dc33917ca1e8, type: 3}
+  - {fileID: 8300000, guid: 23568e11330ce264aa3f14c437c936a3, type: 3}
+  jumpSounds:
+  - {fileID: 8300000, guid: 115e9c0497643c5429af1e5790893387, type: 3}
   rb: {fileID: 7032902994871863239}
   input: {fileID: 4995124720170788965}
   playerCamera: {fileID: 8434564352467670923}
@@ -183,8 +189,7 @@ MonoBehaviour:
     m_Bits: 8
   weaponParent: {fileID: 7533669791205805866}
   weaponColliderParent: {fileID: 7726818169850998849}
-  currentWeapon: {fileID: 0}
-  currentGnome: {fileID: 0}
+  currentWeapon: {fileID: 11400000, guid: 416049ecbf7f26443b560bf09244e055, type: 2}
 --- !u!114 &4995124720170788965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ade2d3ca26c5e941abea71361a22f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  healthPresenter: {fileID: 0}
+  damagePresenter: {fileID: 0}
+  healthPresenters:
+  - {fileID: 0}
+  - {fileID: 0}
   staminaPresenter: {fileID: 0}
+  durabilityPresenter: {fileID: 0}
 --- !u!114 &3620813775242032945
 MonoBehaviour:
   m_ObjectHideFlags: 0
