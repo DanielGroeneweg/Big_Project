@@ -31,7 +31,8 @@ public class GrabGnome : MonoBehaviour
 
         transform.SetParent(cameraTransform);
         transform.localPosition = holdOffset;
-        transform.localRotation = Quaternion.identity;
+        
+        //transform.localRotation = new Quaternion();
     }
 
     public void Throw(Vector3 direction, float force)
