@@ -464,6 +464,28 @@ MonoBehaviour:
   m_MaxSamples:
     m_OverrideState: 1
     m_Value: 6
+--- !u!114 &-4781175585622397397
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a41a2ff34502f84e90a6b8e52d18fb1, type: 3}
+  m_Name: Blurring
+  m_EditorClassIdentifier: Assembly-CSharp::Blurring
+  active: 1
+  <displayName>k__BackingField: 
+  m_IsInitialized: 0
+  typeName: 
+  <passName>k__BackingField: 
+  intensity:
+    <fieldHash>k__BackingField: -1430489640
+    m_OverrideState: 1
+    m_Value: 0
+  m_Material: {fileID: 0}
 --- !u!114 &-4504623625339508525
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -913,6 +935,7 @@ MonoBehaviour:
   - {fileID: 2044197306030878128}
   - {fileID: -7312819230305576543}
   - {fileID: 843810622554899207}
+  - {fileID: 7256300918794276962}
 --- !u!114 &448115243408767295
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2464,6 +2487,44 @@ MonoBehaviour:
   tint:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &6754461517507138419
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60e7e697df3fc3469c219d5e5215dcd, type: 3}
+  m_Name: WhatTheHelly
+  m_EditorClassIdentifier: Assembly-CSharp::WhatTheHelly
+  active: 1
+  strength:
+    m_OverrideState: 0
+    m_Value: 0
+  stepSize:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &7256300918794276962
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3218ffca3815ac84994cfd93f2b6bbcb, type: 3}
+  m_Name: WhatTheHelly
+  m_EditorClassIdentifier: Assembly-CSharp::WhatTheHelly
+  active: 1
+  strength:
+    m_OverrideState: 1
+    m_Value: 1
+  stepSize:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &7502528774814404555
 MonoBehaviour:
   m_ObjectHideFlags: 3

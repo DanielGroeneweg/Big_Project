@@ -5,7 +5,7 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] Presenter damagePresenter;
     [SerializeField] Presenter[] healthPresenters;
-    [SerializeField] Presenter staminaPresenter;
+    [SerializeField] Presenter[] staminaPresenters;
     [SerializeField] Presenter durabilityPresenter;
     Health health;
     Stamina stamina;
@@ -38,7 +38,8 @@ public class PlayerData : MonoBehaviour
     }
     void ChangeStamina(StaminaChangeData data)
     {
-        staminaPresenter.Present(0, data.maxStamina, data.currentStamina);
+        foreach (Presenter staminaPresenter in staminaPresenters)
+            staminaPresenter.Present(0, data.maxStamina, data.currentStamina);
     }
     void ChangeDurability(WeaponDurabilityEventData data)
     {

@@ -529,7 +529,7 @@ MonoBehaviour:
     m_Anamorphism: 0
   flipYMode: 0
   xrRendering: 1
-  fullscreenPassthrough: 0
+  fullscreenPassthrough: 1
   allowDynamicResolution: 0
   customRenderingSettings: 1
   invertFaceCulling: 0
@@ -574,8 +574,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!20 &254815796
 Camera:
@@ -2066,6 +2066,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlashPresenter
   image: {fileID: 1345591891}
   flashTime: 0.1
+--- !u!1 &1503073590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503073592}
+  - component: {fileID: 1503073593}
+  - component: {fileID: 1503073594}
+  m_Layer: 0
+  m_Name: Custom Pass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503073592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503073590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.73423, y: -2.1483402, z: 10.7224655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1503073593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503073590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.CustomPassVolume
+  m_IsGlobal: 1
+  fadeRadius: 0
+  priority: 0
+  customPasses:
+  - rid: 8633795606874685514
+  injectionPoint: 3
+  m_TargetCamera: {fileID: 0}
+  useTargetCamera: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8633795606874685514
+      type: {class: SeparableBlurPass, ns: , asm: Assembly-CSharp}
+      data:
+        m_Name: Custom Pass
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        blurMaterial: {fileID: 2100000, guid: 912c3584175195d4e80422a7fb23950b, type: 2}
+--- !u!114 &1503073594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503073590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecb85814e302ab48a84ba5d6d94825b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  minStrength: 1
+  maxStrength: 100
 --- !u!1 &1534268630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,8 +2924,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!4 &362360691393058081
 Transform:
@@ -3404,7 +3485,6 @@ MonoBehaviour:
   weaponCollider: {fileID: 2340209998898231757}
   isAOE: 0
   hasDurability: 1
-  audioSource: {fileID: 0}
   weaponSounds: []
   durability: 0
   maxDurability: 0
@@ -3609,7 +3689,9 @@ MonoBehaviour:
   healthPresenters:
   - {fileID: 386719221}
   - {fileID: 1681374995}
-  staminaPresenter: {fileID: 344796148}
+  staminaPresenters:
+  - {fileID: 344796148}
+  - {fileID: 1503073594}
   durabilityPresenter: {fileID: 1158361331}
 --- !u!114 &8978911855419122976
 MonoBehaviour:
@@ -3655,3 +3737,4 @@ SceneRoots:
   - {fileID: 1534268631}
   - {fileID: 747976273}
   - {fileID: 2020303469}
+  - {fileID: 1503073592}

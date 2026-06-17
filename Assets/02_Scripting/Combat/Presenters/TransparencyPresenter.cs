@@ -8,7 +8,6 @@ public class TransparencyPresenter : Presenter
     [SerializeField] float brightnessMax;
     public override void Present(float min, float max, float current)
     {
-        Debug.Log($"min: {min}, max: {max}, current: {current}");
         float brightnessDif = brightnessMax - brightnessMin;
         float brightness = brightnessMin + (current/max) * brightnessDif;
 
