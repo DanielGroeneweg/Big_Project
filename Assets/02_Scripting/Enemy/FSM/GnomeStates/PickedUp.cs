@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PickedUp : State
 {
+    private Collider enemyCollider;
+
     public PickedUp(StatesData statesData)
     {
         data = statesData;
@@ -13,6 +15,8 @@ public class PickedUp : State
         base.Enter();
         Debug.Log("Entered PickedUp state");
         data.enemyAgent.enabled = false; 
+        enemyCollider = data.enemyController.GetComponent<Collider>();
+        enemyCollider.enabled = false;
         data.SetKinematic(true);
     }
     public override void Step()
@@ -28,6 +32,7 @@ public class PickedUp : State
         base.Exit();
         data.isStunned = true;
         data.SetKinematic(false);
+        enemyCollider.enabled = true;
     }
     public bool WasThrown()
     {

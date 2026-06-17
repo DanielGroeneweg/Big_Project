@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     private void Throw()
     {
         isGnomeGrabbed = false;
-        currentGnome.Throw(playerCamera.transform.forward, throwForce);
+        currentGnome.Throw(new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z), throwForce);
         currentGnome = null;
     }
     #endregion
