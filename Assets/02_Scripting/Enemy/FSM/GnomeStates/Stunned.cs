@@ -13,11 +13,10 @@ public class Stunned : State
     {
         if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
         {
-            base.data.SetAgentStopped(true);
+            data.SetAgentStopped(true);
             data.enemyAgent.ResetPath();
+            data.enemyAgent.enabled = false;
         }
-        data.rb.linearVelocity = Vector3.zero;
-        data.rb.angularVelocity = Vector3.zero;
         originalDrag = data.rb.linearDamping;
         data.rb.linearDamping = 10f;
         Debug.Log("Stunned");
@@ -29,6 +28,7 @@ public class Stunned : State
         if(stunTimer < data.stunDuration)
         {
             stunTimer += Time.deltaTime;
+           
         }
         else
         {
@@ -38,9 +38,12 @@ public class Stunned : State
     }
     public override void Exit()
     {
-        base.data.SetAgentStopped(false);
+        data.SetAgentStopped(false);
+        data.enemyAgent.enabled = true;
+
         stunTimer = 0f;
         data.rb.linearDamping = originalDrag;
+
     }
 
     public bool StunOver()

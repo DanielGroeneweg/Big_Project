@@ -21,6 +21,9 @@ public class StatesData : MonoBehaviour
     public Rigidbody rb;
     public GrabGnome grabGnome;
 
+    [Header("Sounds")]
+    public AudioClip[] footSteps;
+
     [Header("Variables")]
     public bool isPickedUp = false;
     public bool isLanded = false;
