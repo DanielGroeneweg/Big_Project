@@ -412,7 +412,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _HeightAmplitude: 0.02
-    - _HeightAmplitude0: 4.417
+    - _HeightAmplitude0: 3.417
     - _HeightAmplitude1: 0.03
     - _HeightAmplitude2: 0.02
     - _HeightAmplitude3: 0.02
@@ -447,7 +447,7 @@ Material:
     - _HeightPoMAmplitude2: 2
     - _HeightPoMAmplitude3: 2
     - _HeightTessAmplitude: 2
-    - _HeightTessAmplitude0: 441.7
+    - _HeightTessAmplitude0: 341.7
     - _HeightTessAmplitude1: 3
     - _HeightTessAmplitude2: 2
     - _HeightTessAmplitude3: 2
