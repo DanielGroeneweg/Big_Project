@@ -417,8 +417,8 @@ Material:
     - _HeightAmplitude2: 0.02
     - _HeightAmplitude3: 0.02
     - _HeightCenter: 0.5
-    - _HeightCenter0: 0.344
-    - _HeightCenter1: 0.038
+    - _HeightCenter0: 0.265
+    - _HeightCenter1: 1
     - _HeightCenter2: 0.5
     - _HeightCenter3: 0.5
     - _HeightMapParametrization: 0
@@ -452,18 +452,18 @@ Material:
     - _HeightTessAmplitude2: 2
     - _HeightTessAmplitude3: 2
     - _HeightTessCenter: 0.5
-    - _HeightTessCenter0: 0.344
-    - _HeightTessCenter1: 0.038
+    - _HeightTessCenter0: 0.265
+    - _HeightTessCenter1: 1
     - _HeightTessCenter2: 0.5
     - _HeightTessCenter3: 0.5
     - _HeightTransition: 0
     - _InheritBaseColor1: 0
     - _InheritBaseColor2: 0
     - _InheritBaseColor3: 0
-    - _InheritBaseHeight1: 1
+    - _InheritBaseHeight1: 0.435
     - _InheritBaseHeight2: 0
     - _InheritBaseHeight3: 0
-    - _InheritBaseNormal1: 0.44
+    - _InheritBaseNormal1: 0.576
     - _InheritBaseNormal2: 0
     - _InheritBaseNormal3: 0
     - _InvTilingScale: 0.2
