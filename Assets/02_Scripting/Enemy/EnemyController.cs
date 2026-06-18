@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public int MaxHP => enemyData.maxHP;
     public bool IsDead => CurrentHP <= 0;
 
-    Health health;
+    public Health health { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
