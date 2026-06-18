@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Stunned : State
 {
-
     private float stunTimer;
     private float originalDrag;
     public Stunned(StatesData statesData)
@@ -20,6 +19,7 @@ public class Stunned : State
         originalDrag = data.rb.linearDamping;
         data.rb.linearDamping = 10f;
         Debug.Log("Stunned");
+        data.enemyController.health.Damage(10f);
         //statesData.animator.SetBool("isStunned", true);
     }
     public override void Step()
