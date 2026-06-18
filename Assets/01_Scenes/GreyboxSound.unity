@@ -17154,7 +17154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1074757533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17168,7 +17168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   minStrength: 1
-  maxStrength: 100
+  maxStrength: 50
 --- !u!114 &1074757534
 MonoBehaviour:
   m_ObjectHideFlags: 0
