@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477f81e36f656824594b610dd7de7576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RepeatingSpawner
-  enemyPrefab: {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  spawnAmount: 3
+  enemyPrefabs: []
   spawnRadius: 1
+  spawnAmount: 3
   spawnInterval: 10
   hasMaxCycleAmount: 0
   maxCycleAmount: 0
@@ -387,9 +387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d2b922df6acfa4182d1ca3ea425278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SingleBurstSpawner
-  enemyPrefab: {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  spawnAmount: 5
+  enemyPrefabs: []
   spawnRadius: 2.5
+  spawnAmount: 5
 --- !u!4 &181149619
 Transform:
   m_ObjectHideFlags: 0
@@ -1076,6 +1076,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524400102}
   m_CullTransparentMesh: 1
+--- !u!1 &594889907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594889908}
+  - component: {fileID: 594889909}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594889908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594889907}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10, y: 3.9, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1205710962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594889909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594889907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fb13deffb91074f8092f5f6445bd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
+  enemyPrefabs:
+  - {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
+  spawnRadius: 2.5
+  waves:
+  - enemieCount: 1
+  - enemieCount: 2
+  - enemieCount: 3
+  - enemieCount: 4
+  useWaveTimer: 1
+  waveTimer: 1000
 --- !u!1 &710549861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1949,7 @@ Transform:
   m_Children:
   - {fileID: 114190451}
   - {fileID: 181149619}
+  - {fileID: 594889908}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1222907330
@@ -2083,7 +2138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1503073592
 Transform:
   m_ObjectHideFlags: 0

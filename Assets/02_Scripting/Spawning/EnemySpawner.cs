@@ -3,8 +3,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 public abstract class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] protected EnemyController enemyPrefab;
-    [SerializeField] protected int spawnAmount;
+    [SerializeField] protected EnemyController[] enemyPrefabs;
     [SerializeField] protected float spawnRadius;
     protected List<EnemyController> enemies = new();
     public abstract void Spawn();
