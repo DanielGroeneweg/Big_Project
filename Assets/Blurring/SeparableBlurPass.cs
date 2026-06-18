@@ -33,6 +33,8 @@ class SeparableBlurPass : CustomPass
         if (blurMaterial == null)
             return;
 
+        if (!Application.isPlaying) return;
+
         // SOURCE = camera color
         var source = ctx.cameraColorBuffer;
 
