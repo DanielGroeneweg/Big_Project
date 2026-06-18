@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack(InputValue input)
     {
+        if (isGnomeGrabbed) return;
+
         if (!attacking && weaponCollider != null)
         {
                     if (stamina.ActionStaminaDictionary[playerActions.Attack] > stamina._Stamina)
