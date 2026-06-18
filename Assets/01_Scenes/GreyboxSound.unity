@@ -17569,9 +17569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477f81e36f656824594b610dd7de7576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RepeatingSpawner
-  enemyPrefab: {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  spawnAmount: 1
+  enemyPrefabs: []
   spawnRadius: 0
+  spawnAmount: 1
   spawnInterval: 5
   hasMaxCycleAmount: 1
   maxCycleAmount: 3
@@ -29278,7 +29278,7 @@ Light:
   serializedVersion: 13
   m_Type: 1
   m_Color: {r: 0.36007467, g: 0.35737264, b: 0.3735848, a: 1}
-  m_Intensity: 250
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
