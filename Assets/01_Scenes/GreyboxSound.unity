@@ -9197,10 +9197,28 @@ MonoBehaviour:
   - {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
   spawnRadius: 5
   waves:
-  - enemieCount: 2
-  - enemieCount: 3
-  - enemieCount: 4
-  - enemieCount: 5
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+    - enemyCount: 1
+      spawnDelay: 3
+  - waves:
+    - enemyCount: 3
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+    - enemyCount: 1
+      spawnDelay: 3
   useWaveTimer: 0
   waveTimer: 0
   onFinalWaveDefeated:
@@ -9925,10 +9943,30 @@ MonoBehaviour:
   - {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
   spawnRadius: 5
   waves:
-  - enemieCount: 3
-  - enemieCount: 4
-  - enemieCount: 5
-  - enemieCount: 6
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+  - waves:
+    - enemyCount: 3
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+  - waves:
+    - enemyCount: 3
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+    - enemyCount: 1
+      spawnDelay: 3
+  - waves:
+    - enemyCount: 3
+      spawnDelay: 0
+    - enemyCount: 1
+      spawnDelay: 3
+    - enemyCount: 2
+      spawnDelay: 3
   useWaveTimer: 0
   waveTimer: 0
   onFinalWaveDefeated:
@@ -34162,11 +34200,19 @@ MonoBehaviour:
   - {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
   spawnRadius: 2.5
   waves:
-  - enemieCount: 1
-  - enemieCount: 1
-  - enemieCount: 2
-  - enemieCount: 2
-  useWaveTimer: 0
+  - waves:
+    - enemyCount: 1
+      spawnDelay: 0
+  - waves:
+    - enemyCount: 1
+      spawnDelay: 0
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+  - waves:
+    - enemyCount: 2
+      spawnDelay: 0
+  useWaveTimer: 1
   waveTimer: 0
   onFinalWaveDefeated:
     m_PersistentCalls:
