@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 public abstract class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] protected bool SpawnOnAwake;
     [SerializeField] protected EnemyController[] enemyPrefabs;
     [SerializeField] protected float spawnRadius;
     protected List<EnemyController> enemies = new();
@@ -15,5 +16,9 @@ public abstract class EnemySpawner : MonoBehaviour
             Destroy(enemies[i].gameObject);
         }
         enemies.Clear();
+    }
+    private void Awake()
+    {
+        if (SpawnOnAwake) Spawn();
     }
 }
