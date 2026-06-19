@@ -1,7 +1,7 @@
 using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Presenter presenter;
+    [SerializeField] Presenter[] hpPresenters = new Presenter[0];
     [SerializeField] private EnemyData enemyData;
     private Enemy enemy;
 
@@ -31,7 +31,8 @@ public class EnemyController : MonoBehaviour
     }
     void ChangeHealth(HealthChangeData data)
     {
-        presenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+        foreach (var hp in hpPresenters)
+        hp.Present(data.minHealth, data.maxHealth, data.currentHealth);
         enemy.currentHP = data.currentHealth;
     }
     void EnemyDeath()
