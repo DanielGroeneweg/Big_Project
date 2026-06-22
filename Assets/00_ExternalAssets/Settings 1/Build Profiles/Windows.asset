@@ -100,8 +100,8 @@ MonoBehaviour:
     - line: '|   targetDevice: 2'
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
-    - line: '|   companyName: ''Twisted Dimensions Interactive '''
-    - line: '|   productName: "The H\xE9mennekes \u200Bof Aamsveen\u200B"'
+    - line: '|   companyName: Twisted_Dimensions_Interactive'
+    - line: '|   productName: "The_H\xE9mennekes _of_Aamsveen\u200B"'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
     - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:

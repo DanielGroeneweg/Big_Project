@@ -647,7 +647,6 @@ MonoBehaviour:
   animator: {fileID: 2786431748367350863}
   attackCollider: {fileID: 0}
   enemyController: {fileID: 5035794489355339250}
-  weaponAnimator: {fileID: 0}
   weapon: {fileID: 1053621272182607795}
   rb: {fileID: 5874523463760685728}
   grabGnome: {fileID: 5854050392269701281}
@@ -799,7 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   glowingMaterial: {fileID: 2100000, guid: 53e0f58523f94cc4689f65c68f7e0730, type: 2}
   notGlowingMaterial: {fileID: -4545955972670977684, guid: cb463a9e28051494a843c997018e98c8, type: 3}
-  mesh: {fileID: 5658628906895109346}
+  mesh: {fileID: 6164852413559589169}
   detectionAngle: 0.25
 --- !u!1001 &2151560526058531366
 PrefabInstance:
@@ -979,8 +978,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4955212653238476210, guid: 947a181d5bd6ab24287af246bdccd019, type: 3}
   m_PrefabInstance: {fileID: 8806864267591676087}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &5658628906895109346 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8706527540562962853, guid: a94db3a1a5f9bc24abadd5ba23626bb3, type: 3}
-  m_PrefabInstance: {fileID: 3914949319078462791}
+--- !u!137 &6164852413559589169 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3437848471981013382, guid: 947a181d5bd6ab24287af246bdccd019, type: 3}
+  m_PrefabInstance: {fileID: 8806864267591676087}
   m_PrefabAsset: {fileID: 0}
