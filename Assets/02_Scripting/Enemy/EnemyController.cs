@@ -45,6 +45,6 @@ public class EnemyController : MonoBehaviour
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true, durability = enemyData.weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
 
-        Destroy(gameObject);    
+        Destroy(gameObject,2f);    
     }
 }
