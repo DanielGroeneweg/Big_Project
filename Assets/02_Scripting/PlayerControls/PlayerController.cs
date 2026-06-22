@@ -52,6 +52,13 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     #endregion
 
+    #region Settings
+    public void SetSensitivity(float sensitivity)
+    {
+        cameraSensitivity = sensitivity;
+    }
+    #endregion
+
     #region Input
     public void OnMove(InputValue input)
     {
