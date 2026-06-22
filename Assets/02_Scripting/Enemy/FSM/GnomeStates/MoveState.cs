@@ -17,6 +17,7 @@ public class MoveState : State
         Debug.Log("Entered move state");
         if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.SetDestination(data.target.position);
+        data.animator.SetBool("Move", true);
     }
     public override void Step()
     {
@@ -39,6 +40,8 @@ public class MoveState : State
     public override void Exit()
     {
         // Set move animation to false
+        base.Exit();
+        data.animator.SetBool("Move", false);
     }
     public bool TargetReached()
     {

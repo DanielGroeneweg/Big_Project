@@ -12,6 +12,7 @@ public class IdleState : State
         Debug.Log("Entered idle state");
         if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.ResetPath();
+        data.animator.SetBool("Idle", true);
         // Set the idle animation
     }
     public override void Step()
@@ -24,7 +25,7 @@ public class IdleState : State
     public override void Exit()
     {
         // Set idle animation to false
-        
+        data.animator.SetBool("Idle", false);
     }
     /// <summary>
     /// Checks if the target is within the enemy's detection range.

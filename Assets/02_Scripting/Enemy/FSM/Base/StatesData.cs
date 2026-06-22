@@ -1,5 +1,8 @@
+using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 /// <summary>
 /// This class serves as a data container for the enemy's states in the finite state machine (FSM).
 /// </summary>
@@ -11,15 +14,15 @@ public class StatesData : MonoBehaviour
 {
     [Header("References")]
     public Transform enemyTransform;
-    public Transform target;
+    [ReadOnly] public Transform target;
     public NavMeshAgent enemyAgent;
     public Animator animator;
     public Collider attackCollider;
     public EnemyController enemyController;
-    public Animator weaponAnimator;
     public Weapon weapon;
     public Rigidbody rb;
     public GrabGnome grabGnome;
+    public List<Image> enemyHealthBar;
 
     [Header("Sounds")]
     public AudioClip[] footSteps;
@@ -44,7 +47,6 @@ public class StatesData : MonoBehaviour
         enemyAgent.stoppingDistance = enemyController.EnemyData.attackRange-(enemyController.EnemyData.attackRange*30/100);
         enemyAgent.speed = enemyController.EnemyData.moveSpeed;
         grabGnome = GetComponent<GrabGnome>();
-
     }
 
     public void SetKinematic(bool kinematic)
