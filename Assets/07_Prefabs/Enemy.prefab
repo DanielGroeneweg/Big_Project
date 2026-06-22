@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 6744297785107251535}
   - component: {fileID: 8390940643839948606}
   - component: {fileID: 5260983106700746434}
+  - component: {fileID: 2207783341963321037}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Gnome
@@ -784,6 +785,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundPresenter
   sounds:
   - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
+--- !u!114 &2207783341963321037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864076842404261106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57775d7057eeaf74d98ea90c960c70c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  glowingMaterial: {fileID: 2100000, guid: 53e0f58523f94cc4689f65c68f7e0730, type: 2}
+  notGlowingMaterial: {fileID: -4545955972670977684, guid: cb463a9e28051494a843c997018e98c8, type: 3}
+  mesh: {fileID: 5658628906895109346}
+  detectionAngle: 0.25
 --- !u!1001 &2151560526058531366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,4 +978,9 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4955212653238476210, guid: 947a181d5bd6ab24287af246bdccd019, type: 3}
   m_PrefabInstance: {fileID: 8806864267591676087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5658628906895109346 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8706527540562962853, guid: a94db3a1a5f9bc24abadd5ba23626bb3, type: 3}
+  m_PrefabInstance: {fileID: 3914949319078462791}
   m_PrefabAsset: {fileID: 0}
