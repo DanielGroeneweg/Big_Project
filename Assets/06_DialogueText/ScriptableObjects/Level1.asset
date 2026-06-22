@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d6c0f531d3c7f34b842e24427b2e5d9, type: 3}
-  m_Name: Test
+  m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::BetterDialogue
-  npcName: Tomato Man
-  voiceLines: []
-  text: {fileID: 4900000, guid: c5966f4556f3080489f50595b013ac13, type: 3}
+  npcName: You
+  voiceLines:
+  - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
+  - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
+  text: {fileID: 4900000, guid: 6ece57a1751593e4b82d82f588d760ee, type: 3}
