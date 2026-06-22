@@ -5,7 +5,7 @@ public class EyesSwitcher : MonoBehaviour
 {
     [SerializeField] Material glowingMaterial;
     [SerializeField] Material notGlowingMaterial;
-    [SerializeField] MeshRenderer mesh;
+    [SerializeField] SkinnedMeshRenderer mesh;
     [SerializeField] float detectionAngle;
     Transform target;
     private void Start()

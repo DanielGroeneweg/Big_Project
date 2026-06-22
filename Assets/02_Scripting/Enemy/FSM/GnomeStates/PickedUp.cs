@@ -1,3 +1,4 @@
+using UnityEditor.XR;
 using UnityEngine;
 
 public class PickedUp : State
@@ -17,6 +18,9 @@ public class PickedUp : State
         enemyCollider = data.enemyController.GetComponent<Collider>();
         enemyCollider.enabled = false;
         data.SetKinematic(true);
+        HealthBarEnabled(false);
+        data.animator.SetTrigger("PickedUp");
+
     }
     public override void Step()
     {
@@ -32,10 +36,18 @@ public class PickedUp : State
         data.isStunned = true;
         data.SetKinematic(false);
         enemyCollider.enabled = true;
+        HealthBarEnabled(true);
     }
     public bool WasThrown()
     {
         return !data.isPickedUp&&data.isLanded;
+    }
+    public void HealthBarEnabled(bool enabled)
+    {
+        foreach (var healthBar in data.enemyHealthBar)
+        {
+            healthBar.enabled = enabled;
+        }
     }
 
 }

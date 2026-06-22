@@ -11,15 +11,15 @@ public class AttackState : State
         base.Enter();
         attackStartTime = Time.time;
         Debug.Log("Entered attack state");
-
-        data.weaponAnimator.Play("MeleeWeaponAttack");
+        data.animator.SetBool("Attack", true);
         //data.weaponAnimator.speed = 1f / data.enemyController.EnemyData.attackCountdown;
         data.weapon.Attack(data.enemyController.EnemyData.attackCountdown, data.enemyController.EnemyData.attackDamage);
     }
     public override void Exit()
     { 
-        // Set attack animation to false
-        // Already happens
+        
+        base.Exit();
+        data.animator.SetBool("Attack", false);
     }
     public bool AttackOver()
     {
