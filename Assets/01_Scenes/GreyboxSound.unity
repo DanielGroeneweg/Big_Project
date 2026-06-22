@@ -7392,6 +7392,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+--- !u!114 &393331215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2087945376475998176, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+  m_PrefabInstance: {fileID: 393331214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7132743a8e1ee9043880a7fa83c942ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &393469483
 GameObject:
   m_ObjectHideFlags: 0
@@ -10456,6 +10467,7 @@ Transform:
   - {fileID: 932206782}
   - {fileID: 849267041}
   - {fileID: 654481864}
+  - {fileID: 2068853699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &521881273
@@ -12605,7 +12617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d82dc1a632d55488b6fc073b9f62cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomDialoguePlayer
-  timeInterval: 1
+  timeInterval: 10
   dialogueChance: 0.1
   dialogues:
   - {fileID: 11400000, guid: b1893b6113adbfc4a8163e21f48a5d24, type: 2}
@@ -15028,6 +15040,55 @@ MonoBehaviour:
   - {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
   spawnRadius: 0
   spawnAmount: 1
+--- !u!1 &808698576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808698578}
+  - component: {fileID: 808698577}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &808698577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808698576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 24613fa32f1392a47aef07407e8fdd17, type: 2}
+--- !u!4 &808698578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808698576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -159.3753, y: -9.244123, z: 178.68141}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &816973361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37078,6 +37139,56 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &2068853698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068853699}
+  - component: {fileID: 2068853700}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068853699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068853698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519979609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068853700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068853698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0824a65595acc15438b3e06de6eba5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  settings: {fileID: 11400000, guid: ddb47c8a9d0a2d345bdc469bb010a38a, type: 2}
+  mixer: {fileID: 24100000, guid: a445c5cc08e548540930c1643c01d907, type: 2}
+  playerController: {fileID: 393331215}
+  volume: {fileID: 808698577}
+  brightnessMax: -5
+  brightnessMin: 2
 --- !u!1 &2068957441
 GameObject:
   m_ObjectHideFlags: 0
@@ -38297,3 +38408,4 @@ SceneRoots:
   - {fileID: 2099806679}
   - {fileID: 393469484}
   - {fileID: 1074757535}
+  - {fileID: 808698578}
