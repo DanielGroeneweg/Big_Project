@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TMP_Text nameText;
     string[] dialogueLines;
     int lineIndex = 0;
+    bool canSkipLine = true;
     private void Start()
     {
         dialogueLines = dialogue.ReadLines();
@@ -24,6 +25,8 @@ public class DialogueManager : MonoBehaviour
         lineIndex = 0;
         NextLine();
     }
+    public void EnableSpace() { canSkipLine = true; }
+    public void DisableSpace() { canSkipLine = false; }
     public void NextLine()
     {
         if (lineIndex >= dialogueLines.Length) onCloseDialogue?.Invoke();
@@ -38,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void OnNextLine()
     {
-        NextLine();
+        if (canSkipLine) NextLine();
     }
     void DisplayLine(int index)
     {

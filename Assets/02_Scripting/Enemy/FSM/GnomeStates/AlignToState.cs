@@ -35,9 +35,10 @@ public class AlignToState : State
 
 
     private void UpdateDirection(Vector3 targetPos)
-    {
+    {  
         direction = (targetPos - enemyTransform.position).normalized;
         rotationSign = Mathf.Sign(Vector3.Dot(enemyTransform.right, direction));
+       
     }
 
     public bool AlignedWithTarget()

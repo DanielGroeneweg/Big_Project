@@ -1,7 +1,8 @@
 using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Presenter presenter;
+    [SerializeField] Presenter[] hpPresenters = new Presenter[0];
+    [SerializeField] Presenter[] deathPresenters = new Presenter[0];
     [SerializeField] private EnemyData enemyData;
     private Enemy enemy;
 
@@ -31,15 +32,19 @@ public class EnemyController : MonoBehaviour
     }
     void ChangeHealth(HealthChangeData data)
     {
-        presenter.Present(data.minHealth, data.maxHealth, data.currentHealth);
+        foreach (var hp in hpPresenters)
+        hp.Present(data.minHealth, data.maxHealth, data.currentHealth);
         enemy.currentHP = data.currentHealth;
     }
     void EnemyDeath()
     {
+        foreach (Presenter presenter in deathPresenters)
+            presenter.Present(0,100,0);
+
         if (enemyData.weapon == null) return;
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true, durability = enemyData.weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
 
-        Destroy(gameObject);    
+        Destroy(gameObject,2f);    
     }
 }
