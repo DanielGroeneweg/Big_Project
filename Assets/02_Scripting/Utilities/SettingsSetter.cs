@@ -14,17 +14,20 @@ public class SettingsSetter : MonoBehaviour
     Exposure exposure;
     private void Start()
     {
-        foreach (VolumeComponent comp in volume.profile.components)
+        if (volume != null)
         {
-            if (comp is Exposure exp)
+            foreach (VolumeComponent comp in volume.profile.components)
             {
-                exposure = exp;
-            } 
+                if (comp is Exposure exp)
+                {
+                    exposure = exp;
+                }
+            }
         }
 
         if (settings != null) LoadSettings();
     }
-    void LoadSettings()
+    public void LoadSettings()
     {
         // Make the brightness go so that 0 in settings means brightness min (2) in volume, while 100 in settings means brightness max (-5) in volume
         float brightness = brightnessMin + settings.brightness * ((brightnessMax - brightnessMin) / 100);
@@ -35,7 +38,7 @@ public class SettingsSetter : MonoBehaviour
 
         if (mixer != null)
         {
-            mixer.SetFloat("Volume", settings.volume / 100f);
+            mixer.SetFloat("Volume", Mathf.Log10(settings.volume / 100) * 20);
         }
 
         if (playerController != null)

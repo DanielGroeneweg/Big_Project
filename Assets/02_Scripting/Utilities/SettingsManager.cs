@@ -24,10 +24,6 @@ public class SettingsManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    public void SetVolume(float volume)
-    {
-        settings.volume = (Mathf.Log10(volume) * 20);
-    }
     void Save()
     {
         SettingsData data = new SettingsData() { volume = settings.volume, brightness = settings.brightness, sensitivity = settings.mouseSensitivity };
