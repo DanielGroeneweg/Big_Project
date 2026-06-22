@@ -11,6 +11,7 @@ public class DieState : State
     {
         base.Enter();
         //Set the die animation
+        data.animator.SetTrigger("Death");
         Debug.Log("A gnome died.💀 Rest in peace my granny she got hit by a bazooka 😔 ");
 
     }
