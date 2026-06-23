@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     bool canSkipLine = true;
     private void Start()
     {
-        dialogueLines = dialogue.ReadLines();
+        dialogueLines = new string[0];
     }
     public void SetDialogue(BetterDialogue dialogue)
     {
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void OnNextLine()
     {
-        if (canSkipLine) NextLine();
+        NextLine();
     }
     void DisplayLine(int index)
     {
