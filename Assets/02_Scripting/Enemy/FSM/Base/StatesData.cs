@@ -31,6 +31,7 @@ public class StatesData : MonoBehaviour
     public bool isPickedUp = false;
     public bool isLanded = false;
     public bool isStunned = false;
+    public bool isDamaged = false;
     public float stunDuration = 2f;
     public bool wasThrown;
     public float throwDamage = 10f;
