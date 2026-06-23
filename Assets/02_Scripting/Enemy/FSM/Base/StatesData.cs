@@ -34,6 +34,7 @@ public class StatesData : MonoBehaviour
     public bool isStunned = false;
     public bool isDamaged = false;
     public bool wasThrown;
+    public bool ignoreDamageState;
     public float stunDuration = 2f;
     public float throwDamage = 10f;
 

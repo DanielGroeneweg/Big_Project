@@ -10,6 +10,7 @@ public class Stunned : State
     }
     public override void Enter()
     {
+        data.ignoreDamageState = true;
         if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
         {
             data.SetAgentStopped(true);
@@ -18,8 +19,10 @@ public class Stunned : State
         }
         originalDrag = data.rb.linearDamping;
         data.rb.linearDamping = 10f;
+        data.animator.SetTrigger("Stunned");
         Debug.Log("Stunned");
         data.enemyController.health.Damage(10f);
+        data.isDamaged = false;
         //statesData.animator.SetBool("isStunned", true);
     }
     public override void Step()
@@ -38,6 +41,7 @@ public class Stunned : State
     }
     public override void Exit()
     {
+        data.ignoreDamageState = false;
         data.SetAgentStopped(false);
         data.enemyAgent.enabled = true;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamagedState : State
 {
-    private float stunDuration = 0.4f; 
+    private float stunDuration = 0.8f; 
     private float timer;
     public DamagedState(StatesData statesData)
     {
@@ -14,7 +14,9 @@ public class DamagedState : State
         base.Enter();
         //data.rb.AddForce()
         timer = 0f;
-        data.isDamaged = false;
+
+        if (data.enemyAgent.enabled)
+            data.enemyAgent.isStopped = true;
         data.animator.SetTrigger("Damaged");
     }
 
@@ -22,6 +24,16 @@ public class DamagedState : State
     {
         base.Step();
         timer += Time.deltaTime;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        data.isDamaged = false;
+
+        if (data.enemyAgent.enabled)
+            data.enemyAgent.isStopped = false;
     }
 
     public bool StunDamageDurationOver()
