@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, groundedRange))
         {
+            Debug.Log($"{hit.collider.gameObject.name} has been hit with tag: {hit.collider.tag}");
             if (hit.collider.tag == "ground") return true;
         }
         return false;

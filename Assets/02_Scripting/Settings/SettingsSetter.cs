@@ -9,6 +9,7 @@ public class SettingsSetter : MonoBehaviour
     [SerializeField] AudioMixer mixer;
     [SerializeField] PlayerController playerController;
     [SerializeField] Volume volume;
+    [SerializeField] LanguageSetter languageSetter;
     [SerializeField] float brightnessMax = -5;
     [SerializeField] float brightnessMin = 2;
     Exposure exposure;
@@ -44,6 +45,11 @@ public class SettingsSetter : MonoBehaviour
         if (playerController != null)
         {
             playerController.SetSensitivity(settings.mouseSensitivity / 100f);
+        }
+
+        if (languageSetter != null)
+        {
+            languageSetter.SetLanguage(settings.language);
         }
     }
 }

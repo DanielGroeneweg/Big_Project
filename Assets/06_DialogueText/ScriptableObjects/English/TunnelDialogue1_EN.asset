@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d6c0f531d3c7f34b842e24427b2e5d9, type: 3}
-  m_Name: TunnelDialogue5
+  m_Name: TunnelDialogue1_EN
   m_EditorClassIdentifier: Assembly-CSharp::BetterDialogue
   npcName: You
   voiceLines:
