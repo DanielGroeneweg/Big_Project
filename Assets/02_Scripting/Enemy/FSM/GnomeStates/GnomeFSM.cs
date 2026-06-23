@@ -49,12 +49,12 @@ public class GnomeFSM : FSM
 
         stunned.transitions.Add(new Transition(stunned.StunOver, idle));
 
-        idle.transitions.Add(new Transition(isDamaged, damaged));
-        move.transitions.Add(new Transition(isDamaged,damaged));
-        align.transitions.Add(new Transition(isDamaged, damaged));
-        attack.transitions.Add(new Transition(isDamaged, damaged));
+        //idle.transitions.Add(new Transition(isDamaged, damaged));
+        //move.transitions.Add(new Transition(isDamaged,damaged));
+        //align.transitions.Add(new Transition(isDamaged, damaged));
+        //attack.transitions.Add(new Transition(isDamaged, damaged));
 
-        damaged.transitions.Add(new Transition(damaged.StunDamageDurationOver, idle));
+        //damaged.transitions.Add(new Transition(damaged.StunDamageDurationOver, idle));
 
         idle.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
         move.transitions.Add(new Transition(() => data.enemyController.IsDead, death));

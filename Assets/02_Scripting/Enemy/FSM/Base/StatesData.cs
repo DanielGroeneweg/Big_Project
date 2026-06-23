@@ -10,6 +10,7 @@ using UnityEngine.UI;
 [RequireComponent (typeof(Collider))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent (typeof(EnemyController))]
+[DefaultExecutionOrder(100)]
 public class StatesData : MonoBehaviour
 {
     [Header("References")]
@@ -32,8 +33,8 @@ public class StatesData : MonoBehaviour
     public bool isLanded = false;
     public bool isStunned = false;
     public bool isDamaged = false;
-    public float stunDuration = 2f;
     public bool wasThrown;
+    public float stunDuration = 2f;
     public float throwDamage = 10f;
 
     private void Start()
@@ -48,6 +49,7 @@ public class StatesData : MonoBehaviour
         enemyAgent.stoppingDistance = enemyController.EnemyData.attackRange-(enemyController.EnemyData.attackRange*30/100);
         enemyAgent.speed = enemyController.EnemyData.moveSpeed;
         grabGnome = GetComponent<GrabGnome>();
+        enemyController.health.damageEvent += Damaged;
     }
 
     public void SetKinematic(bool kinematic)
@@ -59,5 +61,9 @@ public class StatesData : MonoBehaviour
     {
         if (enemyAgent.enabled && enemyAgent.isOnNavMesh)
             enemyAgent.isStopped = stopped;
+    }
+    public void Damaged()
+    {
+        isDamaged = true;
     }
 }

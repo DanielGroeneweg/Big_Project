@@ -14,23 +14,29 @@ public class AlignToState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered align to state");
         if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
-            data.enemyAgent.ResetPath();
-        if (data.target != null)
         {
-            UpdateDirection(data.target.position);
+            data.enemyAgent.ResetPath();
+            data.enemyAgent.velocity = Vector3.zero; 
         }
-            
+        if (data.target != null)
+            UpdateDirection(data.target.position);
+
     }
     public override void Step()
     {
         base.Step();
 
-        enemyTransform.Rotate(
-            enemyTransform.up,
-            rotationSign * data.enemyController.EnemyData.rotateSpeed * Time.deltaTime
-        );
+        if (data.target == null) return;
+
+        Vector3 toTarget = (data.target.position - enemyTransform.position);
+        toTarget.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(toTarget);
+
+        enemyTransform.rotation = Quaternion.RotateTowards(
+            enemyTransform.rotation,
+            targetRotation,
+            data.enemyController.EnemyData.rotateSpeed * Time.deltaTime);
     }
 
 
@@ -43,19 +49,18 @@ public class AlignToState : State
 
     public bool AlignedWithTarget()
     {
-        if (data.target != null)
-            UpdateDirection(data.target.position);
+        if (data.target == null) return false;
+        UpdateDirection(data.target.position);
         bool inRange = Vector3.Distance(enemyTransform.position, data.target.position)
                    <= data.enemyController.EnemyData.attackRange;
-        bool facingTarget = Vector3.Dot(enemyTransform.forward, direction) > 0.95f;
+        bool facingTarget = Vector3.Dot(enemyTransform.forward, direction) > 0.9f; 
         return inRange && facingTarget;
     }
 
     public bool TargetOutOfRange()
     {
-        if (data.target == null)
-            return true;
-
-        return Vector3.Distance(enemyTransform.position, data.target.position) > data.enemyController.EnemyData.attackRange;
+        if (!data.enemyAgent.enabled || !data.enemyAgent.isOnNavMesh) return false;
+        if (data.enemyAgent.pathPending) return false;
+        return data.enemyAgent.remainingDistance <= data.enemyAgent.stoppingDistance;
     }
 }
