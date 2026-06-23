@@ -10069,7 +10069,7 @@ MonoBehaviour:
         m_MethodName: SetDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2a326ba1759b17a4aa7ea495f3ad050f, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 5a476cc8e95c8e94b9c01e88c0d5b6ce, type: 2}
           m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -10820,7 +10820,7 @@ MonoBehaviour:
         m_MethodName: SetDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2a326ba1759b17a4aa7ea495f3ad050f, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 55d2ab65df796374f84016eff21d26eb, type: 2}
           m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -18578,25 +18578,13 @@ MonoBehaviour:
   m_IsGlobal: 1
   fadeRadius: 0
   priority: 0
-  customPasses:
-  - rid: 8633795606874685514
+  customPasses: []
   injectionPoint: 3
   m_TargetCamera: {fileID: 0}
   useTargetCamera: 0
   references:
     version: 2
-    RefIds:
-    - rid: 8633795606874685514
-      type: {class: SeparableBlurPass, ns: , asm: Assembly-CSharp}
-      data:
-        m_Name: Custom Pass
-        enabled: 1
-        targetColorBuffer: 0
-        targetDepthBuffer: 0
-        clearFlags: 0
-        passFoldout: 0
-        m_Version: 0
-        blurMaterial: {fileID: 2100000, guid: 912c3584175195d4e80422a7fb23950b, type: 2}
+    RefIds: []
 --- !u!4 &1074757535
 Transform:
   m_ObjectHideFlags: 0

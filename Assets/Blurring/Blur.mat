@@ -204,7 +204,7 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
-    - _KernelSize: 24
+    - _KernelSize: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -231,7 +231,7 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
-    - _Spread: 3.2
+    - _Spread: 0.13333334
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
