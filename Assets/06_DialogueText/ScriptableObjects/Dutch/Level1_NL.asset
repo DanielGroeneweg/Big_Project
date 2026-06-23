@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d6c0f531d3c7f34b842e24427b2e5d9, type: 3}
-  m_Name: Level1
+  m_Name: Level1_NL
   m_EditorClassIdentifier: Assembly-CSharp::BetterDialogue
-  npcName: You
+  npcName: Jij
   voiceLines:
   - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
   - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
