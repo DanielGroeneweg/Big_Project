@@ -11765,10 +11765,10 @@ MonoBehaviour:
       - m_Target: {fileID: 422047599}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: SetDialogue
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5a476cc8e95c8e94b9c01e88c0d5b6ce, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12591,10 +12591,10 @@ MonoBehaviour:
       - m_Target: {fileID: 422047599}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: SetDialogue
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 55d2ab65df796374f84016eff21d26eb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -31331,10 +31331,10 @@ MonoBehaviour:
       - m_Target: {fileID: 422047599}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: SetDialogue
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 36051699b13e6994089af2590eec74eb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -43924,10 +43924,10 @@ MonoBehaviour:
       - m_Target: {fileID: 422047599}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: SetDialogue
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 36051699b13e6994089af2590eec74eb, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
