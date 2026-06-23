@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void OnNextLine()
     {
-        NextLine();
+        if (canSkipLine) NextLine();
     }
     void DisplayLine(int index)
     {
