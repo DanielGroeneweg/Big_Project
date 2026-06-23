@@ -10072,6 +10072,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogueForEvent: {fileID: 0}
 --- !u!1 &517570507
 GameObject:
   m_ObjectHideFlags: 0
@@ -10822,6 +10823,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogueForEvent: {fileID: 0}
 --- !u!4 &563300615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5258333172752255732, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
@@ -37149,6 +37151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068853699}
   - component: {fileID: 2068853700}
+  - component: {fileID: 2068853701}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -37187,8 +37190,99 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: a445c5cc08e548540930c1643c01d907, type: 2}
   playerController: {fileID: 393331215}
   volume: {fileID: 808698577}
+  languageSetter: {fileID: 0}
   brightnessMax: -5
   brightnessMin: 2
+--- !u!114 &2068853701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068853698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c54c9f9af30b24f95e3fa35182dbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageSetter
+  onSetEnglish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2112630868}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 36051699b13e6994089af2590eec74eb, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 507818735}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5a476cc8e95c8e94b9c01e88c0d5b6ce, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 556145651}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 55d2ab65df796374f84016eff21d26eb, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSetDutch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2112630868}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 507818735}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 556145651}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: BetterDialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2068957441
 GameObject:
   m_ObjectHideFlags: 0
@@ -37719,6 +37813,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dialogueForEvent: {fileID: 0}
 --- !u!43 &2113132869
 Mesh:
   m_ObjectHideFlags: 0
