@@ -16,8 +16,7 @@ public class AttackState : State
         data.weapon.Attack(data.enemyController.EnemyData.attackCountdown, data.enemyController.EnemyData.attackDamage);
     }
     public override void Exit()
-    { 
-        
+    {  
         base.Exit();
         data.animator.SetBool("Attack", false);
     }

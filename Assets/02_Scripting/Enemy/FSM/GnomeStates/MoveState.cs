@@ -48,10 +48,18 @@ public class MoveState : State
         if (!data.enemyAgent.enabled || !data.enemyAgent.isOnNavMesh)
             return false;
 
+        if (data.target == null)
+            return false;
+
         if (data.enemyAgent.pathPending)
             return false;
 
-        return data.enemyAgent.remainingDistance <= data.enemyController.EnemyData.attackRange;
+        float dist = Vector3.Distance(
+            data.enemyTransform.position,
+            data.target.position
+        );
+
+        return dist <= data.enemyController.EnemyData.attackRange;
     }
     public bool TargetOutOfRange()
     {
