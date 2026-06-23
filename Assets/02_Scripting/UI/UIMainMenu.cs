@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    [SerializeField] private Button startButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button quitButton;
+    [SerializeField] private Button[] startButtons;
+    [SerializeField] private Button[] settingsButtons;
+    [SerializeField] private Button[] quitButtons;
 
 
     [SerializeField] private UnityEvent onStartButton;
@@ -18,9 +18,14 @@ public class UIMainMenu : MonoBehaviour
     
     public void Start()
     {
-        startButton.onClick.AddListener(() => onStartButton?.Invoke());
-        settingsButton.onClick.AddListener(() => onSettingsButton?.Invoke());
-        quitButton.onClick.AddListener(() => onApplicationQuit?.Invoke());
+        foreach (Button startButton in startButtons)
+            startButton.onClick.AddListener(() => onStartButton?.Invoke());
+        
+        foreach (Button settingsButton in settingsButtons)
+            settingsButton.onClick.AddListener(() => onSettingsButton?.Invoke());
+        
+        foreach (Button quitButton in quitButtons)
+            quitButton.onClick.AddListener(() => onApplicationQuit?.Invoke());
     }
     public void Quit()
     {

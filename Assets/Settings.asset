@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ce1f372702ba540bc0ef7b97ffdaf3, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp::Settings
-  volume: 50
-  brightness: 50
-  mouseSensitivity: 50
+  volume: 77.72932
+  brightness: 4.079615
+  mouseSensitivity: 44.767197
+  language: 0

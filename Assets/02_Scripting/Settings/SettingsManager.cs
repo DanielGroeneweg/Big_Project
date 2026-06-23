@@ -6,6 +6,7 @@ using UnityEngine;
     public float volume;
     public float sensitivity;
     public float brightness;
+    public Languages language;
 }
 public class SettingsManager : MonoBehaviour
 {
@@ -26,7 +27,14 @@ public class SettingsManager : MonoBehaviour
     }
     void Save()
     {
-        SettingsData data = new SettingsData() { volume = settings.volume, brightness = settings.brightness, sensitivity = settings.mouseSensitivity };
+        SettingsData data = new SettingsData()
+        {
+            volume = settings.volume,
+            brightness = settings.brightness,
+            sensitivity = settings.mouseSensitivity,
+            language = settings.language,
+        };
+
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(path, json);
     }
@@ -42,6 +50,7 @@ public class SettingsManager : MonoBehaviour
                 settings.volume = data.volume;
                 settings.brightness = data.brightness;
                 settings.mouseSensitivity = data.sensitivity;
+                settings.language = data.language;
             }
 
             else
@@ -49,6 +58,7 @@ public class SettingsManager : MonoBehaviour
                 settings.volume = 50;
                 settings.brightness = 50;
                 settings.mouseSensitivity = 50;
+                settings.language = Languages.English;
             }
         }
 
@@ -57,6 +67,7 @@ public class SettingsManager : MonoBehaviour
             settings.volume = 50;
             settings.brightness = 50;
             settings.mouseSensitivity = 50;
+            settings.language = Languages.English;
 
             Save();
         }

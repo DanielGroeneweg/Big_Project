@@ -21,7 +21,8 @@ public class WaveSpawner : EnemySpawner
     [Tooltip("Checking this makes the next wave spawn after a period of time no matter if the previous wave has been defeated or not")]
     [SerializeField] bool useWaveTimer;
     [SerializeField] [ShowIf("useWaveTimer")] float waveTimer;
-    [SerializeField] UnityEvent onFinalWaveDefeated;
+    [SerializeField] UnityEvent<BetterDialogue> onFinalWaveDefeated;
+    [SerializeField] BetterDialogue dialogueForEvent;
     int waveCount;
     bool waveFinished;
     [Button("Spawn", EButtonEnableMode.Playmode)]
@@ -29,7 +30,7 @@ public class WaveSpawner : EnemySpawner
     {
         if (waveCount >= waves.Length)
         {
-            onFinalWaveDefeated?.Invoke();
+            onFinalWaveDefeated?.Invoke(dialogueForEvent);
             return;
         }
 
@@ -107,5 +108,9 @@ public class WaveSpawner : EnemySpawner
                 if (data.enemyCount <= 0) data.enemyCount = 1;
             }
         }
+    }
+    public void SetDialogue(BetterDialogue dialogue)
+    {
+        dialogueForEvent = dialogue;
     }
 }
