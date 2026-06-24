@@ -9,6 +9,7 @@ public class EnemyData : ScriptableObject
     public int attackDamage;
     public float attackRange;
     public float attackCountdown;
+    public float attackCooldown;
     public float detectionRange;
     public float rotateSpeed;
     public WeaponItem weapon;
@@ -16,7 +17,7 @@ public class EnemyData : ScriptableObject
 
     public Enemy CreateEnemy()
     {
-        return new Enemy(maxHP, moveSpeed, attackDamage, attackRange, attackCountdown, detectionRange, rotateSpeed);
+        return new Enemy(maxHP, moveSpeed, attackDamage, attackRange, attackCountdown, attackCooldown,detectionRange, rotateSpeed);
     }
 }
 
@@ -36,12 +37,14 @@ public class Enemy
     private float attackRange;
     public float AttackCountdown => attackCountdown;
     private float attackCountdown;
+    private float AttackCooldown => attackCooldown;
+    public float attackCooldown;
     public float DetectionRange => detectionRange;
     private float detectionRange;
     public float RotateSpeed => rotateSpeed;
     private float rotateSpeed;
 
-    public Enemy(int maxHP, float moveSpeed, int attackDamage, float attackRange, float attackCountdown, float detectionRange, float rotateSpeed)
+    public Enemy(int maxHP, float moveSpeed, int attackDamage, float attackRange, float attackCountdown,float attackCooldown, float detectionRange, float rotateSpeed)
     {
         this.maxHP = maxHP;
         currentHP = maxHP;
@@ -49,6 +52,7 @@ public class Enemy
         this.attackDamage = attackDamage;
         this.attackRange = attackRange;
         this.attackCountdown = attackCountdown; 
+        this.attackCooldown = attackCooldown;
         this.detectionRange = detectionRange;
         this.rotateSpeed = rotateSpeed;
     }
