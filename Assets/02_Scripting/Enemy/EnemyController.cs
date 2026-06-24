@@ -56,12 +56,11 @@ public class EnemyController : MonoBehaviour
     }
     void EnemyDeath()
     {
-        foreach (Presenter presenter in deathPresenters)
-            presenter.Present(0,100,0);
-
         if (enemyData.weapon == null) return;
+
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true, durability = enemyData.weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
+        Debug.Log("summoned weapon");
 
         Destroy(gameObject,2f);    
     }
