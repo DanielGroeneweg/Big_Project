@@ -511,7 +511,6 @@ GameObject:
   - component: {fileID: -8053129170940189915}
   - component: {fileID: 6744297785107251535}
   - component: {fileID: 8390940643839948606}
-  - component: {fileID: 5260983106700746434}
   - component: {fileID: 2207783341963321037}
   m_Layer: 3
   m_Name: Enemy
@@ -803,21 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundPresenter
   sounds:
-  - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
---- !u!114 &5260983106700746434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864076842404261106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7b6b528419e8441ad26759dd83f8a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundPresenter
-  sounds:
-  - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
+  - {fileID: 8300000, guid: 95ba7c26c4d9f63469dcd6e8adeab0c8, type: 3}
 --- !u!114 &2207783341963321037
 MonoBehaviour:
   m_ObjectHideFlags: 0
