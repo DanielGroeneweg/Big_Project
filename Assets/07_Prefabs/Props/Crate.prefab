@@ -189,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4455414756608290771}
+  - component: {fileID: 8912513869035198350}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -216,6 +217,27 @@ Transform:
   - {fileID: 7062410963620243194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8912513869035198350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981662915347763239}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 99.98608, y: 101.32067, z: 101.56131}
+  m_Center: {x: -0.14145374, y: -0.112989545, z: -0.13712645}
 --- !u!1 &6136658779074227631
 GameObject:
   m_ObjectHideFlags: 0

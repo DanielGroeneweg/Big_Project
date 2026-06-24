@@ -313,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8519224542319344705}
+  - component: {fileID: 90385594243696867}
   m_Layer: 0
   m_Name: Opened_Chest
   m_TagString: Untagged
@@ -341,6 +342,27 @@ Transform:
   - {fileID: 5694370319966759342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &90385594243696867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185262453429392538}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 158.37431, y: 141.84332, z: 96.51379}
+  m_Center: {x: -1.0152817, y: -0.5650431, z: 0.018236041}
 --- !u!1 &3666919278147200777
 GameObject:
   m_ObjectHideFlags: 0
