@@ -11,13 +11,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Button nextButton;
     [SerializeField] AudioSource audioPlayer;
     [SerializeField] TMP_Text nameText;
-    string[] dialogueLines;
+    string[] dialogueLines = new string[0];
     int lineIndex = 0;
     bool canSkipLine = true;
-    private void Start()
-    {
-        dialogueLines = new string[0];
-    }
     public void SetDialogue(BetterDialogue dialogue)
     {
         this.dialogue = dialogue;
@@ -45,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     }
     void DisplayLine(int index)
     {
-        nameText.text = dialogue.NPCName;
+        if (nameText != null) nameText.text = dialogue.NPCName;
         textBox.text = dialogueLines[index];
     }
     void PlayVoiceLine(int index)
@@ -54,8 +50,8 @@ public class DialogueManager : MonoBehaviour
         {
             AudioClip clip = dialogue.VoiceLines[index];
             GetComponent<AudioSource>().PlayOneShot(clip);
-            nextButton.gameObject.SetActive(false);
-            StartCoroutine(EnableButtonAfterDelay(clip.length));
+            if (canSkipLine) nextButton.gameObject.SetActive(false);
+            if (canSkipLine) StartCoroutine(EnableButtonAfterDelay(clip.length));
         }
     }
     IEnumerator EnableButtonAfterDelay(float time)
