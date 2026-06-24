@@ -34026,6 +34026,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
   m_PrefabInstance: {fileID: 393331214}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1563122415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7520074192908630830, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+  m_PrefabInstance: {fileID: 393331214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8166104af421656488ac59bed0db145b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1001 &1565947814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44352,6 +44363,83 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &624416339442901827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3473204340212720396, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1563122415}
+    - target: {fileID: 4865638135038772254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865638135038772254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824464893371844306, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_Name
+      value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897811017371111362, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897811017371111362, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.385
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 43.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856335996589806254, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
 --- !u!1001 &1242713755059767347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44637,3 +44725,4 @@ SceneRoots:
   - {fileID: 1074757535}
   - {fileID: 808698578}
   - {fileID: 400412767}
+  - {fileID: 624416339442901827}
