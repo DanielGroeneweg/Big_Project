@@ -647,6 +647,19 @@ MonoBehaviour:
   - {fileID: 8390940643839948606}
   - {fileID: 7222734945032659164}
   deathPresenters: []
+  heys:
+  - {fileID: 8300000, guid: ecb27c32351eb514884a20006e89d524, type: 3}
+  - {fileID: 8300000, guid: 5411a314869328141a0c4603a215d85f, type: 3}
+  - {fileID: 8300000, guid: a6ae81a76ef88a34fba52e2e60ae9d50, type: 3}
+  - {fileID: 8300000, guid: cf85c55fd8a3bec429f1a1456de15ac2, type: 3}
+  - {fileID: 8300000, guid: 4c1e89048721e3e4494140bd4bb53e07, type: 3}
+  - {fileID: 8300000, guid: 7cda501d845d002499c4c04ef79f9eda, type: 3}
+  - {fileID: 8300000, guid: 77d2be04baeb18f49aedab8377141e84, type: 3}
+  - {fileID: 8300000, guid: 5a4f1982f27c6ab408e77e54173af9a3, type: 3}
+  - {fileID: 8300000, guid: 9039088cc71d68746938b5454e736470, type: 3}
+  - {fileID: 8300000, guid: 3d59626b135dc6c45b34258e1552ec9c, type: 3}
+  heyInterval: 2
+  heyChance: 1
   enemyData: {fileID: 11400000, guid: bb475a906e5291b48a8ed9da043625f7, type: 2}
 --- !u!114 &387159186138960457
 MonoBehaviour:
@@ -684,8 +697,9 @@ MonoBehaviour:
   isLanded: 0
   isStunned: 0
   isDamaged: 0
-  stunDuration: 2
   wasThrown: 0
+  ignoreDamageState: 0
+  stunDuration: 2
   throwDamage: 10
 --- !u!54 &5874523463760685728
 Rigidbody:
