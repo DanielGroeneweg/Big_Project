@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BetterDialogue
   npcName: You
   voiceLines:
-  - {fileID: 8300000, guid: 5b3a178a25f7bb14fa073ea30e78900a, type: 3}
+  - {fileID: 8300000, guid: 99e65403fdcea554086f1b74768da461, type: 3}
   text: {fileID: 4900000, guid: 3d7cc132eb4fc9c478c9517d99d8b153, type: 3}
+  Language: 0

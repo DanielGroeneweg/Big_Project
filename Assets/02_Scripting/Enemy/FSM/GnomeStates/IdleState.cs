@@ -9,7 +9,6 @@ public class IdleState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered idle state");
         if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.ResetPath();
         data.animator.SetBool("Idle", true);
