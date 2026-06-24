@@ -16,9 +16,9 @@ public class AttackState : State
         attackStartTime = Time.time;
         isOnCooldown = false;
         cooldownTimer = 0f;
-        Debug.Log("Entered attack state");
         data.animator.SetTrigger("Attack");
-        data.weapon.Attack(data.enemyController.EnemyData.attackCountdown, data.enemyController.EnemyData.attackDamage);
+        data.animator.speed = data.attackAnimatorSpeed;
+        data.weapon.Attack(data.enemyController.EnemyData.attackDuration, data.enemyController.EnemyData.attackDamage);
     }
 
     public override void Step()
@@ -43,12 +43,12 @@ public class AttackState : State
     public override void Exit()
     {
         base.Exit();
-  
+        data.animator.speed = 1f;
     }
 
     public bool AttackOver()
     {
-        return Time.time > attackStartTime + data.enemyController.EnemyData.attackCountdown;
+        return Time.time > attackStartTime + data.enemyController.EnemyData.attackDuration;
     }
 
     public bool CooldownOver()

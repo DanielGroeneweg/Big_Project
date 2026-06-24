@@ -20,7 +20,6 @@ public class Stunned : State
         originalDrag = data.rb.linearDamping;
         data.rb.linearDamping = 10f;
         data.animator.SetTrigger("Stunned");
-        Debug.Log("Stunned");
         data.enemyController.health.Damage(10f);
         data.isDamaged = false;
         //statesData.animator.SetBool("isStunned", true);
