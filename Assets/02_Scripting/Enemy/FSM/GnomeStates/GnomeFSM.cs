@@ -31,9 +31,8 @@ public class GnomeFSM : FSM
         align.transitions.Add(new Transition(align.TargetOutOfRange, move));
         move.transitions.Add(new Transition(move.TargetOutOfRange, idle));
 
-
-        attack.transitions.Add(new Transition(attack.AttackOverAndTargetInRange, align));
-        attack.transitions.Add(new Transition(attack.AttackOverAndTargetOutOfRange, idle));
+        attack.transitions.Add(new Transition(attack.CooldownOverAndTargetInRange, align));
+        attack.transitions.Add(new Transition(attack.CooldownOverAndTargetOutOfRange, idle));
 
         idle.transitions.Add(new Transition(isPickedUp, pickedUp));
         move.transitions.Add(new Transition(isPickedUp, pickedUp));
