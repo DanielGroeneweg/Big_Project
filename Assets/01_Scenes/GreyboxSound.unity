@@ -2753,6 +2753,11 @@ MonoBehaviour:
   equipWeaponEvent: {fileID: 11400000, guid: 30c4c4bcffb85744fb82ee3d9a040457, type: 2}
   dropWeaponEvent: {fileID: 11400000, guid: 516a0e2a9c3834747bd17ea1ff140792, type: 2}
   weaponDurabilityEvent: {fileID: 11400000, guid: 9be5bc20b6c577048bbd416e2b7d860e, type: 2}
+--- !u!1 &205705913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3690613933268570025, guid: 85e74773aada42244b158d932de1e587, type: 3}
+  m_PrefabInstance: {fileID: 933444776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &206170094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12466,6 +12471,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 662013164544410885, guid: 0d14727880f24014e88211ac74e149f5, type: 3}
   m_PrefabInstance: {fileID: 685233493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &694183784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2923384200661567202, guid: be34aa66a969e8247be81ef4c41818e5, type: 3}
+  m_PrefabInstance: {fileID: 1349612520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &704449288
 GameObject:
   m_ObjectHideFlags: 0
@@ -14877,6 +14887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Tunnel_Room_BIg
       objectReference: {fileID: 0}
+    - target: {fileID: 3690613933268570025, guid: 85e74773aada42244b158d932de1e587, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     - target: {fileID: 9154819780456079258, guid: 85e74773aada42244b158d932de1e587, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.010000001
@@ -14924,13 +14938,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3690613933268570025, guid: 85e74773aada42244b158d932de1e587, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933444780}
   m_SourcePrefab: {fileID: 100100000, guid: 85e74773aada42244b158d932de1e587, type: 3}
 --- !u!4 &933444777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9154819780456079258, guid: 85e74773aada42244b158d932de1e587, type: 3}
   m_PrefabInstance: {fileID: 933444776}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &933444780
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205705913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1648285444865705841, guid: 5069ca9d0a6191b4481fe1837c75a19d, type: 3}
 --- !u!1 &934753991
 GameObject:
   m_ObjectHideFlags: 0
@@ -21557,16 +21596,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Tunnel_Room_Big_Passage
       objectReference: {fileID: 0}
+    - target: {fileID: 2923384200661567202, guid: be34aa66a969e8247be81ef4c41818e5, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2923384200661567202, guid: be34aa66a969e8247be81ef4c41818e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1349612524}
   m_SourcePrefab: {fileID: 100100000, guid: be34aa66a969e8247be81ef4c41818e5, type: 3}
 --- !u!4 &1349612521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 120959235131886251, guid: be34aa66a969e8247be81ef4c41818e5, type: 3}
   m_PrefabInstance: {fileID: 1349612520}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1349612524
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694183784}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3685106076470703742, guid: 5069ca9d0a6191b4481fe1837c75a19d, type: 3}
 --- !u!1 &1356414174
 GameObject:
   m_ObjectHideFlags: 0
