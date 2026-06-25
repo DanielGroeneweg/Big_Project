@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public float CurrentHP => enemy.currentHP;
     public int MaxHP => enemyData.maxHP;
     public bool IsDead => CurrentHP <= 0;
-
+    bool died = false;
     public Health health { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,11 +56,11 @@ public class EnemyController : MonoBehaviour
     }
     void EnemyDeath()
     {
-        if (enemyData.weapon == null) return;
+        if (enemyData.weapon == null || died) return;
 
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true, durability = enemyData.weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
-        Debug.Log("summoned weapon");
+        died = true;
 
         Destroy(gameObject,2f);    
     }
