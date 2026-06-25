@@ -14,5 +14,6 @@ public class blurPresenter : Presenter
         float strength = maxStrength - (current / max) * strengthDif;
 
         SeparableBlurPass.BlurSettings.strength = (int)strength;
+        SeparableBlurPass.BlurSettings.FillWeights();
     }
 }

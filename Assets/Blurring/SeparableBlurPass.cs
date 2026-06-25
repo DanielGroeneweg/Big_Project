@@ -11,6 +11,30 @@ class SeparableBlurPass : CustomPass
     {
         public static int strength = 1;
         public static int stepSize = 1;
+
+        public static float[] weights = new float[100];
+        public static void FillWeights()
+        {
+            const int MAX_KERNEL = 100;
+
+            float[] weights = new float[MAX_KERNEL];
+
+            int kernelSize = strength;
+            int halfKernel = kernelSize / 2;
+
+            // fill real weights
+            for (int i = 0; i < kernelSize; i++)
+                weights[i] = Gaussian(i - halfKernel);
+
+            // pad remaining
+            for (int i = kernelSize; i < MAX_KERNEL; i++)
+                weights[i] = 0f;
+        }
+        static float Gaussian(int x)
+        {
+            float sigmaSqu = BlurSettings.strength / 7.5f * BlurSettings.strength / 7.5f;
+            return (1 / Mathf.Sqrt(2 * MathF.PI * sigmaSqu)) * Mathf.Exp(-(x * x) / (2 * sigmaSqu));
+        }
     }
     protected override void Setup(ScriptableRenderContext renderContext, CommandBuffer cmd)
     {
@@ -22,11 +46,6 @@ class SeparableBlurPass : CustomPass
             useDynamicScale: true,
             name: "BlurTemp"
         );
-    }
-    float Gaussian(int x)
-    {
-        float sigmaSqu = BlurSettings.strength / 7.5f * BlurSettings.strength / 7.5f;
-        return (1 / Mathf.Sqrt(2 * MathF.PI * sigmaSqu)) * Mathf.Exp(-(x * x) / (2 * sigmaSqu));
     }
     protected override void Execute(CustomPassContext ctx)
     {
@@ -42,22 +61,7 @@ class SeparableBlurPass : CustomPass
         blurMaterial.SetFloat("_Spread", BlurSettings.strength / 7.5f);
         blurMaterial.SetInt("_BlurStepSize", BlurSettings.stepSize);
 
-        const int MAX_KERNEL = 100;
-
-        float[] weights = new float[MAX_KERNEL];
-
-        int kernelSize = BlurSettings.strength;
-        int halfKernel = kernelSize / 2;
-
-        // fill real weights
-        for (int i = 0; i < kernelSize; i++)
-            weights[i] = Gaussian(i - halfKernel);
-
-        // pad remaining
-        for (int i = kernelSize; i < MAX_KERNEL; i++)
-            weights[i] = 0f;
-
-        blurMaterial.SetFloatArray("_Weights", weights);
+        blurMaterial.SetFloatArray("_Weights", BlurSettings.weights);
 
         blurMaterial.SetVector("_BlurDirection", new Vector2(1, 0));
         ctx.cmd.SetGlobalTexture("_InputTexture", source);
