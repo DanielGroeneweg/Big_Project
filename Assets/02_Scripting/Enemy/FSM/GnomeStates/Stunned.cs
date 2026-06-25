@@ -46,6 +46,8 @@ public class Stunned : State
 
         stunTimer = 0f;
         data.rb.linearDamping = originalDrag;
+        data.attackCollider.transform.localPosition = data.colliderLocalPosition;
+        data.attackCollider.transform.localRotation = data.colliderLocalRotation;
 
     }
 

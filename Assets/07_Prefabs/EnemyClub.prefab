@@ -676,7 +676,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enemyAgent: {fileID: 6278899450744213510}
   animator: {fileID: 2786431748367350863}
-  attackCollider: {fileID: 0}
+  attackCollider: {fileID: 7054077112292311616}
   enemyController: {fileID: 5035794489355339250}
   weapon: {fileID: 1053621272182607795}
   rb: {fileID: 5874523463760685728}
@@ -700,8 +700,10 @@ MonoBehaviour:
   ignoreDamageState: 0
   stunDuration: 2
   throwDamage: 10
-  attackClipName: Attack
+  attackClipName: Fighting_animation_01
   attackAnimatorSpeed: 1
+  colliderLocalPosition: {x: 0, y: 0, z: 0}
+  colliderLocalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &5874523463760685728
 Rigidbody:
   m_ObjectHideFlags: 0
