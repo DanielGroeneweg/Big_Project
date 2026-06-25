@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         if (index < dialogue.VoiceLines.Count)
         {
             AudioClip clip = dialogue.VoiceLines[index];
-            GetComponent<AudioSource>().PlayOneShot(clip);
+            audioPlayer.PlayOneShot(clip);
             if (canSkipLine) nextButton.gameObject.SetActive(false);
             if (canSkipLine) StartCoroutine(EnableButtonAfterDelay(clip.length));
         }

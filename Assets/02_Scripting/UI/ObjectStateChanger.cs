@@ -8,7 +8,8 @@ public class ObjectStateChanger : MonoBehaviour
     public void OnSettings()
     {
         target.SetActive(!target.activeSelf);
-        playerInput.enabled = !target.activeSelf;
+        if (playerInput != null)
+            playerInput.enabled = !target.activeSelf;
 
         if (target.activeSelf)
             mouseLocker.UnlockMouse();
