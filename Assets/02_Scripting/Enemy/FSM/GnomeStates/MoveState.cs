@@ -14,7 +14,6 @@ public class MoveState : State
     {
         base.Enter();
         // Set the move animation
-        Debug.Log("Entered move state");
         if (data.target != null && data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
             data.enemyAgent.SetDestination(data.target.position);
         data.animator.SetBool("Move", true);

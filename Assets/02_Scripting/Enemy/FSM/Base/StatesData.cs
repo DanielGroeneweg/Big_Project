@@ -37,8 +37,10 @@ public class StatesData : MonoBehaviour
     public bool ignoreDamageState;
     public float stunDuration = 2f;
     public float throwDamage = 10f;
-    public string attackClipName = "Attack";
+    public string attackClipName = "Fighting_animation_01";
     [ReadOnly] public float attackAnimatorSpeed = 1f;
+    [HideInInspector] public Vector3 colliderLocalPosition;
+    [HideInInspector] public Quaternion colliderLocalRotation;
 
     private void Start()
     {
@@ -53,7 +55,8 @@ public class StatesData : MonoBehaviour
         enemyAgent.speed = enemyController.EnemyData.moveSpeed;
         grabGnome = GetComponent<GrabGnome>();
         enemyController.health.damageEvent += Damaged;
-
+        colliderLocalPosition = attackCollider.transform.localPosition;
+        colliderLocalRotation = attackCollider.transform.localRotation;
         CalculateAttackAnimatorSpeed();
     }
 
