@@ -16041,7 +16041,6 @@ Transform:
   - {fileID: 303210286}
   - {fileID: 180298721}
   - {fileID: 1048598736}
-  - {fileID: 1427865906}
   m_Father: {fileID: 580947193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &509170504
@@ -19751,8 +19750,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomDialoguePlayer
   timeInterval: 10
   dialogueChance: 0.1
-  dutchDialogues: []
-  englishDialogues: []
+  dutchDialogues:
+  - {fileID: 11400000, guid: bd01d86001dc3b14189f88f4981de524, type: 2}
+  - {fileID: 11400000, guid: 987f3f162a950274fb5e2696c10d40b7, type: 2}
+  - {fileID: 11400000, guid: 7e553d2ce88c52349a2edc7d1a426d6f, type: 2}
+  - {fileID: 11400000, guid: 6c121fb62ba92e643a8263954eba199d, type: 2}
+  - {fileID: 11400000, guid: c0ac34e5bdaa4f042a7eba73a9e8374a, type: 2}
+  englishDialogues:
+  - {fileID: 11400000, guid: b1893b6113adbfc4a8163e21f48a5d24, type: 2}
+  - {fileID: 11400000, guid: 158151925a5daef44b551b125d80093c, type: 2}
+  - {fileID: 11400000, guid: 692c975c6f473c84bac8997dabf30089, type: 2}
+  - {fileID: 11400000, guid: de500a4365a86ad4585f7bdb602c7a8d, type: 2}
+  - {fileID: 11400000, guid: faa42a9d6b2602f40a3a57c41186a966, type: 2}
   onPlayDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -23913,7 +23922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &808698577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54029,7 +54038,6 @@ Transform:
   - {fileID: 612521080}
   - {fileID: 36969701}
   - {fileID: 1429700685}
-  - {fileID: 1427299929}
   - {fileID: 51683486}
   - {fileID: 1187132125}
   - {fileID: 2129643848}

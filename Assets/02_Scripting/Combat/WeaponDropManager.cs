@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+
+[DefaultExecutionOrder(150)]
 public class WeaponDropManager : MonoBehaviour
 {
     [Tooltip("The amount of enemies needed to be killed without dropping a weapon before guarenteeing a drop")]
@@ -8,12 +10,12 @@ public class WeaponDropManager : MonoBehaviour
     [SerializeField][Range(0f, 1f)] float dropChance;
     [SerializeField] WeaponDrop weaponDropPrefab;
     int enemiesKilledSinceDrop = 0;
-    private IEnumerator Start()
+    private void Start()
     {
         // make the first enemy drop a weapon 100% of the time
         enemiesKilledSinceDrop = guarenteedDropAttempt;
-        yield return new WaitForEndOfFrame();
         EventBusManager.instance.DropWeaponEvent.Register(WeaponDrop);
+        Debug.Log($"drop manager started on {gameObject.name}");
     }
     void WeaponDrop(DropWeaponEventData data)
     {
@@ -39,5 +41,9 @@ public class WeaponDropManager : MonoBehaviour
             drop.SpawnWeapon(data.weapon);
             drop.durability = data.durability;
         }
+    }
+    private void OnDestroy()
+    {
+        EventBusManager.instance.DropWeaponEvent.Unregister(WeaponDrop);
     }
 }
