@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         }
 
         StartCoroutine(RepeatedHey());
-    }
+    }       
     IEnumerator RepeatedHey()
     {
         while (CurrentHP > 0)
