@@ -85,6 +85,12 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/01_Scenes/GreyboxSound.unity
     m_guid: 0d3cb94872b118640afeb6782a8d00a2
+  - m_enabled: 1
+    m_path: Assets/01_Scenes/IntroCutScene.unity
+    m_guid: 14355ee636aa3cf4e849b6e3f57096d7
+  - m_enabled: 1
+    m_path: Assets/01_Scenes/OutroCutScene.unity
+    m_guid: a74b4918852f3524c9df9bdad632f691
   m_HasScriptingDefines: 1
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

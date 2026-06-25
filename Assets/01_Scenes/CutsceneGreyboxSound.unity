@@ -10021,7 +10021,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  dialogueForEvent: {fileID: 0}
 --- !u!1 &517570507
 GameObject:
   m_ObjectHideFlags: 0
@@ -10702,7 +10701,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  dialogueForEvent: {fileID: 0}
 --- !u!1001 &564789040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40458,7 +40456,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  dialogueForEvent: {fileID: 0}
 --- !u!43 &2113132869
 Mesh:
   m_ObjectHideFlags: 0
