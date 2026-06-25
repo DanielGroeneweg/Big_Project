@@ -700,7 +700,7 @@ MonoBehaviour:
   ignoreDamageState: 0
   stunDuration: 2
   throwDamage: 10
-  attackClipName: Fighting_animation_01
+  attackClipName: Fighting_animation_02
   attackAnimatorSpeed: 1
   colliderLocalPosition: {x: 0, y: 0, z: 0}
   colliderLocalRotation: {x: 0, y: 0, z: 0, w: 0}
