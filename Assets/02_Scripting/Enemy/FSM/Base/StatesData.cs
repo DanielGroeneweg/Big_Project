@@ -37,6 +37,8 @@ public class StatesData : MonoBehaviour
     public bool ignoreDamageState;
     public float stunDuration = 2f;
     public float throwDamage = 10f;
+    public string attackClipName = "Attack";
+    [ReadOnly] public float attackAnimatorSpeed = 1f;
 
     private void Start()
     {
@@ -45,12 +47,38 @@ public class StatesData : MonoBehaviour
         target = FindAnyObjectByType<PlayerController>().transform;
         enemyAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        //animator = GetComponent<Animator>();
+        
         enemyController = GetComponent<EnemyController>();
         enemyAgent.stoppingDistance = enemyController.EnemyData.attackRange-(enemyController.EnemyData.attackRange*30/100);
         enemyAgent.speed = enemyController.EnemyData.moveSpeed;
         grabGnome = GetComponent<GrabGnome>();
         enemyController.health.damageEvent += Damaged;
+
+        CalculateAttackAnimatorSpeed();
+    }
+
+    private void CalculateAttackAnimatorSpeed()
+    {
+        if (animator == null || animator.runtimeAnimatorController == null)
+        {
+            attackAnimatorSpeed = 1f;
+            return;
+        }
+
+        AnimationClip attackClip = System.Array.Find(
+            animator.runtimeAnimatorController.animationClips,
+            clip => clip.name == attackClipName);
+
+        float targetDuration = enemyController.EnemyData.attackDuration;
+
+        if (attackClip == null || targetDuration <= 0f)
+        {
+            Debug.LogWarning($"StatesData: could not find clip '{attackClipName}' or invalid attackCountdown, defaulting attackAnimatorSpeed to 1.");
+            attackAnimatorSpeed = 1f;
+            return;
+        }
+
+        attackAnimatorSpeed = attackClip.length / targetDuration;
     }
 
     public void SetKinematic(bool kinematic)

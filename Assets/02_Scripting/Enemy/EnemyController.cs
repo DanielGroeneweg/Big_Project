@@ -1,11 +1,14 @@
+using System.Collections;
 using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] Presenter[] hpPresenters = new Presenter[0];
     [SerializeField] Presenter[] deathPresenters = new Presenter[0];
+    [SerializeField] AudioClip[] heys = new AudioClip[0];
+    [SerializeField] float heyInterval;
+    [SerializeField] float heyChance;
     [SerializeField] private EnemyData enemyData;
     private Enemy enemy;
-
     public Enemy Enemy => enemy;
     public EnemyData EnemyData => enemyData;
     public float CurrentHP => enemy.currentHP;
@@ -24,6 +27,21 @@ public class EnemyController : MonoBehaviour
             health.healthChangeEvent += ChangeHealth;
             health.deathEvent += EnemyDeath;
         }
+
+        StartCoroutine(RepeatedHey());
+    }
+    IEnumerator RepeatedHey()
+    {
+        while (CurrentHP > 0)
+        {
+            if (Random.Range(0f, 1f) <= heyChance)
+            {
+                AudioClip clip = heys[Random.Range(0, heys.Length)];
+                SoundManager.instance.PlaySound(clip, transform.position, true, Random.Range(0.9f, 1.1f));
+            }
+
+            yield return new WaitForSeconds(heyInterval);
+        }
     }
     private void OnDestroy()
     {
@@ -38,12 +56,11 @@ public class EnemyController : MonoBehaviour
     }
     void EnemyDeath()
     {
-        foreach (Presenter presenter in deathPresenters)
-            presenter.Present(0,100,0);
-
         if (enemyData.weapon == null) return;
+
         DropWeaponEventData data = new DropWeaponEventData() { weapon = EnemyData.weapon, position = transform.position, droppedByEnemy = true, durability = enemyData.weapon.StartDurability };
         EventBusManager.instance.DropWeaponEvent.Raise(data);
+        Debug.Log("summoned weapon");
 
         Destroy(gameObject,2f);    
     }

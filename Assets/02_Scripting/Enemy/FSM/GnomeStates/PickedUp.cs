@@ -13,7 +13,6 @@ public class PickedUp : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered PickedUp state");
         data.enemyAgent.enabled = false; 
         enemyCollider = data.enemyController.GetComponent<Collider>();
         enemyCollider.enabled = false;

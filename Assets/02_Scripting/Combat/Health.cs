@@ -20,6 +20,8 @@ public class Health : MonoBehaviour
     public bool died { get; private set; } = false;
     public void Damage(float hp)
     {
+        if (died) return;
+
         health = Mathf.Max(0, health - Mathf.Abs(hp));
         healthChangeEvent?.Invoke(new HealthChangeData() { currentHealth = health, minHealth = 0, maxHealth = maxHealth});
         damageEvent?.Invoke();
