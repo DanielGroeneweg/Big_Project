@@ -1,4 +1,3 @@
-using UnityEditor.XR;
 using UnityEngine;
 
 public class PickedUp : State
