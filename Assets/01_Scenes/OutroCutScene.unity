@@ -1176,10 +1176,9 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: ddb47c8a9d0a2d345bdc469bb010a38a, type: 2}
   mixer: {fileID: 24100000, guid: a445c5cc08e548540930c1643c01d907, type: 2}
   playerController: {fileID: 0}
-  volume: {fileID: 842999902}
   languageSetter: {fileID: 38515804}
-  brightnessMax: -5
-  brightnessMin: 2
+  brightnessMax: 1
+  brightnessMin: 0.01
 --- !u!1 &42920381
 GameObject:
   m_ObjectHideFlags: 0
@@ -16632,7 +16631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842999903}
-  - component: {fileID: 842999902}
+  - component: {fileID: 842999904}
   m_Layer: 0
   m_Name: Brigthness Setting
   m_TagString: Untagged
@@ -16640,23 +16639,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &842999902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842999901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 24613fa32f1392a47aef07407e8fdd17, type: 2}
 --- !u!4 &842999903
 Transform:
   m_ObjectHideFlags: 0
@@ -16672,6 +16654,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 885224669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842999904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842999901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.CustomPassVolume
+  m_IsGlobal: 1
+  fadeRadius: 0
+  priority: 0
+  customPasses:
+  - rid: 8633795806778359904
+  injectionPoint: 3
+  m_TargetCamera: {fileID: 0}
+  useTargetCamera: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8633795806778359904
+      type: {class: Brightness, ns: , asm: Assembly-CSharp}
+      data:
+        m_Name: Custom Pass
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        brightnessMaterial: {fileID: 2100000, guid: 0c6412c866964154babde0ebb6b4fc24, type: 2}
 --- !u!1001 &844947863
 PrefabInstance:
   m_ObjectHideFlags: 0
