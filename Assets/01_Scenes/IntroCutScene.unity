@@ -20117,7 +20117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05bf7d89dee30f4782c775df02990ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectStateChanger
-  target: {fileID: 0}
+  target: {fileID: 352381326}
   mouseLocker: {fileID: 1026979257}
   playerInput: {fileID: 0}
 --- !u!114 &1026979259
