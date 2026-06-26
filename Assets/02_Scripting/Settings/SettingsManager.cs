@@ -17,8 +17,9 @@ public class SettingsManager : MonoBehaviour
     {
         if (instance == null)
         {
+            DontDestroyOnLoad(gameObject);
             instance = this;
-            path = Application.persistentDataPath + "/soundSettings.json";
+            path = Application.persistentDataPath + "/Settings.json";
             Read();
         }
 
