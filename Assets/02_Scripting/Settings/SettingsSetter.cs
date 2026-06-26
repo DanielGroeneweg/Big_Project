@@ -11,6 +11,7 @@ public class SettingsSetter : MonoBehaviour
     [SerializeField] LanguageSetter languageSetter;
     [SerializeField] float brightnessMax = 1;
     [SerializeField] float brightnessMin = 0;
+    [SerializeField] Material uiMaterial;
     private void Start()
     {
         if (settings != null) LoadSettings();
@@ -33,6 +34,15 @@ public class SettingsSetter : MonoBehaviour
         if (languageSetter != null)
         {
             languageSetter.SetLanguage(settings.language);
+        }
+
+        if (uiMaterial != null)
+        {
+            Color col = new Color(1, 1, 1, uiMaterial.color.a);
+            col.r *= brightness;
+            col.g *= brightness;
+            col.b *= brightness;
+            uiMaterial.color = col;
         }
     }
 }
