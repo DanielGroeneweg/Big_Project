@@ -433,13 +433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.LiftGammaGain
   active: 1
   lift:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 1, y: 0.99180245, z: 0.9852892, w: 0.17446573}
   gain:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 0.8447314, y: 0.8612532, z: 1, w: 0.26050404}
 --- !u!114 &1142777632297148762
 MonoBehaviour:
