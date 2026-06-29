@@ -363,7 +363,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -406,8 +406,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &9519121
 AudioListener:
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -1416,8 +1416,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &72902891
 AudioListener:
@@ -3838,7 +3838,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: a445c5cc08e548540930c1643c01d907, type: 2}
   playerController: {fileID: 0}
   languageSetter: {fileID: 153442414}
-  brightnessMax: 1
+  brightnessMax: 5
   brightnessMin: 0.1
   uiMaterial: {fileID: 2100000, guid: 0330a9896f7d8f34e8c01e8806ff244f, type: 2}
 --- !u!114 &153442414
@@ -5316,7 +5316,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -5359,8 +5359,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &221600697
 AudioListener:
@@ -12154,7 +12154,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -12197,8 +12197,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &588736455
 AudioListener:
@@ -15681,7 +15681,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -15724,8 +15724,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &763221356
 AudioListener:
@@ -40882,7 +40882,7 @@ MonoBehaviour:
   xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
@@ -40925,8 +40925,8 @@ MonoBehaviour:
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
-      data2: 0
+      data1: 5765733972697939967
+      data2: 36030975641083935
   defaultFrameSettings: 0
 --- !u!81 &2046747482
 AudioListener:
