@@ -26686,7 +26686,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 220.67496, y: -5}
-  m_SizeDelta: {x: 429.9025, y: 29.93}
+  m_SizeDelta: {x: 429.9025, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1436408545
 MonoBehaviour:
@@ -37066,10 +37066,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1994782758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214.95125, y: -13.965}
-  m_SizeDelta: {x: 429.9025, y: 27.93}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1841157532
 CanvasRenderer:
@@ -37101,8 +37101,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: d
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5118aa8adf23d9a4d838d43aa489d82e, type: 2}
+  m_sharedMaterial: {fileID: -5285547841789540369, guid: 5118aa8adf23d9a4d838d43aa489d82e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39087,10 +39087,10 @@ RectTransform:
   - {fileID: 1841157531}
   m_Father: {fileID: 1436408544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214.95125, y: -14.965}
-  m_SizeDelta: {x: 429.9025, y: 29.93}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994782759
 MonoBehaviour:
@@ -40260,7 +40260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &2028734066
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40441,7 +40441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.49019608}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40484,7 +40484,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 19.964996}
-  m_SizeDelta: {x: 441.3499, y: 39.93}
+  m_SizeDelta: {x: 441.3499, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!43 &2030316359
 Mesh:
