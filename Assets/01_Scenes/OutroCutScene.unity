@@ -828,7 +828,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   languageSetter: {fileID: 38515804}
   brightnessMax: 1
-  brightnessMin: 0.01
+  brightnessMin: 0.1
   uiMaterial: {fileID: 2100000, guid: 0330a9896f7d8f34e8c01e8806ff244f, type: 2}
 --- !u!1 &41800281
 GameObject:
@@ -7993,7 +7993,7 @@ Transform:
 --- !u!1 &342192736
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5732980122139264776, guid: 947a181d5bd6ab24287af246bdccd019, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6

@@ -8748,12 +8748,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsSetter
   settings: {fileID: 11400000, guid: ddb47c8a9d0a2d345bdc469bb010a38a, type: 2}
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: a445c5cc08e548540930c1643c01d907, type: 2}
   playerController: {fileID: 0}
   languageSetter: {fileID: 1975444106}
   brightnessMax: 1
-  brightnessMin: 0
-  uiMaterial: {fileID: 0}
+  brightnessMin: 0.1
+  uiMaterial: {fileID: 2100000, guid: 0330a9896f7d8f34e8c01e8806ff244f, type: 2}
 --- !u!1 &2141551022
 GameObject:
   m_ObjectHideFlags: 0
