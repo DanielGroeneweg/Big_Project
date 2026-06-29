@@ -25,7 +25,7 @@ public class PlayerFSM : FSM
         idleWeapon.transitions.Add(new Transition(idleWeapon.ToSpear, spearIdle));
         idleWeapon.transitions.Add(new Transition(idleWeapon.Attack, ReturnRandomState(attackWeapon1, attackWeapon2)));
 
-        spearIdle.transitions.Add(new Transition())
+       // spearIdle.transitions.Add(new Transition());
     }
 
     public State ReturnRandomState(State state1,State state2)
