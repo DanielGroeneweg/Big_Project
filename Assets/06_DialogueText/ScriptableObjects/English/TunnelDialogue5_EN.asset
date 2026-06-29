@@ -15,5 +15,5 @@ MonoBehaviour:
   npcName: You
   voiceLines:
   - {fileID: 8300000, guid: b8b1633bca0623c46ae44bee785f0660, type: 3}
-  text: {fileID: 4900000, guid: 3d7cc132eb4fc9c478c9517d99d8b153, type: 3}
+  text: {fileID: 4900000, guid: d80ebe491ab6cb84e855521b2ce93972, type: 3}
   Language: 0

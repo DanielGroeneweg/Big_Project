@@ -13,7 +13,7 @@ public class WorldSpaceHealthBar : Presenter
     }
     private void Update()
     {
-        if (canvas != null)
+        if (canvas != null && Camera.main != null)
         {
             Transform target = Camera.main.transform;
             canvas.transform.LookAt(target);

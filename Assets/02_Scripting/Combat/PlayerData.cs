@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 [DefaultExecutionOrder(100)]
 [RequireComponent(typeof(Health))]
 public class PlayerData : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] Presenter[] healthPresenters;
     [SerializeField] Presenter[] staminaPresenters;
     [SerializeField] Presenter durabilityPresenter;
+    [SerializeField] UnityEvent onPlayerDeath;
     Health health;
     Stamina stamina;
     private void Start()
@@ -17,6 +19,7 @@ public class PlayerData : MonoBehaviour
         {
             health.healthChangeEvent += ChangeHealth;
             health.damageEvent += Damage;
+            health.deathEvent += Death;
         }
         if (stamina != null) stamina.staminaChangeEvent += ChangeStamina;
         EventBusManager.instance.WeaponDurabilityEvent.Register(ChangeDurability);
@@ -27,6 +30,7 @@ public class PlayerData : MonoBehaviour
         {
             health.healthChangeEvent -= ChangeHealth;
             health.damageEvent -= Damage;
+            health.deathEvent -= Death;
         }
         if (stamina != null) stamina.staminaChangeEvent -= ChangeStamina;
         EventBusManager.instance.WeaponDurabilityEvent.Unregister(ChangeDurability);
@@ -48,5 +52,9 @@ public class PlayerData : MonoBehaviour
     void Damage()
     {
         damagePresenter.Present(0, 0, 0);
+    }
+    void Death()
+    {
+        onPlayerDeath?.Invoke();
     }
 }

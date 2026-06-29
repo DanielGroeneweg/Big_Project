@@ -12,9 +12,8 @@ public class BetterDialogue : ScriptableObject
     public string NPCName => npcName;
     public string[] ReadLines()
     {
-        string lang = Language == Languages.English ? "EN" : "NL";
-        string path = Application.dataPath + $"/06_DialogueText/Text_{lang}/{text.name}.txt";
-        string[] lines = File.ReadAllLines(path);
-        return lines;
+        return text.text.Split(
+            new[] { "\r\n", "\n" },
+            System.StringSplitOptions.None);
     }
 }

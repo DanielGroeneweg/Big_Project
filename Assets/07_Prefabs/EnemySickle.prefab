@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 59469892821070786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.272, y: 0.517, z: 0.866}
+  m_LocalPosition: {x: -0.099, y: -0.063, z: 1.126}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 7.1886215, y: 0.72410107, z: 5.7853107}
-  m_Center: {x: 4.1329317, y: -0.48843098, z: -2.3926554}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2131026539272863125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99450793d19da554caf0dce819b1e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
-  holdOffset: {x: 0, y: -0.5, z: 1}
+  holdOffset: {x: 0, y: 0, z: 1}
   groundedRange: 0.2
 --- !u!114 &-8053129170940189915
 MonoBehaviour:

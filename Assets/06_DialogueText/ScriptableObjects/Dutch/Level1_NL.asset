@@ -16,5 +16,5 @@ MonoBehaviour:
   voiceLines:
   - {fileID: 8300000, guid: 127328a0ccd21be4bb7527086265afe4, type: 3}
   - {fileID: 8300000, guid: 44e84cda3dbb4f3408db27c71a26516b, type: 3}
-  text: {fileID: 4900000, guid: 6ece57a1751593e4b82d82f588d760ee, type: 3}
+  text: {fileID: 4900000, guid: e263552df0125ab47985519de9ee3689, type: 3}
   Language: 1

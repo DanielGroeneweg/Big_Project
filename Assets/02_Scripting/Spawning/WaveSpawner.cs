@@ -53,7 +53,7 @@ public class WaveSpawner : EnemySpawner
                 enemies.Add(enemy);
             }
 
-            Invoke(nameof(AddEnemyEvents), 0.5f);
+            Invoke(nameof(AddEnemyEvents), 1f);
             if (useWaveTimer) StartCoroutine(WaveTimer());
             waveCount++;
             waveFinished = true;

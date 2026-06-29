@@ -15,5 +15,5 @@ MonoBehaviour:
   npcName: Jij
   voiceLines:
   - {fileID: 8300000, guid: f2a7c99df821b854b892a33430336ae3, type: 3}
-  text: {fileID: 4900000, guid: 3d7cc132eb4fc9c478c9517d99d8b153, type: 3}
+  text: {fileID: 4900000, guid: 24df61f3c9dbe254fbc3c59ddd3e052d, type: 3}
   Language: 1
