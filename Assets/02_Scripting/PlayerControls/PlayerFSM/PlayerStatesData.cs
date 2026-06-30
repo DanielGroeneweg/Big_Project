@@ -28,6 +28,12 @@ public class PlayerStatesData : StatesData
 
     private WeaponType GetWeaponType(WeaponItem weapon)
     {
+        if (weapon == null)
+        {
+            Debug.Log("null weapon, probably because of destroyed weapon");
+            return WeaponType.None;
+        }
+
         switch (weapon.ItemName)
         {
             case "Sickle": return WeaponType.Sickle;
