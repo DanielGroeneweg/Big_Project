@@ -7662,6 +7662,7 @@ MonoBehaviour:
   equipWeaponEvent: {fileID: 11400000, guid: 30c4c4bcffb85744fb82ee3d9a040457, type: 2}
   dropWeaponEvent: {fileID: 11400000, guid: 516a0e2a9c3834747bd17ea1ff140792, type: 2}
   weaponDurabilityEvent: {fileID: 11400000, guid: 9be5bc20b6c577048bbd416e2b7d860e, type: 2}
+  playerAttackEvent: {fileID: 11400000, guid: d88528ccc1ac7934293a71a414d8c536, type: 2}
 --- !u!1 &205705913 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3690613933268570025, guid: 85e74773aada42244b158d932de1e587, type: 3}
