@@ -17,7 +17,7 @@ public class IdleSpear : State
 
     public bool Attack()
     {
-        return true;
+        return playerStatesData.playerAttacked;
     }
 
     public bool ChangeToOneHandWeapon()

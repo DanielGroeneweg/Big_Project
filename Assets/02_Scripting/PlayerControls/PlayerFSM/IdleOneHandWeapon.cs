@@ -20,7 +20,7 @@ public class IdleOneHandWeapon : State
 
     public bool Attack()
     {
-        return true;
+        return playerStatesData.playerAttacked;
     }
     
 }

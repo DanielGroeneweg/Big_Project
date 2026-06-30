@@ -1,8 +1,5 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
-
 public class SettingsSetter : MonoBehaviour
 {
     [SerializeField] Settings settings;

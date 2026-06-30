@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform weaponParent;
     [SerializeField] Transform weaponColliderParent;
     [SerializeField] WeaponItem currentWeapon;
+    [SerializeField] PlayerStatesData playerStatesData;
     private GrabGnome currentGnome;
 
     Stamina stamina;
@@ -94,10 +95,10 @@ public class PlayerController : MonoBehaviour
 
         if (!attacking && weaponCollider != null)
         {
-                    if (stamina.ActionStaminaDictionary[playerActions.Attack] > stamina._Stamina)
-                    {
-                        return;
-                    }
+            if (stamina.ActionStaminaDictionary[playerActions.Attack] > stamina._Stamina)
+            {
+                return;
+            }
 
             attacking = true;
             weaponAnimator.Play("MeleeWeaponAttack");
@@ -106,7 +107,8 @@ public class PlayerController : MonoBehaviour
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
             StartCoroutine(FixAnimator());
 
-            EventBusManager.instance.PlayerAttackEvent.Raise(new PlayerAttackEventData());
+            playerStatesData.playerAttacked = true;
+            //EventBusManager.instance.PlayerAttackEvent.Raise(new PlayerAttackEventData());
         }
     }
     public void OnGrab(InputValue input)

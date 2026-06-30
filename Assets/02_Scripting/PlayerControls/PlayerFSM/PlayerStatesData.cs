@@ -8,7 +8,7 @@ public class PlayerStatesData : StatesData
     public GameObject clubPrefabInstance;
     public GameObject spearPrefabInstance;
     public WeaponType CurrentWeapon { get; private set; } = WeaponType.None;
-
+    public bool playerAttacked;
     private void Start()
     {
         playerTransform = transform;
