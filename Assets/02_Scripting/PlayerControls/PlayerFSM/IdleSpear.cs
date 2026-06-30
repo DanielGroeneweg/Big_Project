@@ -7,6 +7,12 @@ public class IdleSpear : State
         this.data = data;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+    }
+
     public bool Attack()
     {
         return true;

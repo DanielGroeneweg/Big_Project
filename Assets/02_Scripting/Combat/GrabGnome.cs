@@ -5,7 +5,7 @@ public class GrabGnome : MonoBehaviour
     [SerializeField] private Vector3 holdOffset = new Vector3(0, 0, 1.5f);
 
     private Rigidbody rb;
-    private StatesData data;
+    private EnemyStatesData data;
 
     private Collider col;
 
@@ -15,7 +15,7 @@ public class GrabGnome : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        data = GetComponent<StatesData>();
+        data = GetComponent<EnemyStatesData>();
     }
 
     public void Grab(Transform cameraTransform)

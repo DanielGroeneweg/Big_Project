@@ -6,5 +6,8 @@ public class AttackOneHandWeapon2 : State
     {
         this.data = data;
     }
-
+    public bool IsAttackOver()
+    {
+        return true;
+    }
 }

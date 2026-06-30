@@ -3,46 +3,48 @@ using UnityEngine;
 public class PickedUp : State
 {
     private Collider enemyCollider;
+    private EnemyStatesData enemyStates;
 
-    public PickedUp(StatesData statesData)
+    public PickedUp(EnemyStatesData statesData)
     {
         data = statesData;
+        enemyStates = statesData;
     }
 
     public override void Enter()
     {
         base.Enter();
-        data.enemyAgent.enabled = false; 
-        enemyCollider = data.enemyController.GetComponent<Collider>();
+        enemyStates.enemyAgent.enabled = false; 
+        enemyCollider = enemyStates.enemyController.GetComponent<Collider>();
         enemyCollider.enabled = false;
-        data.SetKinematic(true);
+        enemyStates.SetKinematic(true);
         HealthBarEnabled(false);
-        data.animator.SetTrigger("PickedUp");
+        enemyStates.animator.SetTrigger("PickedUp");
 
     }
     public override void Step()
     {
         base.Step();
-        if (!data.isPickedUp && data.grabGnome.IsGrounded())
+        if (!enemyStates.isPickedUp && enemyStates.grabGnome.IsGrounded())
         {
-            data.enemyAgent.enabled = true;
+            enemyStates.enemyAgent.enabled = true;
         }
     }
     public override void Exit()
     {
         base.Exit();
-        data.isStunned = true;
-        data.SetKinematic(false);
+        enemyStates.isStunned = true;
+        enemyStates.SetKinematic(false);
         enemyCollider.enabled = true;
         HealthBarEnabled(true);
     }
     public bool WasThrown()
     {
-        return !data.isPickedUp&&data.isLanded;
+        return !enemyStates.isPickedUp&&enemyStates.isLanded;
     }
     public void HealthBarEnabled(bool enabled)
     {
-        foreach (var healthBar in data.enemyHealthBar)
+        foreach (var healthBar in enemyStates.enemyHealthBar)
         {
             healthBar.enabled = enabled;
         }

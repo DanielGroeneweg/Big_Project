@@ -4,9 +4,11 @@ public class DamagedState : State
 {
     private float stunDuration = 0.8f; 
     private float timer;
-    public DamagedState(StatesData statesData)
+    private EnemyStatesData enemyStatesData;
+    public DamagedState(EnemyStatesData statesData)
     {
         data = statesData;
+        enemyStatesData = statesData;
     }
 
     public override void Enter()
@@ -15,8 +17,8 @@ public class DamagedState : State
         //data.rb.AddForce()
         timer = 0f;
 
-        if (data.enemyAgent.enabled)
-            data.enemyAgent.isStopped = true;
+        if (enemyStatesData.enemyAgent.enabled)
+            enemyStatesData.enemyAgent.isStopped = true;
         data.animator.SetTrigger("Damaged");
     }
 
@@ -30,10 +32,10 @@ public class DamagedState : State
     {
         base.Exit();
 
-        data.isDamaged = false;
+        enemyStatesData.isDamaged = false;
 
-        if (data.enemyAgent.enabled)
-            data.enemyAgent.isStopped = false;
+        if (enemyStatesData.enemyAgent.enabled)
+            enemyStatesData.enemyAgent.isStopped = false;
     }
 
     public bool StunDamageDurationOver()

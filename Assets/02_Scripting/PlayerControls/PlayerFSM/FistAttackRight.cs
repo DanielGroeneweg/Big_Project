@@ -9,5 +9,9 @@ public class FistAttackRight : State
         this.data = data;
     }
 
+    public bool IsAttackOver()
+    {
+        return true;
+    }
     
 }
