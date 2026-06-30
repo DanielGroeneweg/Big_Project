@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class IdlePlayerState : State
 {
-    public IdlePlayerState(StatesData statesData)
+    private PlayerStatesData playerStatesData;
+    public IdlePlayerState(PlayerStatesData statesData)
     {
         data = statesData;
+        playerStatesData = statesData;
     }
     public override void Enter()
     {
         base.Enter();
+        playerStatesData.ActivateWeaponVisual(WeaponType.None);
+        playerStatesData.animator.SetInteger("Weapon", (int)WeaponType.None);
         //set animations variables
     }
     public override void Exit()
@@ -23,10 +27,11 @@ public class IdlePlayerState : State
     }
     public bool ChangeToOneHandWeapon()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.Sickle
+            || playerStatesData.CurrentWeapon == WeaponType.Club;
     }
     public bool ChangeWeaponToSpear()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.Spear;
     }
 }

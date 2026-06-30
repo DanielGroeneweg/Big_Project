@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
             StartCoroutine(FixAnimator());
+
+            EventBusManager.instance.PlayerAttackEvent.Raise(new PlayerAttackEventData());
         }
     }
     public void OnGrab(InputValue input)

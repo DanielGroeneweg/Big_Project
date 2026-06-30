@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class PlayerFSM : FSM
 {
-    public PlayerFSM(StatesData statesData)
+    public PlayerFSM(PlayerStatesData statesData)
     {
         data = statesData;
+        PlayerStatesData playerStatesData = statesData;
         
-        var idle = new IdlePlayerState(data);
-        var attackRightFist = new FistAttackRight(data);
-        var attackLeftFist = new FistAttackLeft(data);
-        var idleWeapon = new IdleOneHandWeapon(data);
-        var attackWeapon1 = new AttackOneHandWeapon1(data);
-        var attackWeapon2 = new AttackOneHandWeapon2(data);
-        var spearIdle = new IdleSpear(data);
-        var spearAttack = new AttackSpear(data);
+        var idle = new IdlePlayerState(playerStatesData);
+        var attackRightFist = new FistAttackRight(playerStatesData);
+        var attackLeftFist = new FistAttackLeft(playerStatesData);
+        var idleWeapon = new IdleOneHandWeapon(playerStatesData);
+        var attackWeapon1 = new AttackOneHandWeapon1(playerStatesData);
+        var attackWeapon2 = new AttackOneHandWeapon2(playerStatesData);
+        var spearIdle = new IdleSpear(playerStatesData);
+        var spearAttack = new AttackSpear(playerStatesData);
 
         currentState = idle;
 

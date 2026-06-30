@@ -4,7 +4,9 @@ public class PlayerStatesData : StatesData
 {
     [Header("References")]
     public Transform playerTransform;
-
+    public GameObject sicklePrefabInstance;
+    public GameObject clubPrefabInstance;
+    public GameObject spearPrefabInstance;
     public WeaponType CurrentWeapon { get; private set; } = WeaponType.None;
 
     private void Start()
@@ -24,14 +26,34 @@ public class PlayerStatesData : StatesData
         EventBusManager.instance.DropWeaponEvent.Unregister(OnWeaponDropped);
     }
 
+    private WeaponType GetWeaponType(WeaponItem weapon)
+    {
+        switch (weapon.ItemName)
+        {
+            case "Sickle": return WeaponType.Sickle;
+            case "Spear": return WeaponType.Spear;
+            case "Club": return WeaponType.Club;
+            default:
+                Debug.LogError($"Unknown weapon: {weapon.ItemName}");
+                return WeaponType.None;
+        }
+    }
+
     private void OnWeaponEquipped(EquipWeaponEventData data)
     {
-        //if(data.weapon.ItemName=="")
+        CurrentWeapon = GetWeaponType(data.weapon);
     }
 
     private void OnWeaponDropped(DropWeaponEventData data)
     {
-        //if (CurrentWeapon == data.weaponType)
+        WeaponType droppedType = GetWeaponType(data.weapon);
+        if (CurrentWeapon == droppedType)
             CurrentWeapon = WeaponType.None;
+    }
+    public void ActivateWeaponVisual(WeaponType type)
+    {
+        sicklePrefabInstance.SetActive(type == WeaponType.Sickle);
+        clubPrefabInstance.SetActive(type == WeaponType.Club);
+        spearPrefabInstance.SetActive(type == WeaponType.Spear);
     }
 }
