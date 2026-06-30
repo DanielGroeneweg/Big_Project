@@ -119,6 +119,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &18962734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.530305
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.60573
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33.35697
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6405896354316574316, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      propertyPath: m_Name
+      value: SM_Hands
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2296297724247697226, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+    - {fileID: -6946001733033277054, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 335505221}
+  m_SourcePrefab: {fileID: 100100000, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
 --- !u!1 &26546688
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &26546689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +698,33 @@ Transform:
   - {fileID: 1325523859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &335505219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bfac439662bf7fb45b1680298ace5405, type: 3}
+  m_PrefabInstance: {fileID: 18962734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &335505221
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335505219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a428b9370a68f044bb001f5e66ac3d7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &529292633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,3 +3722,4 @@ SceneRoots:
   - {fileID: 1684425028}
   - {fileID: 543450653245849126}
   - {fileID: 543450653065992105}
+  - {fileID: 18962734}
