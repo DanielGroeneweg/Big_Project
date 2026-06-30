@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class IdleSpear : State
 {
-    public IdleSpear(StatesData data)
+    private PlayerStatesData playerStatesData;
+    public IdleSpear(PlayerStatesData data)
     {
         this.data = data;
+        playerStatesData = data;
     }
 
     public override void Enter()

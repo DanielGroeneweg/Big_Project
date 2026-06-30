@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class IdleOneHandWeapon : State
 {
-
-    public IdleOneHandWeapon(StatesData data)
+    private PlayerStatesData playerStatesData;
+    public IdleOneHandWeapon(PlayerStatesData data)
     {
         this.data = data;
+        playerStatesData = data;
     }
 
     public bool ToFists()

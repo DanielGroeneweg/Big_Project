@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class AttackOneHandWeapon2 : State
 {
-    public AttackOneHandWeapon2(StatesData data)
+    private PlayerStatesData playerStatesData;
+    public AttackOneHandWeapon2(PlayerStatesData data)
     {
         this.data = data;
+        playerStatesData = data;
     }
     public bool IsAttackOver()
     {

@@ -16,11 +16,7 @@ public class IdlePlayerState : State
         playerStatesData.animator.SetInteger("Weapon", (int)WeaponType.None);
         //set animations variables
     }
-    public override void Exit()
-    {
-        base.Exit();
-        //set animations variables
-    }
+    
     public bool Attack()
     {
         return true;

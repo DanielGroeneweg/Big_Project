@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class FistAttackLeft : State
 {
- 
 
-    public FistAttackLeft(StatesData data)
+    private PlayerStatesData playerStatesData;
+    public FistAttackLeft(PlayerStatesData data)
     {
         this.data = data;
+        playerStatesData = data;
     }
     public bool IsAttackOver()
     {
