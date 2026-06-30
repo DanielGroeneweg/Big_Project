@@ -348,140 +348,8 @@ PrefabInstance:
     - {fileID: 387159186138960457, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8864076842404261106, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 357500000}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
---- !u!1 &357499989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8864076842404261106, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &357499990 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5746197471284433798, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!114 &357499991 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 629070684756654268, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!114 &357499992 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1053621272182607795, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b76ccd1af59f34ba2575e4ac26da74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
---- !u!65 &357499993 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7054077112292311616, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &357499994 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2786431748367350863, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &357499995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5854050392269701281, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357499989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99450793d19da554caf0dce819b1e5e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
---- !u!54 &357499996 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5874523463760685728, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &357499997 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5035794489355339250, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357499989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5ecc6c392037de4a9eb701ab92272fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
---- !u!195 &357499998 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 6278899450744213510, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &357499999 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5258333172752255732, guid: 5bd6605c04f3f3249a4c6b276ab2fccc, type: 3}
-  m_PrefabInstance: {fileID: 357499988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &357500000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357499989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548fe443b33afbe4d9f41130fec09de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StatesData
-  enemyTransform: {fileID: 357499999}
-  target: {fileID: 0}
-  enemyAgent: {fileID: 357499998}
-  animator: {fileID: 357499994}
-  attackCollider: {fileID: 357499993}
-  enemyController: {fileID: 357499997}
-  weapon: {fileID: 357499992}
-  rb: {fileID: 357499996}
-  grabGnome: {fileID: 357499995}
-  enemyHealthBar:
-  - {fileID: 357499991}
-  - {fileID: 357499990}
-  footSteps:
-  - {fileID: 8300000, guid: 1c4aa5768793df64c88d80202bc2d8c8, type: 3}
-  - {fileID: 8300000, guid: 545a18c38edf65d478358757407793d7, type: 3}
-  - {fileID: 8300000, guid: 75636a2c566a7ba469b2591001638990, type: 3}
-  - {fileID: 8300000, guid: 243800982029900499f8850795c2f0d8, type: 3}
-  - {fileID: 8300000, guid: a3d7774b06dd3aa408b01873d0bf67f6, type: 3}
-  - {fileID: 8300000, guid: 87c8632251315d948a41f0890b22868a, type: 3}
-  - {fileID: 8300000, guid: 5d334d89a3a918744af2096d556b3ccd, type: 3}
-  isPickedUp: 0
-  isLanded: 0
-  isStunned: 0
-  isDamaged: 0
-  wasThrown: 0
-  ignoreDamageState: 0
-  stunDuration: 2
-  throwDamage: 10
-  attackClipName: Fighting_animation_01
-  attackAnimatorSpeed: 1
-  colliderLocalPosition: {x: 0, y: 0, z: 0}
-  colliderLocalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &374596159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,7 +777,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 511001962659196589, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 442752146}
+    - targetCorrespondingSourceObject: {fileID: 511001962659196589, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1012087647}
   m_SourcePrefab: {fileID: 100100000, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+--- !u!4 &1012087646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1915768515765102987, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+  m_PrefabInstance: {fileID: 1012087645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1012087647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442752135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ea57845ed3bd4694f0f23f4818b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatesData
+  animator: {fileID: 2048223665}
+  playerTransform: {fileID: 1012087646}
+  sicklePrefabInstance: {fileID: 0}
+  clubPrefabInstance: {fileID: 0}
+  spearPrefabInstance: {fileID: 0}
+  playerAttacked: 0
 --- !u!1001 &1103663631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,6 +1555,7 @@ MonoBehaviour:
   equipWeaponEvent: {fileID: 11400000, guid: 30c4c4bcffb85744fb82ee3d9a040457, type: 2}
   dropWeaponEvent: {fileID: 11400000, guid: 516a0e2a9c3834747bd17ea1ff140792, type: 2}
   weaponDurabilityEvent: {fileID: 11400000, guid: 9be5bc20b6c577048bbd416e2b7d860e, type: 2}
+  playerAttackEvent: {fileID: 0}
 --- !u!4 &1920449003
 Transform:
   m_ObjectHideFlags: 0

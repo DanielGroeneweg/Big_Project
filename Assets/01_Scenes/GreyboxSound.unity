@@ -14252,6 +14252,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 511001962659196589, guid: 43158025522a29a44a3382056a6990ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 511001962659196589, guid: 43158025522a29a44a3382056a6990ad, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -48399,7 +48403,7 @@ Transform:
   m_GameObject: {fileID: 1324804747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 176.13354, y: 11.22, z: -114.7912}
+  m_LocalPosition: {x: 176.13354, y: 11.22, z: -115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60074,15 +60078,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4230279212194884883, guid: 8528168887d206542a5de60fd105e818, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4230279212194884883, guid: 8528168887d206542a5de60fd105e818, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.91
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 4230279212194884883, guid: 8528168887d206542a5de60fd105e818, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.39
+      value: -4.06
       objectReference: {fileID: 0}
     - target: {fileID: 4230279212194884883, guid: 8528168887d206542a5de60fd105e818, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73894,6 +73898,10 @@ PrefabInstance:
       value: Cart
       objectReference: {fileID: 0}
     - target: {fileID: 6940300908519902237, guid: 73ef50c3e86666049bb78a871bf3aa5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940300908519902237, guid: 73ef50c3e86666049bb78a871bf3aa5a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -77676,6 +77684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion
       objectReference: {fileID: 0}
+    - target: {fileID: 6824464893371844306, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6897811017371111362, guid: 92a3406c8ea265e4289b15c69a5e6bb7, type: 3}
       propertyPath: m_fontSize
       value: 100
@@ -78457,7 +78469,7 @@ MonoBehaviour:
   m_text: d
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5118aa8adf23d9a4d838d43aa489d82e, type: 2}
-  m_sharedMaterial: {fileID: -8363823842098696510, guid: 15b40ae573925064e9d49946c1369299, type: 2}
+  m_sharedMaterial: {fileID: -5285547841789540369, guid: 5118aa8adf23d9a4d838d43aa489d82e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

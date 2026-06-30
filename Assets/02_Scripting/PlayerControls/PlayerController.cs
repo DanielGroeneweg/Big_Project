@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] WeaponItem currentWeapon;
     [SerializeField] PlayerStatesData playerStatesData;
     private GrabGnome currentGnome;
+    private FSM fsm;
+   
 
     Stamina stamina;
     // Internal
@@ -172,6 +174,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForEndOfFrame();
         EventBusManager.instance.EquipWeaponEvent.Register(ChangeWeapon);
         stamina = GetComponent<Stamina>();
+
+        //FSMSetUp();
+        //fsm.Enter();
     }
     /// <summary>
     /// Returns whether the player is close to the ground or not
@@ -186,9 +191,16 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
+
+    private void FSMSetUp()
+    {
+        playerStatesData.playerTransform = transform;
+        fsm = new PlayerFSM(playerStatesData);
+    }
     private void Update()
     {
         DoCamera();
+        //fsm.Step();
     }
     private void FixedUpdate()
     {

@@ -3,6 +3,7 @@ using UnityEngine;
 public class AttackOneHandWeapon2 : State
 {
     private PlayerStatesData playerStatesData;
+    private float attackStartTime;
     public AttackOneHandWeapon2(PlayerStatesData data)
     {
         this.data = data;
@@ -16,6 +17,8 @@ public class AttackOneHandWeapon2 : State
     public bool IsAttackOver()
     {
         return true;
+        //return Time.time > attackStartTime + playerStatesData.animator.
+        //add Later after hands
     }
     public override void Exit()
     {
