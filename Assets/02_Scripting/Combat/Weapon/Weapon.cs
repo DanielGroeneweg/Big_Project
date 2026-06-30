@@ -35,20 +35,6 @@ public class Weapon : MonoBehaviour
     void DisableAttack()
     {
         weaponCollider.enabled = false;
-        if (!hasDurability) return;
-        
-        durability--;
-        if (durability <= 0)
-        {
-            EquipWeaponEventData eventData = new EquipWeaponEventData() { weapon = null, oldWeaponDestroyed = true };
-            EventBusManager.instance.EquipWeaponEvent.Raise(eventData);
-        }
-        
-        else
-        {
-            WeaponDurabilityEventData eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability =  maxDurability };
-            EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
-        }
     }
     private void Start()
     {
@@ -111,6 +97,22 @@ public class Weapon : MonoBehaviour
         }
 
         hitObjects.Clear();
+
+        if (hasDurability)
+        {
+            durability--;
+            if (durability <= 0)
+            {
+                EquipWeaponEventData eventData = new EquipWeaponEventData() { weapon = null, oldWeaponDestroyed = true };
+                EventBusManager.instance.EquipWeaponEvent.Raise(eventData);
+            }
+
+            else
+            {
+                WeaponDurabilityEventData eventData = new WeaponDurabilityEventData() { durability = durability, maxDurability = maxDurability };
+                EventBusManager.instance.WeaponDurabilityEvent.Raise(eventData);
+            }
+        }
 
         StopAllCoroutines();
     }
