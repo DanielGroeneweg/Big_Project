@@ -659,7 +659,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3d59626b135dc6c45b34258e1552ec9c, type: 3}
   heyInterval: 2
   heyChance: 1
-  enemyData: {fileID: 11400000, guid: bb475a906e5291b48a8ed9da043625f7, type: 2}
+  enemyData: {fileID: 11400000, guid: bc59ef38dd210c3459ec0d6252c7a3c9, type: 2}
 --- !u!114 &1087250966318605377
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -267,8 +267,8 @@ public class PlayerController : MonoBehaviour
 
         if (data.weapon != null)
         {
-            //weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
-            //weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
+            weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
+            weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
             
             attackSpeed = data.weapon.AttackSpeed;
             weaponDamage = data.weapon.Damage;

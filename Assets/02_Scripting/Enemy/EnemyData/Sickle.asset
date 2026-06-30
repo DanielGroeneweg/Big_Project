@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d793319122a3c6a41929a84b1cbe576a, type: 3}
-  m_Name: TestGnome
+  m_Name: Sickle
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHP: 1
-  moveSpeed: 3.5
-  attackDamage: 3
-  attackRange: 3
-  attackCountdown: 0.5
-  attackCooldown: 0.5
+  maxHP: 40
+  moveSpeed: 3.2
+  attackDamage: 7
+  attackRange: 1.5
+  attackDuration: 1.2
+  attackCooldown: 0
   detectionRange: 15
-  rotateSpeed: 100
-  weapon: {fileID: 11400000, guid: 416049ecbf7f26443b560bf09244e055, type: 2}
+  rotateSpeed: 130
+  weapon: {fileID: 11400000, guid: 1432a5d2ce763e54c9be0367e2a68b1b, type: 2}
