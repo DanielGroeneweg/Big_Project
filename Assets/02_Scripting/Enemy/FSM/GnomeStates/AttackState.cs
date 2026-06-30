@@ -4,10 +4,11 @@ public class AttackState : State
     private float attackStartTime;
     private float cooldownTimer;
     private bool isOnCooldown;
-
-    public AttackState(StatesData statesData)
+    private EnemyStatesData enemyStates;
+    public AttackState(EnemyStatesData statesData)
     {
         data = statesData;
+        enemyStates = statesData;
     }
 
     public override void Enter()
@@ -16,9 +17,9 @@ public class AttackState : State
         attackStartTime = Time.time;
         isOnCooldown = false;
         cooldownTimer = 0f;
-        data.animator.SetTrigger("Attack");
-        data.animator.speed = data.attackAnimatorSpeed;
-        data.weapon.Attack(data.enemyController.EnemyData.attackDuration, data.enemyController.EnemyData.attackDamage);
+        enemyStates.animator.SetTrigger("Attack");
+        enemyStates.animator.speed = enemyStates.attackAnimatorSpeed;
+        enemyStates.weapon.Attack(enemyStates.enemyController.EnemyData.attackDuration, enemyStates.enemyController.EnemyData.attackDamage);
     }
 
     public override void Step()
@@ -33,7 +34,7 @@ public class AttackState : State
 
         if (isOnCooldown)
         {
-            if (cooldownTimer < data.enemyController.EnemyData.attackCooldown)
+            if (cooldownTimer < enemyStates.enemyController.EnemyData.attackCooldown)
             {
                 cooldownTimer += Time.deltaTime;
             }
@@ -43,26 +44,26 @@ public class AttackState : State
     public override void Exit()
     {
         base.Exit();
-        data.animator.speed = 1f;
+        enemyStates.animator.speed = 1f;
     }
 
     public bool AttackOver()
     {
-        return Time.time > attackStartTime + data.enemyController.EnemyData.attackDuration;
+        return Time.time > attackStartTime + enemyStates.enemyController.EnemyData.attackDuration;
     }
 
     public bool CooldownOver()
     {
-        return isOnCooldown && cooldownTimer >= data.enemyController.EnemyData.attackCooldown;
+        return isOnCooldown && cooldownTimer >= enemyStates.enemyController.EnemyData.attackCooldown;
     }
 
     public bool TargetStillInRange()
     {
-        if (data.target == null)
+        if (enemyStates.target == null)
             return false;
 
-        return Vector3.Distance(data.enemyTransform.position, data.target.position)
-               <= data.enemyController.EnemyData.attackRange;
+        return Vector3.Distance(enemyStates.enemyTransform.position, enemyStates.target.position)
+               <= enemyStates.enemyController.EnemyData.attackRange;
     }
 
     public bool CooldownOverAndTargetInRange()

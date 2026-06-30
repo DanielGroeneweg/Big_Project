@@ -13,7 +13,7 @@ using UnityEngine.AI;
 public class EnemyAIController : MonoBehaviour
 {
     private FSM fsm;
-    private StatesData data;
+    private EnemyStatesData data;
 
     [SerializeField] private Transform target;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +27,7 @@ public class EnemyAIController : MonoBehaviour
 
     private void FSMSetUp()
     {
-        data = GetComponent<StatesData>();
+        data = GetComponent<EnemyStatesData>();
         data.enemyTransform = transform;
         data.enemyAgent = GetComponent<NavMeshAgent>();
         data.enemyController = GetComponent<EnemyController>();

@@ -8,6 +8,9 @@ public class FistAttackLeft : State
     {
         this.data = data;
     }
+    public bool IsAttackOver()
+    {
+        return true;
+    }
 
-    
 }

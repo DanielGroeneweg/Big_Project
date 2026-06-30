@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 6278899450744213510}
   - component: {fileID: 3336347305296126385}
   - component: {fileID: 5035794489355339250}
-  - component: {fileID: 387159186138960457}
+  - component: {fileID: 2857820128830060365}
   - component: {fileID: 5874523463760685728}
   - component: {fileID: 4917768589249309549}
   - component: {fileID: 5854050392269701281}
@@ -660,7 +660,7 @@ MonoBehaviour:
   heyInterval: 2
   heyChance: 1
   enemyData: {fileID: 11400000, guid: bb475a906e5291b48a8ed9da043625f7, type: 2}
---- !u!114 &387159186138960457
+--- !u!114 &2857820128830060365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,13 +669,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8864076842404261106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548fe443b33afbe4d9f41130fec09de0, type: 3}
+  m_Script: {fileID: 11500000, guid: fb48897cdb38d684d93519f7a0be5816, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StatesData
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatesData
+  animator: {fileID: 4035403086927750477}
   enemyTransform: {fileID: 5258333172752255732}
   target: {fileID: 0}
   enemyAgent: {fileID: 6278899450744213510}
-  animator: {fileID: 4035403086927750477}
   attackCollider: {fileID: 7054077112292311616}
   enemyController: {fileID: 5035794489355339250}
   weapon: {fileID: 1053621272182607795}
@@ -685,13 +685,7 @@ MonoBehaviour:
   - {fileID: 629070684756654268}
   - {fileID: 5746197471284433798}
   footSteps:
-  - {fileID: 8300000, guid: 1c4aa5768793df64c88d80202bc2d8c8, type: 3}
-  - {fileID: 8300000, guid: 545a18c38edf65d478358757407793d7, type: 3}
-  - {fileID: 8300000, guid: 75636a2c566a7ba469b2591001638990, type: 3}
   - {fileID: 8300000, guid: 243800982029900499f8850795c2f0d8, type: 3}
-  - {fileID: 8300000, guid: a3d7774b06dd3aa408b01873d0bf67f6, type: 3}
-  - {fileID: 8300000, guid: 87c8632251315d948a41f0890b22868a, type: 3}
-  - {fileID: 8300000, guid: 5d334d89a3a918744af2096d556b3ccd, type: 3}
   isPickedUp: 0
   isLanded: 0
   isStunned: 0
@@ -700,7 +694,7 @@ MonoBehaviour:
   ignoreDamageState: 0
   stunDuration: 2
   throwDamage: 10
-  attackClipName: Fighting_animation_02
+  attackClipName: Fighting_animation_01
   attackAnimatorSpeed: 1
   colliderLocalPosition: {x: 0, y: 0, z: 0}
   colliderLocalRotation: {x: 0, y: 0, z: 0, w: 0}

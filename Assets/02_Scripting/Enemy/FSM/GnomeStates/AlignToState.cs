@@ -5,38 +5,40 @@ public class AlignToState : State
     private Transform enemyTransform;
     private Vector3 direction;
     private float rotationSign;
-    public AlignToState(StatesData statesData)
+    private EnemyStatesData enemyStatesData;
+    public AlignToState(EnemyStatesData statesData)
     {
         data = statesData;
+        enemyStatesData = statesData;
         this.enemyTransform = statesData.enemyTransform;
     }
 
     public override void Enter()
     {
         base.Enter();
-        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+        if (enemyStatesData.enemyAgent.enabled && enemyStatesData.enemyAgent.isOnNavMesh)
         {
-            data.enemyAgent.ResetPath();
-            data.enemyAgent.velocity = Vector3.zero; 
+            enemyStatesData.enemyAgent.ResetPath();
+            enemyStatesData.enemyAgent.velocity = Vector3.zero; 
         }
-        if (data.target != null)
-            UpdateDirection(data.target.position);
+        if (enemyStatesData.target != null)
+            UpdateDirection(enemyStatesData.target.position);
 
     }
     public override void Step()
     {
         base.Step();
 
-        if (data.target == null) return;
+        if (enemyStatesData.target == null) return;
 
-        Vector3 toTarget = (data.target.position - enemyTransform.position);
+        Vector3 toTarget = (enemyStatesData.target.position - enemyTransform.position);
         toTarget.y = 0;
         Quaternion targetRotation = Quaternion.LookRotation(toTarget);
 
         enemyTransform.rotation = Quaternion.RotateTowards(
             enemyTransform.rotation,
             targetRotation,
-            data.enemyController.EnemyData.rotateSpeed * Time.deltaTime);
+            enemyStatesData.enemyController.EnemyData.rotateSpeed * Time.deltaTime);
     }
 
 
@@ -49,18 +51,18 @@ public class AlignToState : State
 
     public bool AlignedWithTarget()
     {
-        if (data.target == null) return false;
-        UpdateDirection(data.target.position);
-        bool inRange = Vector3.Distance(enemyTransform.position, data.target.position)
-                   <= data.enemyController.EnemyData.attackRange;
+        if (enemyStatesData.target == null) return false;
+        UpdateDirection(enemyStatesData.target.position);
+        bool inRange = Vector3.Distance(enemyTransform.position, enemyStatesData.target.position)
+                   <= enemyStatesData.enemyController.EnemyData.attackRange;
         bool facingTarget = Vector3.Dot(enemyTransform.forward, direction) > 0.9f; 
         return inRange && facingTarget;
     }
 
     public bool TargetOutOfRange()
     {
-        if (!data.enemyAgent.enabled || !data.enemyAgent.isOnNavMesh) return false;
-        if (data.enemyAgent.pathPending) return false;
-        return data.enemyAgent.remainingDistance <= data.enemyAgent.stoppingDistance;
+        if (!enemyStatesData.enemyAgent.enabled || !enemyStatesData.enemyAgent.isOnNavMesh) return false;
+        if (enemyStatesData.enemyAgent.pathPending) return false;
+        return enemyStatesData.enemyAgent.remainingDistance <= enemyStatesData.enemyAgent.stoppingDistance;
     }
 }

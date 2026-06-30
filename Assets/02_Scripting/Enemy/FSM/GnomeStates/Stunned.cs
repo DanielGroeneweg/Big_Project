@@ -4,55 +4,57 @@ public class Stunned : State
 {
     private float stunTimer;
     private float originalDrag;
-    public Stunned(StatesData statesData)
+    private EnemyStatesData enemyStates;
+    public Stunned(EnemyStatesData statesData)
     {
-       data = statesData;
+        data = statesData;
+        enemyStates = statesData;
     }
     public override void Enter()
     {
-        data.ignoreDamageState = true;
-        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
+        enemyStates.ignoreDamageState = true;
+        if (enemyStates.enemyAgent.enabled && enemyStates.enemyAgent.isOnNavMesh)
         {
-            data.SetAgentStopped(true);
-            data.enemyAgent.ResetPath();
-            data.enemyAgent.enabled = false;
+            enemyStates.SetAgentStopped(true);
+            enemyStates.enemyAgent.ResetPath();
+            enemyStates.enemyAgent.enabled = false;
         }
-        originalDrag = data.rb.linearDamping;
-        data.rb.linearDamping = 10f;
-        data.animator.SetTrigger("Stunned");
-        data.enemyController.health.Damage(10f);
-        data.isDamaged = false;
+        originalDrag = enemyStates.rb.linearDamping;
+        enemyStates.rb.linearDamping = 10f;
+        enemyStates.animator.SetTrigger("Stunned");
+        enemyStates.enemyController.health.Damage(10f);
+        enemyStates.isDamaged = false;
         //statesData.animator.SetBool("isStunned", true);
     }
     public override void Step()
     {
         base.Step();
-        if(stunTimer < data.stunDuration)
+        if(stunTimer < enemyStates.stunDuration)
         {
             stunTimer += Time.deltaTime;
            
         }
         else
         {
-            data.isStunned = false;
+            enemyStates.isStunned = false;
             stunTimer = 0f;
         }
     }
     public override void Exit()
     {
-        data.ignoreDamageState = false;
-        data.SetAgentStopped(false);
-        data.enemyAgent.enabled = true;
+        enemyStates.ignoreDamageState = false;
+        enemyStates.SetAgentStopped(false);
+        enemyStates.enemyAgent.enabled = true;
 
         stunTimer = 0f;
-        data.rb.linearDamping = originalDrag;
-        data.attackCollider.transform.localPosition = data.colliderLocalPosition;
-        data.attackCollider.transform.localRotation = data.colliderLocalRotation;
+        enemyStates.rb.linearDamping = originalDrag;
+        enemyStates.attackCollider.transform.localPosition = enemyStates.colliderLocalPosition;
+        enemyStates.attackCollider.transform.localRotation = enemyStates.colliderLocalRotation;
 
     }
 
     public bool StunOver()
     {
-        return !data.isStunned;
+        return !enemyStates.isStunned;
     }
 }

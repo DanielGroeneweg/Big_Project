@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class GnomeFSM : FSM
 {
-    public GnomeFSM(StatesData statesData)
+    public GnomeFSM(EnemyStatesData statesData)
     {
         data = statesData;
+        EnemyStatesData enemyStatesData = statesData;
 
         var idle = new IdleState(statesData);
         var move = new MoveState(statesData);
@@ -18,9 +19,9 @@ public class GnomeFSM : FSM
         var damaged = new DamagedState(statesData);
         var death = new DieState(statesData);
 
-        Func<bool> isPickedUp = () => data.isPickedUp;
-        Func<bool> isStunned = () => data.isStunned;
-        Func<bool> isDamaged = () => data.isDamaged;
+        Func<bool> isPickedUp = () => enemyStatesData.isPickedUp;
+        Func<bool> isStunned = () => enemyStatesData.isStunned;
+        Func<bool> isDamaged = () => enemyStatesData.isDamaged;
 
         currentState = idle;
 
@@ -54,16 +55,16 @@ public class GnomeFSM : FSM
         align.transitions.Add(new Transition(isDamaged, damaged));
         attack.transitions.Add(new Transition(isDamaged, damaged));
 
-        damaged.transitions.Add(new Transition(() => damaged.StunDamageDurationOver() && data.target != null, move));
+        damaged.transitions.Add(new Transition(() => damaged.StunDamageDurationOver() && enemyStatesData.target != null, move));
 
-        damaged.transitions.Add(new Transition(() => damaged.StunDamageDurationOver() && data.target == null, idle));
+        damaged.transitions.Add(new Transition(() => damaged.StunDamageDurationOver() && enemyStatesData.target == null, idle));
 
-        idle.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        move.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        attack.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        align.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        pickedUp.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
-        stunned.transitions.Add(new Transition(() => data.enemyController.IsDead, death));
+        idle.transitions.Add(new Transition(() => enemyStatesData.enemyController.IsDead, death));
+        move.transitions.Add(new Transition(() => enemyStatesData.enemyController.IsDead, death));
+        attack.transitions.Add(new Transition(() =>enemyStatesData.enemyController.IsDead, death));
+        align.transitions.Add(new Transition(() => enemyStatesData.enemyController.IsDead, death));
+        pickedUp.transitions.Add(new Transition(() => enemyStatesData.enemyController.IsDead, death));
+        stunned.transitions.Add(new Transition(() =>enemyStatesData.enemyController.IsDead, death));
     }
 
 

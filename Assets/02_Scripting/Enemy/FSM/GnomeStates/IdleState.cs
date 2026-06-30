@@ -2,23 +2,25 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    public IdleState(StatesData statesData)
+    private EnemyStatesData enemyData;
+    public IdleState(EnemyStatesData statesData)
     {
-        data = statesData;
+        this.data = statesData;     
+        enemyData = statesData;
     }
     public override void Enter()
     {
         base.Enter();
-        if (data.enemyAgent.enabled && data.enemyAgent.isOnNavMesh)
-            data.enemyAgent.ResetPath();
+        if (enemyData.enemyAgent.enabled && enemyData.enemyAgent.isOnNavMesh)
+            enemyData.enemyAgent.ResetPath();
         data.animator.SetBool("Idle", true);
         // Set the idle animation
     }
     public override void Step()
     {
         base.Step();
-        data.rb.linearVelocity = Vector3.zero;
-        data.rb.angularVelocity = Vector3.zero;
+        enemyData.rb.linearVelocity = Vector3.zero;
+        enemyData.rb.angularVelocity = Vector3.zero;
     }
 
     public override void Exit()
@@ -32,9 +34,9 @@ public class IdleState : State
     /// <returns>True if the target is in range, false otherwise.</returns>
     public bool IsTargetInRange()
     {
-        if (data.target == null)
+        if (enemyData.target == null)
             return false;
 
-        return Vector3.Distance(data.enemyTransform.position, data.target.position) <= data.enemyController.EnemyData.detectionRange;
+        return Vector3.Distance(enemyData.enemyTransform.position, enemyData.target.position) <= enemyData.enemyController.EnemyData.detectionRange;
     }
 }
