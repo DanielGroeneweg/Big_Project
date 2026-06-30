@@ -9,9 +9,18 @@ public class AttackOneHandWeapon1 : State
         this.data = data;
         playerStatesData = data;
     }
-
+    public override void Enter()
+    {
+        base.Enter();
+        playerStatesData.animator.SetTrigger("AttackUp");
+    }
     public bool IsAttackOver()
     {
         return true;
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        playerStatesData.playerAttacked = false;
     }
 }

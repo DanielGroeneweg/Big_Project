@@ -9,9 +9,19 @@ public class FistAttackLeft : State
         this.data = data;
         playerStatesData = data;
     }
+    public override void Enter()
+    {
+        base.Enter();
+        playerStatesData.animator.SetTrigger("LeftFist");
+    }
     public bool IsAttackOver()
     {
         return true;
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        playerStatesData.playerAttacked = false;
     }
 
 }

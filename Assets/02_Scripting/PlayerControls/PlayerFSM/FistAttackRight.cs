@@ -13,11 +13,17 @@ public class FistAttackRight : State
     public override void Enter()
     {
         base.Enter();
+        playerStatesData.animator.SetTrigger("RightFist");
 
     }
     public bool IsAttackOver()
     {
         return true;
+    }
+    public override void Exit()
+    {
+        playerStatesData.playerAttacked = false;
+        base.Exit();
     }
     
 }

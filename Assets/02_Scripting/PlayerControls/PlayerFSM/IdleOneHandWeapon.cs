@@ -11,11 +11,11 @@ public class IdleOneHandWeapon : State
 
     public bool ToFists()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.None;
     }
     public bool ToSpear()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.Spear;
     }
 
     public bool Attack()

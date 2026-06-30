@@ -12,6 +12,8 @@ public class IdleSpear : State
     public override void Enter()
     {
         base.Enter();
+        playerStatesData.ActivateWeaponVisual(WeaponType.Spear);
+        playerStatesData.animator.SetInteger("Weapon", (int)WeaponType.Spear);
 
     }
 
@@ -22,12 +24,13 @@ public class IdleSpear : State
 
     public bool ChangeToOneHandWeapon()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.Sickle
+            || playerStatesData.CurrentWeapon == WeaponType.Club;
     }
 
     public bool ChangeToFists()
     {
-        return true;
+        return playerStatesData.CurrentWeapon == WeaponType.None;
     }
 
 }
