@@ -686,6 +686,10 @@ MonoBehaviour:
   - {fileID: 629070684756654268}
   footSteps:
   - {fileID: 8300000, guid: 1c4aa5768793df64c88d80202bc2d8c8, type: 3}
+  - {fileID: 8300000, guid: 545a18c38edf65d478358757407793d7, type: 3}
+  - {fileID: 8300000, guid: 75636a2c566a7ba469b2591001638990, type: 3}
+  - {fileID: 8300000, guid: 243800982029900499f8850795c2f0d8, type: 3}
+  - {fileID: 8300000, guid: a3d7774b06dd3aa408b01873d0bf67f6, type: 3}
   isPickedUp: 0
   isLanded: 0
   isStunned: 0
