@@ -3,6 +3,9 @@ using UnityEngine;
 public class GrabGnome : MonoBehaviour
 {
     [SerializeField] private Vector3 holdOffset = new Vector3(0, 0, 1.5f);
+    [SerializeField] private Vector3 scale = new Vector3(75, 75, 75);
+
+    private Vector3 initialScale;
 
     private Rigidbody rb;
     private EnemyStatesData data;
@@ -18,7 +21,7 @@ public class GrabGnome : MonoBehaviour
         data = GetComponent<EnemyStatesData>();
     }
 
-    public void Grab(Transform cameraTransform)
+    public void Grab(Transform parentTransform)
     {
         data.enemyAgent.enabled = false;
         rb.isKinematic = false;
@@ -26,11 +29,12 @@ public class GrabGnome : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
         col.enabled = false;
-
+        initialScale = transform.localScale;
         data.isPickedUp = true;
 
-        transform.SetParent(cameraTransform);
+        transform.SetParent(parentTransform);
         transform.localPosition = holdOffset;
+        transform.localScale = scale;
         
         //transform.localRotation = new Quaternion();
     }
@@ -38,6 +42,7 @@ public class GrabGnome : MonoBehaviour
     public void Throw(Vector3 direction, float force)
     {
         transform.SetParent(null);
+        transform.localScale = initialScale;
         col.enabled = true; 
         rb.isKinematic = false;
         rb.AddForce(direction * force, ForceMode.Impulse);

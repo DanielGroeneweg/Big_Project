@@ -363,7 +363,7 @@ ModelImporter:
       name: Idle gnome animation
       takeName: Take 001
       internalID: -6577145938085917429
-      firstFrame: 5280
+      firstFrame: 5704
       lastFrame: 7512
       wrapMode: 0
       orientationOffsetY: 0
@@ -516,7 +516,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

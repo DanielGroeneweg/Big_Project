@@ -5,6 +5,10 @@ public class WeaponDrop : MonoBehaviour
     public float durability;
     public void SpawnWeapon(WeaponItem weapon)
     {
+        if(weapon.WeaponPrefab == null)
+        {
+            return;
+        }
         GameObject drop = Instantiate(weapon.WeaponPrefab, transform);
         drop.transform.localPosition = Vector3.zero;
         transform.localEulerAngles = new Vector3(90, 0, 0);

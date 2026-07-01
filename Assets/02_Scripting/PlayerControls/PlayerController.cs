@@ -148,8 +148,9 @@ public class PlayerController : MonoBehaviour
                     }
 
                     isGnomeGrabbed = true;
-                    grab.Grab(playerCamera.transform);
+                    grab.Grab(playerStatesData.pickUpHand);
                     currentGnome = grab;
+                    playerStatesData.isPickingUpGnome = true;
                     stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Grab]);
                 }
             }
@@ -158,6 +159,8 @@ public class PlayerController : MonoBehaviour
     private void Throw()
     {
         isGnomeGrabbed = false;
+        playerStatesData.isThrowingGnome = true;
+        //playerStatesData.animator.SetTrigger("Throw");
         currentGnome.Throw(new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z), throwForce);
         currentGnome = null;
     }
@@ -175,8 +178,8 @@ public class PlayerController : MonoBehaviour
         EventBusManager.instance.EquipWeaponEvent.Register(ChangeWeapon);
         stamina = GetComponent<Stamina>();
 
-        //FSMSetUp();
-        //fsm.Enter();
+        FSMSetUp();
+        fsm.Enter();
     }
     /// <summary>
     /// Returns whether the player is close to the ground or not
@@ -196,11 +199,15 @@ public class PlayerController : MonoBehaviour
     {
         playerStatesData.playerTransform = transform;
         fsm = new PlayerFSM(playerStatesData);
+
     }
     private void Update()
     {
         DoCamera();
-        //fsm.Step();
+        if (fsm is not null)
+        {
+            fsm.Step();
+        }
     }
     private void FixedUpdate()
     {
@@ -279,8 +286,8 @@ public class PlayerController : MonoBehaviour
 
         if (data.weapon != null)
         {
-            weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
-            weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
+            //weaponModel = Instantiate(data.weapon.WeaponPrefab, weaponParent);
+            //weaponModel.transform.localPosition = new Vector3(0, 0.5f, 0);
             
             attackSpeed = data.weapon.AttackSpeed;
             weaponDamage = data.weapon.Damage;

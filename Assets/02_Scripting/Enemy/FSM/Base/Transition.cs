@@ -17,16 +17,22 @@ public class Transition
     /// <summary>
     /// The state to transition to if the condition is true.
     /// </summary>
-    public State nextState;
+    public Func<State> nextState;
 
     /// <summary>
     /// Constructor to create a new transition.
     /// </summary>
     /// <param name="pCondition">The condition function to evaluate.</param>
     /// <param name="pNextState">The next state to transition to if condition is met.</param>
-    public Transition(Func<bool> pCondition, State pNextState)
+    public Transition(Func<bool> pCondition, Func<State> pNextState)
     {
         condition = pCondition;
         nextState = pNextState;
+    }
+
+    public Transition(Func<bool> pCondition, State pNextState)
+    {
+        condition = pCondition;
+        nextState = () => pNextState;
     }
 }
