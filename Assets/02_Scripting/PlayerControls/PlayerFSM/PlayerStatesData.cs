@@ -54,9 +54,12 @@ public class PlayerStatesData : StatesData
 
     private void OnWeaponDropped(DropWeaponEventData data)
     {
+
+        /*
         WeaponType droppedType = GetWeaponType(data.weapon);
         if (!data.droppedByEnemy && CurrentWeapon == droppedType)
             CurrentWeapon = WeaponType.None;
+        */
     }
     public void ActivateWeaponVisual(WeaponType type)
     {
