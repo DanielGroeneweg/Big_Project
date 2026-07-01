@@ -18,13 +18,13 @@ public class PlayerFSM : FSM
 
         currentState = idle;
 
-        idle.transitions.Add(new Transition(idle.Attack,ReturnRandomState(attackRightFist, attackLeftFist)));
+        idle.transitions.Add(new Transition(idle.Attack, () => ReturnRandomState(attackRightFist, attackLeftFist)));
         idle.transitions.Add(new Transition(idle.ChangeToOneHandWeapon, idleWeapon));
         idle.transitions.Add(new Transition(idle.ChangeWeaponToSpear, spearIdle));
 
         idleWeapon.transitions.Add(new Transition(idleWeapon.ToFists, idle));
         idleWeapon.transitions.Add(new Transition(idleWeapon.ToSpear, spearIdle));
-        idleWeapon.transitions.Add(new Transition(idleWeapon.Attack, ReturnRandomState(attackWeapon1, attackWeapon2)));
+        idleWeapon.transitions.Add(new Transition(idleWeapon.Attack, () => ReturnRandomState(attackWeapon1, attackWeapon2)));
 
         spearIdle.transitions.Add(new Transition(spearIdle.Attack, spearAttack));
         spearIdle.transitions.Add(new Transition(spearIdle.ChangeToOneHandWeapon, idleWeapon));

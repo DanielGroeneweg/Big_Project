@@ -36,7 +36,7 @@ public abstract class State
         {
             if (transitions[i].condition())
             {
-                return transitions[i].nextState;
+                return transitions[i].nextState();
             }
         }
         return null; // No valid transition found
