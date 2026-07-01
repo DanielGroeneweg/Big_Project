@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             }
 
             attacking = true;
-            weaponAnimator.Play("MeleeWeaponAttack");
+            if (weaponAnimator.gameObject.activeSelf) weaponAnimator.Play("MeleeWeaponAttack");
             //weaponAnimator.speed = attackSpeed;
             weaponCollider.Attack(1f / attackSpeed, weaponDamage);
             stamina.UseStamina(stamina.ActionStaminaDictionary[playerActions.Attack]);
@@ -268,8 +268,12 @@ public class PlayerController : MonoBehaviour
     {
         if (currentWeapon != null && data.oldWeaponDestroyed == false)
         {
-            DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false, durability = weaponCollider.durability };
-            EventBusManager.instance.DropWeaponEvent.Raise(dropData);
+
+            if (currentWeapon != Inventory.instance.DefaultWeapon)
+            {
+                DropWeaponEventData dropData = new DropWeaponEventData() { weapon = currentWeapon, position = transform.position, droppedByEnemy = false, durability = weaponCollider.durability };
+                EventBusManager.instance.DropWeaponEvent.Raise(dropData);
+            }
         }
 
         if (weaponModel != null)

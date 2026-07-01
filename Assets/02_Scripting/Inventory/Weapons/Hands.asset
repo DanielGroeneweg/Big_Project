@@ -17,5 +17,5 @@ MonoBehaviour:
   damage: 5
   attackSpeed: 0.65
   weaponPrefab: {fileID: 0}
-  weaponColliderPrefab: {fileID: 3435858187858176397, guid: e6d55ed4ba8698f48bb274a397340f3a, type: 3}
+  weaponColliderPrefab: {fileID: 3435858187858176397, guid: fbf496a603152ea43a3c318a88f374b8, type: 3}
   startDurability: 1

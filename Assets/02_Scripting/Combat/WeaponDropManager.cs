@@ -19,6 +19,8 @@ public class WeaponDropManager : MonoBehaviour
     }
     void WeaponDrop(DropWeaponEventData data)
     {
+        Debug.Log(data.weapon.ItemName);
+
         if (data.droppedByEnemy)
         {
             enemiesKilledSinceDrop++;
