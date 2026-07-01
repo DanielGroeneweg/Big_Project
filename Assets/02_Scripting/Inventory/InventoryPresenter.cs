@@ -22,8 +22,16 @@ public class InventoryPresenter : MonoBehaviour
 
         else
         {
-            iconImage.gameObject.SetActive(true);
-            iconImage.sprite = data.weapon.Icon;
+            if(data.weapon.Icon!=null)
+            {
+                iconImage.gameObject.SetActive(true);
+                iconImage.sprite = data.weapon.Icon;
+            }
+            else
+            {
+                iconImage.sprite = null;
+            }
+            
         }
     }
 }

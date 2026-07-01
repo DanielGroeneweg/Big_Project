@@ -13,7 +13,7 @@ public class IdleSpear : State
     {
         base.Enter();
         playerStatesData.ActivateWeaponVisual(WeaponType.Spear);
-        playerStatesData.animator.SetInteger("Weapon", (int)WeaponType.Spear);
+        
 
     }
 
@@ -24,13 +24,24 @@ public class IdleSpear : State
 
     public bool ChangeToOneHandWeapon()
     {
-        return playerStatesData.CurrentWeapon == WeaponType.Sickle
-            || playerStatesData.CurrentWeapon == WeaponType.Club;
+        
+        if(playerStatesData.CurrentWeapon == WeaponType.Sickle || playerStatesData.CurrentWeapon == WeaponType.Club)
+        {
+            playerStatesData.animator.SetTrigger("IdleOneHand");
+            return true;
+        }
+        return false;
     }
 
     public bool ChangeToFists()
     {
-        return playerStatesData.CurrentWeapon == WeaponType.None;
+        
+        if(playerStatesData.CurrentWeapon == WeaponType.None)
+        {
+            playerStatesData.animator.SetTrigger("IdleFist");
+            return true;
+        }
+        return false;
     }
 
 }

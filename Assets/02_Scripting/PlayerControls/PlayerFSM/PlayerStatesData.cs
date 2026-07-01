@@ -7,6 +7,9 @@ public class PlayerStatesData : StatesData
     public GameObject sicklePrefabInstance;
     public GameObject clubPrefabInstance;
     public GameObject spearPrefabInstance;
+    public Transform pickUpHand;
+    public bool isPickingUpGnome;
+    public bool isThrowingGnome;
     public WeaponType CurrentWeapon { get; private set; } = WeaponType.None;
     public bool playerAttacked;
     private void Start()
@@ -40,7 +43,6 @@ public class PlayerStatesData : StatesData
             case "Spear": return WeaponType.Spear;
             case "Club": return WeaponType.Club;
             default:
-                Debug.LogError($"Unknown weapon: {weapon.ItemName}");
                 return WeaponType.None;
         }
     }

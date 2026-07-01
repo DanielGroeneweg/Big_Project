@@ -8,14 +8,32 @@ public class IdleOneHandWeapon : State
         this.data = data;
         playerStatesData = data;
     }
+    public override void Enter()
+    {
+        base.Enter();
+        playerStatesData.ActivateWeaponVisual(playerStatesData.CurrentWeapon);
+        
+    }
 
     public bool ToFists()
     {
-        return playerStatesData.CurrentWeapon == WeaponType.None;
+        
+        if(playerStatesData.CurrentWeapon == WeaponType.None)
+        {
+            playerStatesData.animator.SetTrigger("IdleFist");
+            return true;
+        }
+        return false;
     }
     public bool ToSpear()
     {
-        return playerStatesData.CurrentWeapon == WeaponType.Spear;
+        
+        if(playerStatesData.CurrentWeapon == WeaponType.Spear)
+        {
+            playerStatesData.animator.SetTrigger("IdleSpear");
+            return true;
+        }
+        return false;
     }
 
     public bool Attack()

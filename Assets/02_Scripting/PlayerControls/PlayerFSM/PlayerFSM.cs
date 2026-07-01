@@ -15,16 +15,18 @@ public class PlayerFSM : FSM
         var attackWeapon2 = new AttackOneHandWeapon2(playerStatesData);
         var spearIdle = new IdleSpear(playerStatesData);
         var spearAttack = new AttackSpear(playerStatesData);
+        var pickUpGnome = new PickUpGnome(playerStatesData);
+        var throwGnnome = new ThrowGnome(playerStatesData);
 
         currentState = idle;
 
-        idle.transitions.Add(new Transition(idle.Attack,ReturnRandomState(attackRightFist, attackLeftFist)));
+        idle.transitions.Add(new Transition(idle.Attack, () => ReturnRandomState(attackRightFist, attackLeftFist)));
         idle.transitions.Add(new Transition(idle.ChangeToOneHandWeapon, idleWeapon));
         idle.transitions.Add(new Transition(idle.ChangeWeaponToSpear, spearIdle));
 
         idleWeapon.transitions.Add(new Transition(idleWeapon.ToFists, idle));
         idleWeapon.transitions.Add(new Transition(idleWeapon.ToSpear, spearIdle));
-        idleWeapon.transitions.Add(new Transition(idleWeapon.Attack, ReturnRandomState(attackWeapon1, attackWeapon2)));
+        idleWeapon.transitions.Add(new Transition(idleWeapon.Attack, () => ReturnRandomState(attackWeapon1, attackWeapon2)));
 
         spearIdle.transitions.Add(new Transition(spearIdle.Attack, spearAttack));
         spearIdle.transitions.Add(new Transition(spearIdle.ChangeToOneHandWeapon, idleWeapon));
@@ -37,6 +39,17 @@ public class PlayerFSM : FSM
         attackWeapon2.transitions.Add(new Transition(attackWeapon2.IsAttackOver, idleWeapon));
 
         spearAttack.transitions.Add(new Transition(spearAttack.IsAttackOver, spearIdle));
+
+        idle.transitions.Add(new Transition(pickUpGnome.IsPickingUpGnome, pickUpGnome));
+        idleWeapon.transitions.Add(new Transition(pickUpGnome.IsPickingUpGnome, pickUpGnome));
+        spearIdle.transitions.Add(new Transition(pickUpGnome.IsPickingUpGnome, pickUpGnome));
+
+        pickUpGnome.transitions.Add(new Transition(pickUpGnome.IsThrowingGnome, throwGnnome));
+
+        throwGnnome.transitions.Add(new Transition(throwGnnome.ToFists, idle));
+        throwGnnome.transitions.Add(new Transition(throwGnnome.ChangeToOneHandWeapon, idleWeapon));
+        throwGnnome.transitions.Add(new Transition(throwGnnome.ChangeWeaponToSpear, spearIdle));
+
     }
 
     public State ReturnRandomState(State state1,State state2)

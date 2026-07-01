@@ -754,7 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99450793d19da554caf0dce819b1e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabGnome
-  holdOffset: {x: 0, y: -0.5, z: 1}
+  holdOffset: {x: -15, y: -1, z: 0}
+  scale: {x: 75, y: 75, z: 75}
   groundedRange: 0.2
 --- !u!114 &-8053129170940189915
 MonoBehaviour:
