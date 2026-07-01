@@ -13,12 +13,11 @@ public abstract class FSM : State
     {
         base.Step();
         currentState.Step();
-        if (currentState.NextState() != null)
+
+        State nextState = currentState.NextState();
+
+        if (nextState != null)
         {
-            //Cache the next state, because after currentState.Exit, calling
-            //currentState.NextState again might return null because of change
-            //of context.
-            State nextState = currentState.NextState();
             currentState.Exit();
             currentState = nextState;
             currentState.Enter();
